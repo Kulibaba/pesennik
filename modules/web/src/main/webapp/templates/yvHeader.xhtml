@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h ="http://java.sun.com/jsf/html"
+	xmlns:f ="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+
+<body>
+
+	<ui:composition>
+
+		<!--h1>You Vote - Make History Together!</h1-->
+
+		<!--div id="menu">
+			<img src="/youvote/resources/img/menuRA.png" alt="" style="display: inline; float: right;"/>
+			<div id="submenu">
+				<a class='a_menu'> <img src="/youvote/resources/img/mbHome.png" alt="Home"/> </a>
+				<a class='a_menu'> <img src="/youvote/resources/img/mbVote.png" alt="Vote"/> </a>
+				<a class='a_menu'> <img src="/youvote/resources/img/mbAddBill.png" alt="Vote"/> </a>
+			</div>
+		</div-->
+		<h:outputScript target="head">
+			$ =jQuery;
+
+			$(document).ready(function(){
+				$('#menu_b1').click(function(){
+					$(this).toggleClass('active_butt');
+				});
+			});
+		</h:outputScript>
+
+		<ul id="menu">
+			<li><a class="a_menu" href="index.html" id="menu_b0" > <span class="hidden">  MyHome      </span></a></li>
+			<li><a class="a_menu" href="index.html" id="menu_b1" > <span class="hidden">  Home        </span></a></li>
+			<li><a class="a_menu" href="index.html" id="menu_b2" > <span class="hidden">  Vote        </span></a></li>
+			<li><a class="a_menu" href="index.html" id="menu_b3" > <span class="hidden">  Add Bill    </span></a></li>
+			<li><div style="width:287px; height: 36px; background: url('/youvote/resources/img/menu_bg4.png') repeat-x; border: 1px solid rgb(255, 255, 255);"></div></li>
+			<!--li onmouseout="mouseOut('menu_sub1');" onmouseover="mouseOver('menu_sub1');"><a class="main_nav_button" href="about/index.html" id="menu_main_b2"><span class="hidden">About</span></a>
+				<ul id="menu_sub1">
+				</ul>
+			</li-->
+		</ul>
+		<a id="yv_siteLogo" href="/youvote/homePage.jsf" title="You Vote Home"><img src="/youvote/resources/img/yv_logo2.png" alt="You Vote ,They Doing" /> </a>
+
+	</ui:composition>
+
+</body>
+</html>
