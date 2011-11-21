@@ -4,6 +4,7 @@
 
 package org.yvmht.backend.entities;
 
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,6 +26,7 @@ public class User
 	private Long id;
 	private String username;
 	private String passwordSignature;
+	private Date birthDate;
 
 	/**
 	 * Required for Hibernate
@@ -76,5 +78,16 @@ public class User
 	public void setPasswordSignature(String passwordSignature)
 	{
 		this.passwordSignature = passwordSignature;
+	}
+
+	@Column(name="birth_date")
+	public Date getBirthDate()
+	{
+		return birthDate;
+	}
+
+	public void setBirthDate(Date birthDate)
+	{
+		this.birthDate = birthDate;
 	}
 }
