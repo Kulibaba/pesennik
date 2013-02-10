@@ -2,14 +2,14 @@
 class DB{
 	private static $instance;
 	private function getDB(){		
-		$hostname = ""; //
-		$username = "";	// set data
+		$hostname = "localhost"; //
+		$username = "root";	// set data
 		$passwd = "";	// (ask Kulibaba)
-		$dbname = "";	//
+		$dbname = "pesennik_psn";	//
 		
 
-		$db=mysql_connect($hostname,$username,$passwd) or die("?? ???? ??????? ??????????");
-		mysql_select_db($dbname,$db) or die ("?????? ?????????? ? ??");
+		$db=mysql_connect($hostname,$username,$passwd) or die("Unable to connect to MySQL");
+		mysql_select_db($dbname,$db) or die ("Error: Cant select database");
 		mysql_query("SET NAMES 'utf8' COLLATE 'utf8_general_ci'");
 			
 		return $db;
