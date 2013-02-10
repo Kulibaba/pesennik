@@ -1,15 +1,15 @@
 <?
 require_once 'song.php';
-require_once 'string.php';
 
-$song = new Song(1);
+$song = new Song();
+$song->initListItem(3);
 ?>
 	
 	
 <table>
 	<tr>
 		<td>
-			Имя:
+			Название:
 		</td>
 		<td>
 			<?php echo $song->getName(); ?>
@@ -21,6 +21,47 @@ $song = new Song(1);
 		</td>
 		<td>
 			<?php echo $song->getUrl(); ?>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Имя исполнителя:
+		</td>
+		<td>
+			<?php echo $song->getArtistName(); ?>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Ссылка исполнителя:
+		</td>
+		<td>
+			<?php echo $song->getArtistUrl(); ?>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Есть текст:
+		</td>
+		<td>
+			<?php echo $song->isText(); ?>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Есть видео:
+		</td>
+		<td>
+			<?php echo $song->isVideo(); ?>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+			Есть перевод:
+		</td>
+		<td>
+			<?php echo $song->isTranslate(); ?>
 		</td>
 	</tr>
 <table>

@@ -1,7 +1,6 @@
 <?
 require_once 'song.php';
 require_once 'artist.php';
-require_once 'string.php';
 
 $artist = new Artist(1);
 ?>

@@ -1,5 +1,7 @@
 <?
 require_once 'db.php';
+require_once 'string.php';
+
 class Artist {
 
 	var $id;
