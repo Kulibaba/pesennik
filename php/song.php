@@ -43,8 +43,15 @@ class Song {
 	
 	var $userIdVideo;
 	var $userNameVideo;
-	
-	function initListItem($id){
+	function Song($newId, $newName, $newUrl, $newFlags, $newArtistName, $newArtistUrl){
+		$this->id = $newId;
+		$this->name = $newName;
+		$this->url = $newUrl;
+		$this->flags = $newFlags;
+		$this->artistName = $newArtistName;
+		$this->artistUrl = $newArtistUrl;
+	}
+	function initListItem($artistId, $url){
 		/*
 			Used only for lists
 		*/
@@ -59,7 +66,7 @@ class Song {
 				song.flags
 			FROM song
 			LEFT JOIN artist ON song.artistId = artist.id
-			WHERE song.id ='$id'
+			WHERE song.url ='$url' AND artist.id = '$artistId'
 		";
 		
 		$result = mysql_query($query,DB::getInstance());

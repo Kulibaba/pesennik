@@ -2,7 +2,7 @@
 require_once 'song.php';
 require_once 'artist.php';
 
-$artist = new Artist(1);
+$artist = new Artist("ani_lorak");
 ?>
 	
 	

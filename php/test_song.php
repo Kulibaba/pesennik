@@ -2,7 +2,7 @@
 require_once 'song.php';
 
 $song = new Song();
-$song->initListItem(3);
+$song->initListItem(1, "linka" );
 ?>
 	
 	

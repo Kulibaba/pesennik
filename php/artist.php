@@ -30,7 +30,7 @@ class Artist {
 		$this->name = "";
 		$this->url = "";
 	}
-	function Artist($id){
+	function Artist($url){
 		/*
 			Used for song's pages
 		*/
@@ -48,7 +48,7 @@ class Artist {
 			LEFT JOIN song ON artist.id = song.artistId
 			LEFT JOIN video ON (artist.id = song.artistId) AND song.id = video.songId
 			LEFT JOIN translate ON (artist.id = song.artistId) AND song.id = translate.songId
-			WHERE artist.id ='$id'
+			WHERE artist.url ='$url'
 		";
 		
 		$result = mysql_query($query,DB::getInstance());
