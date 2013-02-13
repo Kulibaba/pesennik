@@ -1,5 +1,5 @@
 <?
-require_once 'song_list.php';
+require_once 'SongList.php';
 
 $songList = new SongList();
 
