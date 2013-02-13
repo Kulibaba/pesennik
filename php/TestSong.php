@@ -2,10 +2,14 @@
 require_once 'Song.php';
 
 $song = new Song();
-$song->initListItem(1, "linka" );
+$song->initAll(1, "linka" );
 ?>
 	
-	
+<style>
+*{
+	border:1px solid red;
+}
+</style>	
 <table>
 	<tr>
 		<td>
@@ -41,27 +45,34 @@ $song->initListItem(1, "linka" );
 	</tr>
 	<tr>
 		<td>
-			Есть текст:
+			Текст:
 		</td>
 		<td>
-			<?php echo $song->isText(); ?>
+			<?php echo $song->getText(); ?>
 		</td>
 	</tr>
 	<tr>
 		<td>
-			Есть видео:
+			Видео:
 		</td>
 		<td>
-			<?php echo $song->isVideo(); ?>
+			<?php echo $song->getVideoData(); ?>
 		</td>
 	</tr>
-	
 	<tr>
 		<td>
-			Есть перевод:
+			Видео тип:
 		</td>
 		<td>
-			<?php echo $song->isTranslate(); ?>
+			<?php echo $song->getVideoTypeName(); ?>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Перевод:
+		</td>
+		<td>
+			<?php echo $song->getTranslate(); ?>
 		</td>
 	</tr>
 <table>

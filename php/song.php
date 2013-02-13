@@ -43,7 +43,7 @@ class Song {
 	
 	var $userIdVideo;
 	var $userNameVideo;
-	function Song($newId, $newName, $newUrl, $newFlags, $newArtistName, $newArtistUrl){
+	/*function Song($newId, $newName, $newUrl, $newFlags, $newArtistName, $newArtistUrl){
 		$this->id = $newId;
 		$this->name = $newName;
 		$this->url = $newUrl;
@@ -51,6 +51,7 @@ class Song {
 		$this->artistName = $newArtistName;
 		$this->artistUrl = $newArtistUrl;
 	}
+	*/
 	function initListItem($artistId, $url){
 		/*
 			Used only for lists
@@ -79,10 +80,41 @@ class Song {
 		$this->artistName = $row["artistName"];
 		$this->artistUrl = $row["artistUrl"];
 	}
-	function initAll(){
+	function initAll($artistId, $url){
 		/*
 			Used for song's pages
 		*/
+		
+		$query = "
+			SELECT
+				artist.name AS artistName,
+				artist.url AS artistUrl,
+				song.id,
+				song.name,
+				song.url,
+				video.url AS videoUrl,
+				videoType.name AS videoTypeName
+			FROM song
+			LEFT JOIN artist ON song.artistId = artist.id
+			LEFT JOIN video ON song.id = video.songId
+			LEFT JOIN videoSite ON video.videoSiteId = videoSite.id
+			LEFT JOIN videoType ON video.videoTypeId = videoType.id
+			WHERE song.url ='$url' AND artist.id = '$artistId'
+		";
+		
+		
+		echo $query;
+		$result = mysql_query($query,DB::getInstance());
+		$row = mysql_fetch_array ($result);
+
+		$this->id = $row["id"];
+		$this->name = $row["name"];
+		$this->url = $row["url"];
+		$this->videoData = str_replace("URL", $row["videoUrl"], $row["videoSiteData"]);
+		$this->videoTypeName = $row["videoTypeName"];
+		$this->artistName = $row["artistName"];
+		$this->artistUrl = $row["artistUrl"];
+		
 	}
 	
 	
@@ -149,6 +181,18 @@ class Song {
 	}
 	function getUserName() {
 		return $this->userName;
+	}
+	
+	
+	function getVideoData() {
+		return $this->videoData;
+	}
+	
+	function getVideoTypeName() {
+		return $this->videoTypeName;
+	}
+	function getTranslate() {
+		return $this->videoData;
 	}
 }
 ?>
