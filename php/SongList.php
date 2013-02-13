@@ -17,25 +17,26 @@ class SongList{
 			ORDER BY $pattern $sorting
 			LIMIT 0, $no
 		";
-		echo $query;
+		$resultList = new SplDoublyLinkedList();
 		$result = mysql_query($query,DB::getInstance());
 		while($row = mysql_fetch_array ($result))
-			$results[] = new Song($row["id"], $row["name"], $row["url"], $row["flags"],$row["artistName"], $row["artistUrl"]);
-		return $results;
+			$resultList->push( new Song($row["id"], $row["name"], $row["url"], $row["flags"],$row["artistName"], $row["artistUrl"]));
+		$resultList->rewind();
+		return $resultList;
 	}
 	function getNewSongs($no, $artistId){
-		return getArtistSongList($no, $artistId, "sond.id", "ASC");
+		return $this->getArtistSongList($no, $artistId, "song.id", "ASC");
 	}
 	
 	function getOldSongs($no, $artistId){
-		return getArtistSongList($no, $artistId, "sond.id", "DESC");
+		return $this->getArtistSongList($no, $artistId, "song.id", "DESC");
 	}
 	function getFirstSongs($no, $artistId){
-		return getArtistSongList($no, $artistId, "sond.name", "ASC");
+		return $this->getArtistSongList($no, $artistId, "song.name", "ASC");
 	}
 	
 	function getLastSongs($no, $artistId){
-		return getArtistSongList($no, $artistId, "sond.name", "DESC");
+		return $this->getArtistSongList($no, $artistId, "song.name", "DESC");
 	}
 }
 ?>
