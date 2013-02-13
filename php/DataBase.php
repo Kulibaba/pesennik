@@ -2,10 +2,10 @@
 class DB{
 	private static $instance;
 	private function getDB(){		
-		$hostname = "localhost"; //
-		$username = "root";	// set data
-		$passwd = "";	// (ask Kulibaba)
-		$dbname = "pesennik_psn";	//
+		$hostname = "localhost"; 
+		$username = "root";	
+		$passwd = "";		
+		$dbname = "pesennik_psn";
 		
 
 		$db=mysql_connect($hostname,$username,$passwd) or die("Unable to connect to MySQL");

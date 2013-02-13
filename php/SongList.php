@@ -1,5 +1,5 @@
 <?
-require_once 'song.php';
+require_once 'Song.php';
 
 class SongList{
 	private function getArtistSongList($no, $artistId, $pattern, $sorting){

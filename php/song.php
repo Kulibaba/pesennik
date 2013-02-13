@@ -1,6 +1,6 @@
 <?
-require_once 'db.php';
-require_once 'string.php';
+require_once 'DataBase.php';
+require_once 'Utils.php';
 class Song {
 
 	var $artistName;// array if duet

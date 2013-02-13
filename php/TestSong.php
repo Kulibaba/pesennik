@@ -1,5 +1,5 @@
 <?
-require_once 'song.php';
+require_once 'Song.php';
 
 $song = new Song();
 $song->initListItem(1, "linka" );
