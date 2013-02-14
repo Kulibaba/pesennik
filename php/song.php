@@ -1,6 +1,7 @@
 <?
 require_once 'DataBase.php';
 require_once 'Utils.php';
+require_once 'Video.php';
 class Song {
 
 	var $artistName;// array if duet
@@ -80,6 +81,45 @@ class Song {
 		$this->artistName = $row["artistName"];
 		$this->artistUrl = $row["artistUrl"];
 	}
+	function getUrlById($id){
+		/*
+			Used only for lists
+		*/
+			
+		$query = "
+			SELECT
+				artist.url AS artistUrl,
+				song.url AS songUrl
+			FROM song
+			LEFT JOIN artist ON song.artistId = artist.id
+			WHERE song.id ='$id'
+		";
+		
+		$result = mysql_query($query,DB::getInstance());
+		$row = mysql_fetch_array ($result);
+
+		return $row["artistUrl"]."/".$row["songUrl"];
+	}
+	private function getVideoList($songId){
+		$query = "
+			SELECT
+				video.url AS videoUrl,
+				video.data
+			FROM video
+			LEFT JOIN song ON song.id = video.songId
+			WHERE song.id ='$songId'
+		";
+		//	videoType.name AS videoTypeName
+			
+		
+		echo $query;
+		$result = mysql_query($query,DB::getInstance());
+		$resultList = new SplDoublyLinkedList();
+		while($row = mysql_fetch_array ($result))
+			$resultList->push(new Video(str_replace("URL", $row["videoUrl"], $row["data"]), "111");
+		$resultList->rewind();
+		return $resultList;
+}
 	function initAll($artistId, $url){
 		/*
 			Used for song's pages
@@ -114,7 +154,6 @@ class Song {
 		$this->videoTypeName = $row["videoTypeName"];
 		$this->artistName = $row["artistName"];
 		$this->artistUrl = $row["artistUrl"];
-		
 	}
 	
 	
