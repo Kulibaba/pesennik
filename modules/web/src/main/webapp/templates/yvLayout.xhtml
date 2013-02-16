@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h ="http://java.sun.com/jsf/html"
+	xmlns:f ="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+
+<h:head>
+	<h:outputStylesheet name="yvstyle.css" library="css" />
+	<title> #{homePage.currTitle} </title>
+	<h:outputScript library="primefaces" name="jquery/jquery.js" target="head" />
+</h:head>
+
+<h:body>
+
+	<div id="page">
+
+		<div id="top">
+			<div id="langNavigator">
+				<ui:insert name="langNavigator" >
+					<ui:include src="/templates/yvlangNavigator.xhtml" />
+				</ui:insert>
+			</div>
+		</div>
+
+
+			<div id="loginReg"><!-- Logo +  Register + Login -->
+				<!--span style="float: left;font-size: 14px;">YouVote</span-->
+				<p:commandButton value="Register" onclick="RegForm.show();" type="button"/>
+				<p:commandButton value="Login" onclick="LoginForm.show();" type="button"/>
+			</div>
+
+			<div id="header">
+				<ui:insert name="header" >
+					<ui:include src="/templates/yvHeader.xhtml" />
+				</ui:insert>
+			</div>
+
+
+			<div id="LeftColumn">
+				<!--div class="Ads">
+				</div-->
+			</div>
+
+			<div id="content">
+				<!--div align="center">Some content!</div-->
+				<ui:insert name="content" >
+					<ui:include src="/templates/commonContent.xhtml" />
+				</ui:insert>
+			</div>
+
+			<div class="wrap" align="center">
+			</div>
+
+			<div id="footer">
+				<ui:insert name="footer" >
+					<ui:include src="/templates/commonFooter.xhtml" />
+				</ui:insert>
+			</div>
+
+	</div>
+
+</h:body>
+
+</html>

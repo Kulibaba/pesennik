@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC
+	"-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h ="http://java.sun.com/jsf/html"
+	xmlns:f ="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+<h:body>
+	<!--ui:composition template="/templates/commonLayout.xhtml"-->
+	<ui:composition template="/templates/yvLayout.xhtml">
+
+			<ui:define name="content">
+				<!--div class="wrap"  align="center"/-->
+				<div id="container">
+
+					<p:dialog widgetVar="LoginForm" header="Login Form" minWidth="300" width="300" minHeight="140" resizable="false" modal="true">
+						<h:form >
+							<h:panelGrid id="loginGrid" columns="3">
+								<h:outputLabel for="name" value="NickName: *"/>
+								<p:inputText id="name" value="#{homePage.username}" required="true"/><br/>
+								<h:outputLabel for="password" value="Password: *"/>
+								<p:inputText id="password" value="#{homePage.password}" required="true"/>
+								<p:message for="name"/>
+							</h:panelGrid>
+							<p:commandButton value="Log-in" update="loginGrid" action="#{homePage.send}" ajax="false"/>
+						</h:form>
+					</p:dialog >
+
+					<p:dialog widgetVar="RegForm" header="Registration Form" minWidth="300" width="300" minHeight="140" resizable="false" modal="true">
+						<h:form >
+							<h:panelGrid id="loginGrid" columns="3">
+								<h:outputLabel for="name" value="NickName: *"/>
+								<p:inputText id="name" value="#{homePage.username}" required="true"/><br/>
+								<h:outputLabel for="password" value="Password: *"/>
+								<p:inputText id="password" value="#{homePage.password}" required="true"/>
+								<p:message for="name"/>
+							</h:panelGrid>
+							<p:commandButton value="Log-in" update="loginGrid" action="#{homePage.send}" ajax="false"/>
+						</h:form>
+					</p:dialog >
+
+					<div id="IntroBox">
+						<div id="Intro">
+							<h:panelGrid columns="2">
+								<h:column>
+									<img src="resources/img/HomePage/user1_message.png" alt="You are the Law Maker!"/>
+								</h:column>
+								<h:column>
+									<div class="BodyBox">
+										<h2>You are the Law Maker!</h2><br/>
+										<p>
+												From day to day Enternet influences more on our life.Real life depends from Virtual.<br/>
+												Can you imagine the world where voting is easy like 1-2-3,where people can choose the laws they need?<br/>
+												On our  site  <span style="color:#8b0000;font-size: 15pt;">YOU</span> are the politician!<br/>
+												Toghether we can build the Future, cause <span style="color:#8b0000;font-size: 15pt;">You Vote!</span>
+										</p>
+									</div>
+								</h:column>
+							</h:panelGrid><!--div class="HeadBox"></div><div class="BodyBox"></div-->
+						</div>
+
+						<div id="IntroCast">
+							<h:panelGrid columns="2">
+								<h:column>
+									<img src="resources/img/HomePage/document_check.png" alt="Cast Your Vote!"/>
+								</h:column>
+								<h:column>
+									<div class="BodyBox">
+										<h2>Cast Your Vote!</h2><br/>
+										<p>
+										<a>Here</a> you can cast your vote for any openeed bill draft! <br/>No <span style="color:#8b0000;text-decoration: line-through">REGISTRATION</span> required!
+										</p>
+									</div>
+								</h:column>
+							</h:panelGrid><!--div class="HeadBox"></div><div class="BodyBox"></div-->
+						</div>
+
+						<div id="IntroAdd">
+							<h:panelGrid columns="2">
+								<h:column>
+									<img  src="resources/img/HomePage/document_add.png" alt="Add Your Bill Draft!"/>
+								</h:column>
+								<h:column>
+									<div class="BodyBox">
+										<h2>Add Your Bill Draft!</h2><br/>
+										<p><a>Here</a> you can propose Your own Bill Draft!<br/>Make sure you are <span style="color:#8b0000;text-decoration: underline">REGISTERED</span>!
+										</p>
+									</div>
+							 </h:column>
+						</h:panelGrid>
+					</div>
+				</div>
+
+
+				<div id="InfoBox">
+					<!--div style="float: left">
+						 <img src="resources/img/HomePage/environment_information.png" alt=""/> <br/><h3>Top News!</h3><br/>
+					</div-->
+					<h:panelGrid columns="3">
+						<p:column rowspan="2" >
+							<p:graphicImage value="resources/img/HomePage/environment_information.png"/>
+							<h:outputText>
+								<h3>Top News!</h3>
+							</h:outputText>
+						</p:column>
+					</h:panelGrid>
+
+					<h:panelGrid columns="3" style="margin-left: auto;margin-right: auto;margin-bottom: 30px">
+						<p:column > <div id="GlobalNews"><img src="resources/img/HomePage/earth.png" alt=""/><h4>Global</h4></div>                  </p:column>
+						<p:column > <div id="EconomNews"><img src="resources/img/HomePage/column-chart.png" alt=""/><h4>Economical</h4></div>       </p:column>
+						<p:column > <div id="FinansNews"><img src="resources/img/HomePage/currency_euro.png" alt=""/>  <h4>Financial  </h4></div>   </p:column>
+					</h:panelGrid>
+				</div>
+			</div>
+
+		</ui:define>
+
+	</ui:composition>
+</h:body>
+
+</html>
