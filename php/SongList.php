@@ -10,10 +10,16 @@ class SongList{
 				song.id,
 				song.name,
 				song.url,
-				song.flags
+				song.flags,
+				language.url AS languageUrl,
+				language.name AS languageName,
+				user.name AS userName,
+				user.url AS userUrl
 			FROM artist
 			INNER JOIN artistsong ON artistsong.artistId = artist.id
 			INNER JOIN song ON artistsong.songId = song.id
+			LEFT JOIN language ON language.id = song.languageId
+			LEFT JOIN user ON user.id = song.userId
 			WHERE artist.id = $artistId
 			ORDER BY $pattern $sorting
 			LIMIT 0, $no

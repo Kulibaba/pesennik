@@ -3,8 +3,8 @@ require_once 'SongList.php';
 
 $songList = new SongList();
 
-//$list = $songList->getNewArtistSongs(2, 1);
-$list = $songList->getNewSongs(20);
+$list = $songList->getNewArtistSongs(2, 1);
+//$list = $songList->getNewSongs(20);
 
 while($song = $list->current()){
 	?>
