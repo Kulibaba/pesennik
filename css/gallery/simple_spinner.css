@@ -1,0 +1,63 @@
+body { margin:0px; font-family:Helvetica, Arial; margin:0px; background:#f8f8f8;  }
+#header{ display:block; position:relative; clear:both; background:#000000; height:133px; margin:0px; }
+.container{ display:block; position:relative; clear:both; width:900px; margin:0px auto; font-size:14px; }
+a.lg{ color:#D3D3D3; text-decoration:none; font-size:37px; line-height:133px; }
+
+.container h1 { font-size:35px; color:#000000; font-weight:normal; padding:15px 0px; margin:0px; }
+.container h2 { font-size:24px; color:#333333; font-weight:normal; padding:0px; margin:0px; }
+.container p { text-align:justify; padding:10px; margin:0px; }
+.container p ol, #container p ul { margin:0px auto 0px; }
+.container p.notes { color:#999999; font-size:10px; }
+
+/* -------------------Simple spinner-------------------- */
+#SlideItMoo_info_outer { 
+	display:block; 
+	position:relative; 
+	width:700px; 
+	height:260px; 
+	margin:0px auto 0px; 
+	border:1px #CCCCCC solid; 
+}
+#SlideItMoo_info_inner { 
+	position:relative ; 
+	overflow:hidden ; 
+	width:700px ; 
+	height:260px ; 
+	margin:0px auto 0px;  
+}
+#SlideItMoo_info_items { 
+	display:block; 
+	position:relative; 
+}
+
+#SlideItMoo_info_items .info_item{
+	display:block; 
+	position:relative;
+	width:690px;
+	height:260px;
+	float:left;
+	background:#E8E8E8;
+	text-align:justify;
+	padding:5px;
+}
+
+#SlideItMoo_info_items .info_item a img{
+	border:none;
+}
+
+#SlideItMoo_info_items .info_item img {
+	float:left;	
+	margin-right:15px;
+}
+#SlideItMoo_info_items .info_item a.more{
+	color:#333333;
+	font-weight:bold;
+}
+
+#SlideItMoo_info_items .info_item h1{
+	background:none;
+	color:#006699;
+	text-align:right;
+	margin:5px 0px 10px;
+	font-size:18px;
+}

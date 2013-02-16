@@ -1,0 +1,142 @@
+body { margin:0px; font-family:Helvetica, Arial; margin:0px; background:#f8f8f8;  }
+#header{ display:block; position:relative; clear:both; background:#000000; height:133px; margin:0px; }
+.container{ display:block; position:relative; clear:both; width:900px; margin:0px auto; font-size:14px; }
+a.lg{ color:#D3D3D3; text-decoration:none; font-size:37px; line-height:133px; }
+
+.container h1 { font-size:35px; color:#000000; font-weight:normal; padding:15px 0px; margin:0px; }
+.container h2 { font-size:24px; color:#333333; font-weight:normal; padding:0px; margin:0px; }
+.container p { text-align:justify; padding:10px; margin:0px; }
+.container p ol, #container p ul { margin:0px auto 0px; }
+.container p.notes { color:#999999; font-size:10px; }
+
+
+
+/* -------------------Sleek article spinner-------------------- */
+#SlideItMoo_info_outer,
+#SlideItMoo_info_inner,
+#SlideItMoo_info_items .info_item{
+	width:800px;
+	height:300px;
+}
+
+#SlideItMoo_info_outer{
+	width:880px;
+}
+
+#SlideItMoo_info_outer { 
+	display:block; 
+	position:relative; 
+	margin:0px auto 0px; 
+	background:#333333;
+	-moz-border-radius-topleft:7px;
+	-moz-border-radius-topright:7px;
+	-webkit-border-radius:7px;
+}
+#SlideItMoo_info_inner { 
+	position:relative ; 
+	overflow:hidden ; 
+	margin:0px auto 0px;  
+}
+#SlideItMoo_info_items { 
+	display:block; 
+	position:relative; 
+}
+/* remember after styling to set the itemWidth parameter on class instance */
+#SlideItMoo_info_items .info_item{
+	display:block; 
+	position:relative;
+	float:left;
+	color:#FFFFFF;
+	font-size:16px;
+}
+	#SlideItMoo_info_items .info_item a.more{
+		display:block;
+		position:absolute;
+		bottom:10px;
+		right:0px;
+		color:#CCCCCC;
+		text-decoration:none;
+		text-transform:uppercase;
+		background:#0066FF;
+		padding:3px 10px;
+		border:1px #000000 solid;
+		-moz-border-radius:5px;
+	}
+
+#SlideItMoo_info_items .info_item a img{
+	border:3px #000 solid;
+	padding:3px;
+	background:#fff;
+	-moz-border-radius:5px;
+	margin:20px 10px;
+	margin-left:0px;
+}
+
+#SlideItMoo_info_items .info_item img {
+	float:left;	
+	margin-right:15px;
+}
+
+#SlideItMoo_info_items .info_item h1{
+	color:#00CCFF;
+	text-align:left;
+	font-size:30px;
+	padding:15px 0px 20px;
+}
+
+/* create custom forward-backward buttons for this container */
+.SlideItMoo_forward,
+.SlideItMoo_back{ 
+	display:block; 
+	position:absolute; 
+	cursor:pointer; 
+	width:25px; 
+	height:280px; 
+	bottom:0px; 
+	right:5px; 
+	background:url(../img/gallery/slideitmoo_forward.png) no-repeat center;  
+}
+.SlideItMoo_back { 
+	left:5px; 
+	background:url(../img/gallery/slideitmoo_back.png) no-repeat center;  
+}
+
+/* next prev article announce */
+#announce{
+	display:block;
+	position:relative;
+	clear:both;
+	height:50px;
+	background:#666666;
+	width:880px;
+	margin:0px auto;
+	-moz-border-radius-bottomleft:5px;
+	-moz-border-radius-bottomright:5px;
+}
+	#prev_title,
+	#next_title{
+		display:block;
+		position:relative;
+		float:left;
+		font-size:14px;
+		color:#FFFFFF;
+		padding:0px 10px;
+		line-height:50px;
+		cursor:pointer;
+	}
+	#next_title{
+		float:right;
+		margin-left:auto;
+	}
+	#announce a.playing{
+		display:block;
+		position:absolute;
+		left:420px;
+		top:5px;
+		width:40px;
+		height:40px;
+		background:url(../img/gallery/pause.png) center center;	
+	}
+	#announce a.paused{
+		background:url(../img/gallery/play.png) center center;	
+	}

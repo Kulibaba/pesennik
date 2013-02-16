@@ -1,0 +1,37 @@
+body { margin:0px; font-family:Helvetica, Arial; margin:0px; background:#f8f8f8;  }
+#header{ display:block; position:relative; clear:both; background:#000000; height:133px; margin:0px; }
+.container{ display:block; position:relative; clear:both; width:900px; margin:0px auto; font-size:14px; }
+a.lg{ color:#D3D3D3; text-decoration:none; font-size:37px; line-height:133px; }
+
+.container h1 { font-size:35px; color:#000000; font-weight:normal; padding:15px 0px; margin:0px; }
+.container h2 { font-size:24px; color:#333333; font-weight:normal; padding:0px; margin:0px; }
+.container p { text-align:justify; padding:10px; margin:0px; }
+.container p ol, #container p ul { margin:0px auto 0px; }
+.container p.notes { color:#999999; font-size:10px; }
+
+
+
+/* --------------------BANNER ROTATOR--------------------- */
+#SlideItMoo_banners_outer { 
+	display:block; 
+	position:relative; 
+	width:557px; 
+	height:140px; 
+	margin:0px auto 0px; 
+	border:1px #CCCCCC solid; 
+}
+#SlideItMoo_banners_inner { 
+	position:relative ; 
+	overflow:hidden ; 
+	width:557px ; 
+	height:134px ; 
+	margin:0px auto 0px;  
+}
+#SlideItMoo_banners_items { 
+	white-space:nowrap; 
+	display:block; 
+	position:relative; 
+}
+#SlideItMoo_banners_items a img { 
+	border:none; 
+}

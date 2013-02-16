@@ -1,0 +1,72 @@
+body { margin:0px; font-family:Helvetica, Arial; margin:0px; background:#f8f8f8;  }
+#header{ display:block; position:relative; clear:both; background:#000000; height:133px; margin:0px; }
+.container{ display:block; position:relative; clear:both; width:900px; margin:0px auto; font-size:14px; }
+a.lg{ color:#D3D3D3; text-decoration:none; font-size:37px; line-height:133px; }
+
+.container h1 { font-size:35px; color:#000000; font-weight:normal; padding:15px 0px; margin:0px; }
+.container h2 { font-size:24px; color:#333333; font-weight:normal; padding:0px; margin:0px; }
+.container p { text-align:justify; padding:10px; margin:0px; }
+.container p ol, #container p ul { margin:0px auto 0px; }
+.container p.notes { color:#999999; font-size:10px; }
+
+/* -------VERTICAL SLIDER STYLING --------*/
+
+#SlideItMoo_vertical_outer {  
+	width:128px; 
+	margin:10px auto 10px; 
+	background:#333 ; 
+	display:block; 
+	position:relative; 
+	padding:0px 10px 0px;
+}
+/* create custom forward-backward buttons for this container */
+#SlideItMoo_vertical_outer .SlideItMoo_forward,
+#SlideItMoo_vertical_outer .SlideItMoo_back{ 
+	display:block; 
+	position:relative; 
+	clear:both;
+	margin:0px auto;
+	cursor:pointer; 
+	width:25px; 
+	height:35px; 
+	background:url(../images/slideitmoo_forward.png) no-repeat center;  
+}
+#SlideItMoo_vertical_outer .SlideItMoo_back { 
+	background:url(../images/slideitmoo_back.png) no-repeat center;  
+}
+
+/* the width is set to show the number of thumbnails that will be visible */
+#SlideItMoo_vertical_inner{ 
+	position:relative ; 
+	overflow:hidden ; 
+	width:128px ; /* set a display width to make the slider look good in case js is disabled */
+	margin:0px auto 0px;
+	padding:0px;
+}
+/* the thumbnails container; set a width on it so everything will be fine */
+#SlideItMoo_vertical_items { 
+	display:block; 
+	position:relative; 
+}
+/* single element design */
+#SlideItMoo_vertical_items div.SlideItMoo_element { 
+	display:block; 
+	position:relative;
+	margin:0px; 
+	font-size:11px; 
+	width:128px; 
+	height:180px;
+	padding:10px 0px;
+	text-align:center; 
+	color:#FFFFFF;
+}
+	div.SlideItMoo_element strong{
+		display:block;
+		position:relative;
+		font-size:14px;
+		color:#FF9900;
+	}
+
+
+#SlideItMoo_vertical_items a { padding:0px; margin:3px 0px 3px; clear:both; display:block; background:#333333; padding:2px; }
+#SlideItMoo_vertical_items a img{ border:none; }
