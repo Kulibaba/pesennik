@@ -4,83 +4,60 @@ require_once 'Utils.php';
 require_once 'Video.php';
 class Song {
 
-	var $artistName;// array if duet
-	var $artistUrl;	//
+	private $artistName;// array if duet
+	private $artistUrl;	//
 	
-	var $duetId;
+	private $duetId;
 
-	var $flags;	/*	1 - has text
-					2 - has video
-					4 - has translate
-					8 - has accords
-					16 - has mp3
-					32 - has karaoke
-					64 - reserved
-					128 - reserved
-				*/
+	private $flags;	/*	1 - has text
+						2 - has video
+						4 - has translate
+						8 - has accords
+						16 - has mp3
+						32 - has karaoke
+						64 - has phonogram
+						128 - reserved
+					*/
+	private $id;
 	
-	var $id;
+	private $name;
 	
-	var $name;
+	private $languageId;
+	private $languageName;
+	private $languageUrl;
 	
-	var $languageId;
-	var $languageName;
+	private $text;
 	
-	var $text;
+	private $translateName;	// array of translation names
+	private $transtateText;	// array of translation texts
 	
-	var $translateName;	// array of translation names
-	var $transtateText;	// array of translation texts
+	private $videoTypeName;
+	private $videoData;		// included full video frame
 	
-	var $videoTypeName;
-	var $videoData;		// included full video frame
+	private $url;
 	
-	var $url;
+	private $userId;
+	private $userName;
+	private $userUrl;
 	
-	var $userId;
-	var $userName;
+	private $userIdTranslate;
+	private $userNameTranslate;
 	
-	var $userIdTranslate;
-	var $userNameTranslate;
-	
-	var $userIdVideo;
-	var $userNameVideo;
-	/*function Song($newId, $newName, $newUrl, $newFlags, $newArtistName, $newArtistUrl){
-		$this->id = $newId;
-		$this->name = $newName;
-		$this->url = $newUrl;
-		$this->flags = $newFlags;
-		$this->artistName = $newArtistName;
-		$this->artistUrl = $newArtistUrl;
-	}
-	*/
-	function initListItem($artistId, $url){
-		/*
-			Used only for lists
-		*/
-			
-		$query = "
-			SELECT
-				artist.name AS artistName,
-				artist.url AS artistUrl,
-				song.id,
-				song.name,
-				song.url,
-				song.flags
-			FROM song
-			LEFT JOIN artist ON song.artistId = artist.id
-			WHERE song.url ='$url' AND artist.id = '$artistId'
-		";
-		
-		$result = mysql_query($query,DB::getInstance());
-		$row = mysql_fetch_array ($result);
-
+	private $userIdVideo;
+	private $userNameVideo;
+	function initListItem($row){
 		$this->id = $row["id"];
 		$this->name = $row["name"];
 		$this->url = $row["url"];
 		$this->flags = $row["flags"];
 		$this->artistName = $row["artistName"];
 		$this->artistUrl = $row["artistUrl"];
+		$this->languageUrl = $row["languageUrl"];
+		$this->languageName = $row["languageName"];
+		$this->userName = $row["userName"];
+		$this->userUrl = $row["userUrl"];
 	}
+	//function Song(){}
 	function getUrlById($id){
 		/*
 			Used only for lists
@@ -115,8 +92,8 @@ class Song {
 		echo $query;
 		$result = mysql_query($query,DB::getInstance());
 		$resultList = new SplDoublyLinkedList();
-		while($row = mysql_fetch_array ($result))
-			$resultList->push(new Video(str_replace("URL", $row["videoUrl"], $row["data"]), "111");
+		//while($row = mysql_fetch_array ($result))
+			//$resultList->push(new Video(str_replace("URL", $row["videoUrl"], $row["data"]), "111");
 		$resultList->rewind();
 		return $resultList;
 }
@@ -126,19 +103,18 @@ class Song {
 		*/
 		
 		$query = "
-			SELECT
+			SELECT 
 				artist.name AS artistName,
 				artist.url AS artistUrl,
-				song.id,
-				song.name,
+				song.id, song.name,
 				song.url,
 				video.url AS videoUrl,
-				videoType.name AS videoTypeName
-			FROM song
-			LEFT JOIN artist ON song.artistId = artist.id
+				videoType.name AS videoTypeName FROM song 
+			INNER JOIN artistsong ON artistsong.songId = song.id
+			LEFT JOIN artist ON artistsong.artistId = artist.id
 			LEFT JOIN video ON song.id = video.songId
 			LEFT JOIN videoSite ON video.videoSiteId = videoSite.id
-			LEFT JOIN videoType ON video.videoTypeId = videoType.id
+			LEFT JOIN videoType ON video.videoTypeId = videoType.id 
 			WHERE song.url ='$url' AND artist.id = '$artistId'
 		";
 		
@@ -162,7 +138,7 @@ class Song {
 		return ($this->flags & 1)!=0;
 	}
 	function isVideo() {
-		return ($this->flags && 2)!=0;
+		return ($this->flags & 2)!=0;
 	}
 	function isTranslate() {
 		return ($this->flags & 4)!=0;
@@ -203,6 +179,9 @@ class Song {
 	function getLanguageName() {
 		return $this->languageName;
 	}
+	function getLanguageUrl() {
+		return $this->languageUrl;
+	}
 	function getText() {
 		return $this->text;
 	}
@@ -221,12 +200,12 @@ class Song {
 	function getUserName() {
 		return $this->userName;
 	}
-	
-	
+	function getUserUrl() {
+		return $this->userUrl;
+	}
 	function getVideoData() {
 		return $this->videoData;
 	}
-	
 	function getVideoTypeName() {
 		return $this->videoTypeName;
 	}

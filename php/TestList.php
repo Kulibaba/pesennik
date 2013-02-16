@@ -3,7 +3,8 @@ require_once 'SongList.php';
 
 $songList = new SongList();
 
-$list = $songList->getNewSongs(2, 1);
+//$list = $songList->getNewArtistSongs(2, 1);
+$list = $songList->getNewSongs(20);
 
 while($song = $list->current()){
 	?>
@@ -63,6 +64,24 @@ while($song = $list->current()){
 			</td>
 			<td>
 				<?php echo $song->isTranslate(); ?>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>
+				Язык:
+			</td>
+			<td>
+				<?php echo $song->getLanguageUrl(); ?>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>
+				Пользователь:
+			</td>
+			<td>
+				<?php echo $song->getUserName(); ?>
 			</td>
 		</tr>
 	<table>
