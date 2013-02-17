@@ -88,7 +88,7 @@ vertical-align:bottom;
 .nav-header  ul >li{
 	display:none;
 	list-style-type:none;
-	border-top:1px solid #0088dd;
+	border-top:0px solid #0088dd;
 }
 
 .nav-header  a{
@@ -190,8 +190,22 @@ vertical-align:bottom;
 	border-radius: 12px;
 	
 }
+.photo-small{
+	/*border:1px solid #123123;*/
+	border:solid 1px #DDD;
+	text-align:center;
+	width:60px; 
+	height:80px; 
+	float:left;
+	
+	-moz-border-radius: 12px;
+	-ms-border-radius: 12px;
+	-webkit-border-radius: 12px;
+	border-radius: 12px;
+	
+}
 
-.photo img{
+.photo img , .photo-small img{
 	-moz-border-radius: 12px;
 	-ms-border-radius: 12px;
 	-webkit-border-radius: 12px;
@@ -226,7 +240,6 @@ vertical-align:bottom;
 .bio-table{
 	font-family: Helvetica, Arial; /* "Segoe UI", Segoe, */
 	font-size:18px;
-	
 }
 
 .bio-content{
@@ -309,6 +322,13 @@ vertical-align:bottom;
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
 }
+
+.item{
+	clear:both;
+	display:block;
+	padding:5px;
+}
+
 /* BIO PAGE _END*/
 /*
 	Kotov  END _____________________________________________
