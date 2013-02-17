@@ -13,7 +13,7 @@ a.lg{ color:#D3D3D3; text-decoration:none; font-size:37px; line-height:133px; }
 
 /* ----------------IMAGE SLIDER------------- */
 #SlideItMoo_outer {  
-	width:1200px; 
+	width:95%; 
 	margin:10px auto 10px; 
 	background:#333333 ; 
 	display:block; 
