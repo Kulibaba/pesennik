@@ -4,50 +4,66 @@ require_once 'Utils.php';
 
 class Artist {
 
-	var $id;
-	var $name;
-	var $nameCharacter;
-	var $url;
-	var $band;
-	var $bio;
-	var $birthDate;
+	private $id;
+	private $name;
+	private $nameCharacter;
+	private $url;
+	private $band;
+	private $bio;
+	private $photo;
+	private $birthDate;
 	
-	var $deathDate;
-	var $countryName;		 	 	 	 	 	 		
-	var $countryUrl;		 	 	 	 	 	 		
+	private $deathDate;
+	private $countryName;		 	 	 	 	 	 		
+	private $countryUrl;		 	 	 	 	 	 		
 
-	var $birthplace;
+	private $birthplace;
 	
-	var $songNo;
-	var $translateNo;
-	var $videoNo;
+	private $songNo;
+	private $translateNo;
+	private $videoNo;
 	
-	function initListItem(){
+	function Artist(){}
+	
+	function initListItem($row){
 		/*
 			Used only for lists
 		*/
-		$this->id = "";
-		$this->name = "";
-		$this->url = "";
+		$this->name = $row["name"];
+		$this->searchName = $row["searchName"];
+		$this->url = $row["url"];
+		$this->photo = $row["photo"];
+		$this->countryName = $row["countryName"];
+		$this->countryUrl = $row["countryUrl"];
 	}
-	function Artist($url){
+	
+	function initAll($url){
 		/*
-			Used for song's pages
+			Used for artist's pages
 		*/
 		
 		$query = "
 			SELECT
-				artist.*,
+				artist.name,
+				artist.url,
+				artist.bio,
+				artist.photo,
+				artist.birthDate,
+				artist.deathDate,
+				artist.birthplace,
+				artist.band,
+				artist.info,
 				country.name AS countryName,
 				country.url AS countryUrl,
 				count(song.id) AS songNo,
 				count(translate.id) AS translateNo,
 				count(video.id) AS videoNo
 			FROM artist
-			LEFT JOIN country ON artist.birthCountryId = country.id
-			LEFT JOIN song ON artist.id = song.artistId
-			LEFT JOIN video ON (artist.id = song.artistId) AND song.id = video.songId
-			LEFT JOIN translate ON (artist.id = song.artistId) AND song.id = translate.songId
+			LEFT JOIN country ON 	artist.countryId = country.id
+			LEFT JOIN artistsong ON artistsong.artistId = artist.id
+			LEFT JOIN song ON 		artistsong.songId = song.id
+			LEFT JOIN video ON 		(artist.id = artistsong.artistId) AND song.id = video.songId
+			LEFT JOIN translate ON 	(artist.id = artistsong.artistId) AND song.id = translate.songId
 			WHERE artist.url ='$url'
 		";
 		
@@ -59,6 +75,7 @@ class Artist {
 		$this->nameCharacter = toLowerCase(substr($row["name"], 0, 2));
 		$this->url = $row["url"];
 		$this->bio = $row["bio"];
+		$this->photo = $row["photo"];
 		$this->birthDate = getFullDate($row["birthDate"]);
 		$this->deathDate = getFullDate($row["deathDate"]);
 		$this->band = ($row["band"] != 0) ? true : false;
@@ -68,6 +85,7 @@ class Artist {
 		$this->songNo = $row["songNo"];
 		$this->translateNo = $row["translateNo"];
 		$this->videoNo = $row["videoNo"];
+		$this->info = $row["info"];
 	}
 	function getId() {
 		return $this->id;
@@ -84,11 +102,9 @@ class Artist {
 	function getTranslateNo() {
 		return $this->translateNo;
 	}
-	
 	function getCountryName() {
 		return $this->countryName;
 	}
-	
 	function getCountryUrl() {
 		return $this->countryUrl;
 	}
@@ -104,6 +120,9 @@ class Artist {
 	function getBio() {
 		return $this->bio;
 	}
+	function isPhoto() {
+		return $this->photo;
+	}
 	function getBirthDate() {
 		return $this->birthDate;
 	}
@@ -113,12 +132,14 @@ class Artist {
 	function isBand() {
 		return $this->band;
 	}
-	function getBithCountry() {
-		return $this->BirthCountry;
-	}
 	function getBirthplace() {
 		return $this->birthplace;
 	}
-	
+	function getInfo() {
+		return $this->info;
+	}
+	function getSearchName() {
+		return $this->getSearchName;
+	}
 }
 ?>

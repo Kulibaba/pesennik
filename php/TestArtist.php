@@ -2,7 +2,8 @@
 require_once 'Song.php';
 require_once 'Artist.php';
 
-$artist = new Artist("ani_lorak");
+$artist = new Artist();
+$artist->initAll("ani_lorak");
 ?>
 	
 	
@@ -21,6 +22,14 @@ $artist = new Artist("ani_lorak");
 		</td>
 		<td>
 			<?php echo $artist->getNameCharacter(); ?>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Фото:
+		</td>
+		<td>
+			<?php echo $artist->isPhoto(); ?>
 		</td>
 	</tr>
 	<tr>
@@ -81,6 +90,14 @@ $artist = new Artist("ani_lorak");
 	</tr>
 	<tr>
 		<td>
+			Интересная информация :
+		</td>
+		<td>
+			<?php echo $artist->getInfo(); ?>
+		</td>
+	</tr>
+	<tr>
+		<td>
 			Место рождения:
 		</td>
 		<td>
@@ -102,7 +119,8 @@ $artist = new Artist("ani_lorak");
 		<td>
 			<?php echo $artist->getVideoNo(); ?>
 		</td>
-	</tr>	<tr>
+	</tr>
+	<tr>
 		<td>
 			Кл-во переводов :
 		</td>

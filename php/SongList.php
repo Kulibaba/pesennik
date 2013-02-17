@@ -9,6 +9,7 @@ class SongList{
 				artist.url AS artistUrl,
 				song.id,
 				song.name,
+				song.searchName,
 				song.url,
 				song.flags,
 				language.url AS languageUrl,
@@ -32,6 +33,7 @@ class SongList{
 			$resultList->push($song);
 		}
 		$resultList->rewind();
+		
 		return $resultList;
 	}
 	
@@ -42,6 +44,7 @@ class SongList{
 				artist.url AS artistUrl,
 				song.id,
 				song.name,
+				song.searchName,
 				song.url,
 				song.flags
 			FROM artist

@@ -21,6 +21,14 @@ $song->initAll(1, "linka" );
 	</tr>
 	<tr>
 		<td>
+			Интересная информация :
+		</td>
+		<td>
+			<?php echo $song->getInfo(); ?>
+		</td>
+	</tr>
+	<tr>
+		<td>
 			Ссылка:
 		</td>
 		<td>
@@ -48,31 +56,51 @@ $song->initAll(1, "linka" );
 			Текст:
 		</td>
 		<td>
-			<?php echo $song->getText(); ?>
+			<?php
+				echo $song->getLanguageUrl()." - ".$song->getLanguagename()."<br>";
+				echo $song->getLyrics()."<br>";
+				echo '<a href="'.$song->getUserUrl().'">'.$song->getUserName().'</a>';
+	?>
 		</td>
 	</tr>
 	<tr>
 		<td>
 			Видео:
 		</td>
-		<td>
-			<?php echo $song->getVideoData(); ?>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			Видео тип:
-		</td>
-		<td>
-			<?php echo $song->getVideoTypeName(); ?>
-		</td>
+		<?php 
+			$list = $song->getVideoList();
+			while($video = $list->current()){
+		?>
+				<td>
+					<?php
+						echo $video->getData(); 
+						echo $video->getVideoTypeName()."<br><b>".$video->getInfo()."</b><br>";
+						echo '<a href="'.$video->getUserUrl().'">'.$video->getUserName().'</a>';
+					?>
+				</td>
+		<?php 
+			$list->next();
+			}
+		?>
 	</tr>
 	<tr>
 		<td>
 			Перевод:
 		</td>
-		<td>
-			<?php echo $song->getTranslate(); ?>
-		</td>
+		<?php 
+			$list = $song->getTranslateList();
+			while($translate = $list->current()){
+		?>
+				<td>
+					<?php
+						echo "<b>".$translate->getName()."</b><b>".$translate->getInfo()."</b>"; 
+						echo $translate->getLyrics()."<br>";
+						echo '<a href="'.$translate->getUserUrl().'">'.$translate->getUserName().'</a>';
+					?>
+				</td>
+		<?php 
+			$list->next();
+			}
+		?>
 	</tr>
 <table>
