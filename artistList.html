@@ -11,7 +11,7 @@
     <link href="css/bootstrap.css" rel="stylesheet">
 	<link href="css/pessenik.css" rel="stylesheet">
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
-
+	<script language="javascript" type="text/javascript" src="js/jquery.js"></script>
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -169,8 +169,8 @@
 				<div class="span7"  >
 					<div style="float:left;">
 						<div style="display:inline;">
-							<span class="artist-name"> Ани Лорак</span>
-							<div>
+							<span class="artist-name"> Ани Лорак  <img  src="img/flags/ru.png" class="artist-flag" alt="Украиная"/></span>
+							<div style="display:none;">
 							<a href="#"  class="btn btn-small">Биография »</a> 
 							<a href="#"  class="btn btn-small">Песни »</a> 
 							<a href="#"  class="btn btn-small">Альбомы »</a>
@@ -187,15 +187,16 @@
 				<div class="span7" >
 					<div style="float:left;">
 						<div style="display:inline;">
-							<span  class="artist-name"> Ани Лорак</span>
-							<img  src="img/flags/ru.png" class="artist-flag" alt="Украиная"/>
-							<div>
+							<span  class="artist-name"> Ани Лорак <img  src="img/flags/ru.png" class="artist-flag" alt="Украиная"/></span>
+							
+							<div style="display:none;">
 							<a href="#"  class="btn btn-small">Биография »</a> 
 							<a href="#"  class="btn btn-small">Песни »</a> 
 							<a href="#"  class="btn btn-small">Альбомы »</a>
-							<a href="#"  class="btn btn-small">Клипы »</a> 
+							<a style="visibility:hidden;"  href="#"  class="btn btn-small">Клипы »</a> 
 							<a href="#"  class="btn btn-small">Переводы  »</a>
 							</div>
+							
 						</div>
 					</div>
 				</div>
@@ -206,9 +207,10 @@
 				<div class="span7" >
 					<div style="float:left;">
 						<div style="display:inline;">
-							<span class="artist-name"> Ани Лорак</span>
-							<div>
-							<a href="#"  class="btn btn-small">Биография »</a> 
+							<span class="artist-name"> Ани Лорак  <img  src="img/flags/ru.png" class="artist-flag" alt="Украиная"/></span>
+							<div style="display:none;">
+							
+							<a style="visibility:hidden;" href="#"  class="btn btn-small">Биография »</a> 
 							<a href="#"  class="btn btn-small">Песни »</a> 
 							<a href="#"  class="btn btn-small">Альбомы »</a>
 							<a href="#"  class="btn btn-small">Клипы »</a> 
@@ -218,6 +220,15 @@
 					</div>
 				</div>
 			</div>
+			
+			<script language="javascript" type="text/javascript">
+			$(document).ready(function(){
+				$(".artist-name").hover(function(){
+					var elem = $(this);
+					$(elem).next().toggle('slow').delay(4000);
+				});
+			});
+			</script>
 			
 			<!--PAGE END-->
 			
@@ -237,7 +248,6 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery.js"></script>
 	<script src="js/jquery-timer.js"></script>
 	<script src="js/pesennik.js"></script>
     <!--script src="js/bootstrap-transition.js"></script>

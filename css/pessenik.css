@@ -338,6 +338,10 @@ vertical-align:bottom;
 .artist-name{
 	font-weight:bold;
 	font-size:16px;
+	cursor:pointer;
+}
+.artist-flag{
+	padding-bottom: 7px;
 }
 /* BIO PAGE _END*/
 /*
