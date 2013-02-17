@@ -11,7 +11,9 @@
     <link href="css/bootstrap.css" rel="stylesheet">
 	<link href="css/pessenik.css" rel="stylesheet">
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
-
+	<link href="css/jquery.bxslider.css" rel="stylesheet">
+	<script language="javascript" type="text/javascript" src="js/jquery.js"></script>
+	<script language="javascript" type="text/javascript" src="js/jquery.bxslider.min.js"></script>
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -186,8 +188,7 @@
 						<img src="" width="22" height="16" alt="yandex" />
 					</span>
 					
-					
-					
+						
 					<table class="bio-table table-bordered table-hover" style="cursor:pointer;" cellpadding="5" cellspacing="3">
 						<tbody class="table-striped ">
 						<tr><td>Полное имя</td> <td>: Ани Лорак</td></tr>
@@ -201,34 +202,24 @@
 							<a class="btn btn-primary btn-small" href="#">Песни »</a>
 							<a class="btn btn-primary btn-small" href="#">Альбомы »</a>
 						</div>
-						
-						<!-- margin for element 2px , w:22 h:16-->
-						<!--div style="display:inline;">
-							<span style="border:1px solid #541;width:182; height: 25px; ">
-								<img src="" width="22" height="16" alt="google" />
-								<img src="" width="22" height="16" alt="vk" />
-								<img src="" width="22" height="16" alt="face" />
-								<img src="" width="22" height="16" alt="mail.ru" />
-								<img src="" width="22" height="16" alt="tweeter" />
-								<img src="" width="22" height="16" alt="livejournal" />
-								<img src="" width="22" height="16" alt="yandex" />
-							</span>
-						</div-->
 					</div>
 			</div>
 			</div>
+			
 			<div class="bio-content">
+			
 				<div class="bio-section">	  
 					<span class="bio-section-title" >Биография</span>
-					<div class="bio-section-text">
+					<div class="bio-section-text" >
 					Глобальный контекст виден всем программным модулям и определяет общую языковую среду конфигурации.
 					Локальный контекст модуля образуется тем конкретным местом конфигу¬рации задачи, для которого использован программный модуль. Локальный контекст виден только конкретному программному модулю и определяет для модуля набор непосредственно доступных модулю значений агрегатных типов данных, их атрибутов и методов (см. «Виды программных модулей»). Однако, контекст модуля можно передать как объект в виде параметра при вызове процедур и функций (см. «Передача локального контекста программного модуля в качестве параметра»). Кроме того, контекст модуля определяет тот набор мето¬дов, которые доступны только в данном контексте (см. «Атрибуты и методы контекста Модуля формы», «Методы контекста Модуля формы элемента справочника» и т. п.). Локальный контекст предназначен для того, чтобы дать воз¬можность управлять частными аспектами поведения задачи, присущими данному модулю.
 					</div>
 				</div>
 				
+				<p class="separator"></p>
 				<div  class="bio-section">	  
 					<span class="bio-section-title" >Награды</span>
-					<div class="bio-rewards">
+					<div class="bio-rewards" style="display:none;">
 						<ul>
 							<li>2010
 								<ul>
@@ -244,9 +235,11 @@
 						</ul>
 					</div>
 				</div>
+				
+				<p class="separator"></p>
 				<div class="bio-section">	  
 					<span class="bio-section-title" >Интересные факты</span>
-					<div class="bio-section-text">
+					<div class="bio-section-text" style="display:none;">
 						<ul>
 							<li>
 							[Факт]
@@ -264,9 +257,10 @@
 					</div>
 				</div>
 				
+				<p class="separator"></p>
 				<div class="bio-section">	  
 					<span class="bio-section-title" > О себе </span>
-					<div class="bio-section-text">
+					<div class="bio-section-text" style="display:none;">
 						<ul>
 							<li>[Думаю, что все равно что писать в этом разеделе]</li>
 							<li>Любит ездить верхом на верблюде и плювать им на поклонников.</li>
@@ -275,6 +269,7 @@
 					</div>
 				</div>
 				
+				<p class="separator"></p>
 				<div class="bio-section">	  
 					<span class="bio-section-title" > Фото </span>
 					
@@ -283,154 +278,57 @@
 						<div id="gallery-content"></div>
 						<a href="#" id="gallery-right-arrow">></a>
 					</div-->
-					
-					<!--TEST IMAGE BEGIN-->			
-					<div id="SlideItMoo_outer">	
-							<div class="SlideItMoo_back"><!--slide back button--></div>
-							
-							<!-- container inside used for hiding the elements outisde the view  -->
-							<div id="SlideItMoo_inner" style="width: 950px;">			
-							<!-- actual elements container, usually having a width bigger than the one of SlideItMoo_inner -->
-								<div id="SlideItMoo_items" style="width: 2680px; margin-left: 0px;">
-									<!-- a single element. Duplicate this for as many times you want to hold the individual elements in slider -->
-									
-									<!-- ROW 1-->
-									<div class="SlideItMoo_element">
-										<strong>1: Address</strong>
-										<a href="img/artist.jpg" rel="lightbox[galerie]" target="_blank">
-											<img src="img/artist.jpg" /></a>
-										Nam porta tellus ac urna    
-									</div>							
-									<div class="SlideItMoo_element">
-										<strong>2: Ads</strong>
-										<a href="img/artist.jpg" rel="lightbox[galerie]" target="_blank">
-											<img src="img/artist.jpg" /></a>
-										Praesent pellentesque eros nec nisl    
-									</div>
-									<div class="SlideItMoo_element">
-										<strong>3: Phone</strong>
-										<a href="img/artist.jpg" rel="lightbox[galerie]" target="_blank">
-											<img src="img/artist.jpg" /></a>
-										Vestibulum eleifend scelerisque purus  
-									</div>
-									<div class="SlideItMoo_element">
-										<strong>4: Lock</strong>
-										<a href="img/artist.jpg" rel="lightbox[galerie]" target="_blank">
-											<img src="img/artist.jpg" /></a>
-										 Felis nulla iaculis lacus
-									</div>
-									
-									<div class="SlideItMoo_element">
-										<strong>5: Zoo</strong>
-										<a href="img/artist.jpg" rel="lightbox[galerie]" target="_blank">
-											<img src="img/artist.jpg" /></a>
-										Quisque neque. Donec quam ante, pulvinar vitae
-									</div>
-									
-									<div class="SlideItMoo_element">
-										<strong>6: Donut</strong>
-										<a href="img/artist.jpg" rel="lightbox[galerie]" target="_blank">
-											<img src="img/artist.jpg" /></a>
-										Suspendisse sodales turpis. Aliquam lectus  
-									</div>
-									<!-- ROW 2-->
-									
-									
-									<div class="SlideItMoo_element">
-										<strong>11: Address</strong>
-										<a href="img/artist.jpg" rel="lightbox[galerie]" target="_blank">
-											<img src="img/artist.jpg" /></a>
-										Nam porta tellus ac urna    
-									</div>							
-									<div class="SlideItMoo_element">
-										<strong>22: Ads</strong>
-										<a href="img/artist.jpg" rel="lightbox[galerie]" target="_blank">
-											<img src="img/artist.jpg" /></a>
-										Praesent pellentesque eros nec nisl    
-									</div>
-									<div class="SlideItMoo_element">
-										<strong>33: Phone</strong>
-										<a href="img/artist.jpg" rel="lightbox[galerie]" target="_blank">
-											<img src="img/artist.jpg" /></a>
-										Vestibulum eleifend scelerisque purus  
-									</div>
-									<div class="SlideItMoo_element">
-										<strong>44: Lock</strong>
-										<a href="img/artist.jpg" rel="lightbox[galerie]" target="_blank">
-											<img src="img/artist.jpg" /></a>
-										 Felis nulla iaculis lacus
-									</div>
-									
-									<div class="SlideItMoo_element">
-										<strong>55: Zoo</strong>
-										<a href="img/artist.jpg" rel="lightbox[galerie]" target="_blank">
-											<img src="img/artist.jpg" /></a>
-										Quisque neque. Donec quam ante, pulvinar vitae
-									</div>
-									
-									<div class="SlideItMoo_element">
-										<strong>66: Donut</strong>
-										<a href="img/artist.jpg" rel="lightbox[galerie]" target="_blank">
-											<img src="img/artist.jpg" /></a>
-										Suspendisse sodales turpis. Aliquam lectus  
-									</div>
-									
-									<!--END ROWS-->
-									
-									
-								</div>			
-							</div>   
-							
-							<div class="SlideItMoo_forward"><!--slide forward button--></div>
+					<div style="margin-top:30px;">
+						<ul class="bxslider">
+						  <li><img src="img/artist.jpg" title="Ani Lorak 1" /></li>
+						  <li><img src="img/artist.jpg" title="Ani Lorak 2" /></li>
+						  <li><img src="img/artist.jpg" title="Ani Lorak 3" /></li>
+						  <li><img src="img/artist.jpg" title="Ani Lorak 4" /></li>
+						  <li><img src="img/artist.jpg" title="Ani Lorak 5" /></li>
+						  <li><img src="img/artist.jpg" title="Ani Lorak 6" /></li>
+						  <li><img src="img/artist.jpg" title="Ani Lorak 7" /></li>
+						  <li><img src="img/artist.jpg" title="Ani Lorak 8" /></li>
+						  <li><img src="img/artist.jpg" title="Ani Lorak 9" /></li>
+						  <li><img src="img/artist.jpg" title="Ani Lorak 10" /></li>
+						</ul>		
 					</div>
-					<!--TEST IMAGE END-->			
-					
 				</div>
 				
-				<!--div class="bio-section">	  
-					<span class="bio-section-title" > Песни/Альбомы </span>
-					
-				</div-->
 			</div>
 					
 			</div>
-
-		 
-			<script language="javascript" type="text/javascript" src="js/jquery.js"></script>
-			<script language="javascript" type="text/javascript">
 			
-				jQuery.noConflict();	
-					 jQuery(function(){
-					 //jQuery('#tabs').tabs();	
-					var sliderMoo = new SlideItMoo({
-										overallContainer: 'SlideItMoo_outer',
-										elementScrolled: 'SlideItMoo_inner',
-										thumbsContainer: 'SlideItMoo_items',		
-										itemsVisible:7,
-										elemsSlide:3,
-										duration:300,
-										itemsSelector: '.SlideItMoo_element',
-										itemWidth: 158,
-										showControls:1,
-										startIndex:5			
-							});
-						
-					 });
+			<!--DEBUG FOR jQuery-->
+			<!--script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script-->
+			<!--DEBUG FOR jQuery-->
+			<script language="javascript" type="text/javascript">
+				//jQuery.noConflict();	
+				$(document).ready(function(){
+					$('.bxslider').bxSlider( {
+					  minSlides: 6,
+					  maxSlides: 10,
+					  slideWidth: 200,
+					  slideMargin: 10,
+					  moveSlides:6,
+					  captions:true,
+					  adaptiveHeight:true,
+					  speed:2000
+					});
+					
+					$(".bio-section-title").click(function(){
+					var elem = $(this);
+						$(elem).next().toggle('slow');
+					});
+					 
+				});
 				</script>
 				
-				<link rel="stylesheet" type="text/css" href="css/gallery/horizontal.css" />
 				
-				<script language="javascript" type="text/javascript" src="js/mootools-1.2.1-core.js"></script>
-				<script language="javascript" type="text/javascript" src="js/mootools-1.2-more.js"></script>
-				<script language="javascript" type="text/javascript" src="js/slideitmoo-1.1.js"></script>
-
-
-				 
+				
 				  <p class="separator"></p>
 				</div><!--/span-->
 			  </div><!--/row-->
-
-	  
+  
 	  <!-- END PEGE-->
       <hr>
 
@@ -440,24 +338,10 @@
 
     </div><!--/.fluid-container-->
 
-    <!-- Le javascript
-    ================================================== -->
+    
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery.js"></script>
 	<script src="js/jquery-timer.js"></script>
 	<script src="js/pesennik.js"></script>
-    <!--script src="js/bootstrap-transition.js"></script>
-    <script src="js/bootstrap-alert.js"></script>
-    <script src="js/bootstrap-modal.js"></script>
-    <script src="js/bootstrap-dropdown.js"></script>
-    <script src="js/bootstrap-scrollspy.js"></script>
-    <script src="js/bootstrap-tab.js"></script>
-    <script src="js/bootstrap-tooltip.js"></script>
-    <script src="js/bootstrap-popover.js"></script>
-    <script src="js/bootstrap-button.js"></script>
-    <script src="js/bootstrap-collapse.js"></script>
-    <script src="js/bootstrap-carousel.js"></script>
-    <script src="js/bootstrap-typeahead.js"></script-->
 
   </body>
 </html>

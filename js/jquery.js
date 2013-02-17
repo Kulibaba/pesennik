@@ -1,5 +1,5 @@
 /*! * jQuery JavaScript Library v1.9.1 */
-(function( window, undefined ) {
+;(function( window, undefined ) {
 
 var
 	// The deferred used on DOM ready

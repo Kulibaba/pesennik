@@ -245,13 +245,16 @@ vertical-align:bottom;
 .bio-content{
 	margin-left:40px;
 }
-.bio-section
-{
+.bio-section{
 	clear:both; 
 	margin: 20px 0px 20px 0px;
 }
+
+.bio-section >div{
+	/*display:none;*/
+}
 .bio-section-title{
-	color:#278;
+	color:#006dcc;
 	font-size:30px; 
 	font-family:"Monotype Corsiva",Segoe, Verdana,sans-serif;
 	cursor:pointer;
@@ -328,7 +331,10 @@ vertical-align:bottom;
 	display:block;
 	padding:5px;
 }
-
+.visible
+{
+	display:block;
+}
 /* BIO PAGE _END*/
 /*
 	Kotov  END _____________________________________________
