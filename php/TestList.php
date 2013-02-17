@@ -46,7 +46,7 @@ while($song = $list->current()){
 				Есть текст:
 			</td>
 			<td>
-				<?php echo $song->isText(); ?>
+				<?php echo $song->isLyrics(); ?>
 			</td>
 		</tr>
 		<tr>

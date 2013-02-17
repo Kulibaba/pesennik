@@ -2,14 +2,13 @@
 require_once 'DataBase.php';
 require_once 'Utils.php';
 require_once 'Video.php';
-class Song {
+require_once 'Translate.php';
 
+class Song {
 	private $artistName;// array if duet
 	private $artistUrl;	//
 	
-	private $duetId;
-
-	private $flags;	/*	1 - has text
+	private $flags;	/*	1 - has lyrics
 						2 - has video
 						4 - has translate
 						8 - has accords
@@ -26,13 +25,11 @@ class Song {
 	private $languageName;
 	private $languageUrl;
 	
-	private $text;
+	private $lyrics;
 	
-	private $translateName;	// array of translation names
-	private $transtateText;	// array of translation texts
+	private $translateList;	// list of translation
 	
-	private $videoTypeName;
-	private $videoData;		// included full video frame
+	private $videoList;		// list of video
 	
 	private $url;
 	
@@ -40,13 +37,7 @@ class Song {
 	private $userName;
 	private $userUrl;
 	
-	private $userIdTranslate;
-	private $userNameTranslate;
-	
-	private $userIdVideo;
-	private $userNameVideo;
 	function initListItem($row){
-		$this->id = $row["id"];
 		$this->name = $row["name"];
 		$this->url = $row["url"];
 		$this->flags = $row["flags"];
@@ -56,8 +47,9 @@ class Song {
 		$this->languageName = $row["languageName"];
 		$this->userName = $row["userName"];
 		$this->userUrl = $row["userUrl"];
+		$this->searchName = $row["searchName"];
 	}
-	//function Song(){}
+	
 	function getUrlById($id){
 		/*
 			Used only for lists
@@ -77,26 +69,54 @@ class Song {
 
 		return $row["artistUrl"]."/".$row["songUrl"];
 	}
-	private function getVideoList($songId){
+	private function initVideoList($songId){
 		$query = "
 			SELECT
 				video.url AS videoUrl,
-				video.data
+				video.info,
+				videosite.data,
+				videotype.name AS videoTypeName,
+				user.name AS userName,
+				user.url AS userUrl
 			FROM video
-			LEFT JOIN song ON song.id = video.songId
+			INNER JOIN videosite ON video.videoSiteId = videoSite.id
+			LEFT JOIN song ON 		video.songId = song.id	
+			LEFT JOIN videoType ON 	video.videoTypeId = videoType.id 
+			LEFT JOIN user ON 		video.userId = user.id 
 			WHERE song.id ='$songId'
 		";
-		//	videoType.name AS videoTypeName
-			
 		
-		echo $query;
 		$result = mysql_query($query,DB::getInstance());
 		$resultList = new SplDoublyLinkedList();
-		//while($row = mysql_fetch_array ($result))
-			//$resultList->push(new Video(str_replace("URL", $row["videoUrl"], $row["data"]), "111");
+		while($row = mysql_fetch_array ($result))
+			$resultList->push(new Video($row));
 		$resultList->rewind();
 		return $resultList;
-}
+	}
+	private function initTranslateList($songId){
+		$query = "
+			SELECT
+				translate.lyrics,
+				translate.name,
+				translate.info,
+				language.name AS languageName,
+				language.url AS languageUrl,
+				user.name AS userName,
+				user.url AS userUrl
+			FROM translate
+			INNER JOIN song ON 		translate.songId = song.id
+			LEFT JOIN language ON 	translate.languageId = language.id	
+			LEFT JOIN user ON 		translate.userId = user.id 
+			WHERE song.id ='$songId'
+		";
+		
+		$result = mysql_query($query,DB::getInstance());
+		$resultList = new SplDoublyLinkedList();
+		while($row = mysql_fetch_array ($result))
+			$resultList->push(new Translate($row));
+		$resultList->rewind();
+		return $resultList;
+	}
 	function initAll($artistId, $url){
 		/*
 			Used for song's pages
@@ -106,35 +126,41 @@ class Song {
 			SELECT 
 				artist.name AS artistName,
 				artist.url AS artistUrl,
-				song.id, song.name,
+				song.id, 
+				song.name,
+				song.lyrics,
 				song.url,
-				video.url AS videoUrl,
-				videoType.name AS videoTypeName FROM song 
-			INNER JOIN artistsong ON artistsong.songId = song.id
-			LEFT JOIN artist ON artistsong.artistId = artist.id
-			LEFT JOIN video ON song.id = video.songId
-			LEFT JOIN videoSite ON video.videoSiteId = videoSite.id
-			LEFT JOIN videoType ON video.videoTypeId = videoType.id 
+				song.info,
+				language.name AS languageName,
+				language.url AS languageUrl,
+				user.name AS userName,
+				user.url AS userUrl
+			FROM song 
+			INNER JOIN artistsong ON 	song.id = artistsong.songId
+			LEFT JOIN artist ON 		artistsong.artistId = artist.id
+			LEFT JOIN language ON 		song.languageId = language.id
+			LEFT JOIN user ON 			song.userId = user.id
 			WHERE song.url ='$url' AND artist.id = '$artistId'
 		";
-		
-		
-		echo $query;
+
 		$result = mysql_query($query,DB::getInstance());
 		$row = mysql_fetch_array ($result);
 
 		$this->id = $row["id"];
+		$this->lyrics = $row["lyrics"];
 		$this->name = $row["name"];
 		$this->url = $row["url"];
-		$this->videoData = str_replace("URL", $row["videoUrl"], $row["videoSiteData"]);
-		$this->videoTypeName = $row["videoTypeName"];
 		$this->artistName = $row["artistName"];
 		$this->artistUrl = $row["artistUrl"];
+		$this->languageName = $row["languageName"]; 
+		$this->languageUrl = $row["languageUrl"];
+		$this->userName = $row["userName"]; 
+		$this->userUrl = $row["userUrl"];
+		$this->videoList = $this->initVideoList($this->id);
+		$this->translateList = $this->initTranslateList($this->id);
+		$this->info = $row["info"];
 	}
-	
-	
-	
-	function isText() {
+	function isLyrics() {
 		return ($this->flags & 1)!=0;
 	}
 	function isVideo() {
@@ -161,6 +187,12 @@ class Song {
 	function getArtistUrl() {
 		return $this->artistUrl;
 	}
+	function getArtistSongId() {
+		return $this->artistSongId;
+	}
+	function getArtistSongNo() {
+		return $this->artistSongNo;
+	}
 	function getDuetId() {
 		return $this->duetId;
 	}
@@ -182,8 +214,8 @@ class Song {
 	function getLanguageUrl() {
 		return $this->languageUrl;
 	}
-	function getText() {
-		return $this->text;
+	function getLyrics() {
+		return $this->lyrics;
 	}
 	function getStarName() {
 		return $this->starName;
@@ -203,14 +235,17 @@ class Song {
 	function getUserUrl() {
 		return $this->userUrl;
 	}
-	function getVideoData() {
-		return $this->videoData;
+	function getVideoList() {
+		return $this->videoList;
 	}
-	function getVideoTypeName() {
-		return $this->videoTypeName;
+	function getTranslateList() {
+		return $this->translateList;
 	}
-	function getTranslate() {
-		return $this->videoData;
+	function getInfo() {
+		return $this->info;
+	}
+	function getSearchName() {
+		return $this->getSearchName;
 	}
 }
 ?>
