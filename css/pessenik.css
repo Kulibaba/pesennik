@@ -153,7 +153,7 @@ vertical-align:bottom;
 .clips{}
 .translations{}
 
-/* BIO PAGE _BEGIN*/
+/* ARTIST PAGE _BEGIN*/
 .photo img{
 	width:100px;
 	height:130px;
@@ -325,7 +325,6 @@ vertical-align:bottom;
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
 }
-
 .item{
 	clear:both;
 	display:block;
@@ -341,9 +340,39 @@ vertical-align:bottom;
 	cursor:pointer;
 }
 .artist-flag{
-	padding-bottom: 7px;
+	margin-bottom: 7px;
+	border:1px solid #333;
 }
-/* BIO PAGE _END*/
+
+/* ARTIST PAGE _END*/
+
+/* SONG PAGE _BEGIN*/
+.video{
+	margin: 20px 10px;
+}
+
+.w50{
+	width:49%;
+	float:left;
+	margin:5px;
+}
+
+.song-title{
+	font-weight:bold;
+	font-size:18px;
+	left:auto;
+	position: relative;
+	width: 100%;
+	display: block;
+	text-align: center;
+	margin:15px auto;
+}
+.song-text{
+	text-align:justify;
+	padding:10px;
+}
+/* SONG PAGE _END*/
+
 /*
 	Kotov  END _____________________________________________
 */

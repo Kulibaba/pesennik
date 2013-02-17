@@ -11,6 +11,10 @@
     <link href="css/bootstrap.css" rel="stylesheet">
 	<link href="css/pessenik.css" rel="stylesheet">
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
+	<script src="js/jquery.js"></script>
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+	<script language="javascript" type="text/javascript" src="js/jquery.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -159,18 +163,17 @@
           </div><!--/.well -->
         </div><!--/span-->
         <div class="span10">
-         
-		 
-		 
+  
+	<!--  PAGE BEGIN-->	 
 
 
-  <div class="main-container" style="margin:20px;">
+	<div class="main-container" style="margin:20px;">
 	  <div  id="short_bio">
 		<div class="photo"><img src="img/artist.jpg" alt="artist" /></div>
-		<div class="span7" id="short_bio_table" >
-			<span class="vote-stars">
-				<span class="current-rating" style="width:30%;">  </span>	
-			</span>
+		
+		
+		<div class="span4" id="short_bio_table" >
+		<span class="artist-name"> Ани Лорак  <img  src="img/flags/ru.png" class="artist-flag" alt="Украина"/></span>
 			<span style="border:1px solid #541;width:182; height: 18px; float:right;">
 				<!-- margin for element 2px , w:22 h:16-->
 				<img src="" width="22" height="16" alt="google" />
@@ -181,375 +184,73 @@
 				<img src="" width="22" height="16" alt="livejournal" />
 				<img src="" width="22" height="16" alt="yandex" />
 			</span>
-			<table class="bio-table" cellpadding="5" cellspacing="3">
-				<tr><td>Полное имя</td> <td>: Ани Лорак</td></tr>
-				<tr><td>Даты</td> <td>: 01.01.1990 - 10.10.2010</td></tr>
-				<tr><td>Страны</td> <td>: Украина</td></tr>
-			</table>
-			
-			<div style="float:right;">
-				<div style="display:inline;">
-					<a href="#">Песни</a> 
-					<a href="#">Альбомы</a>
-				</div>
 				
-				<div style="display:inline;">
-					<span style="border:1px solid #541;width:182; height: 25px; ">
-						<!-- margin for element 2px , w:22 h:16-->
-						<img src="" width="22" height="16" alt="google" />
-						<img src="" width="22" height="16" alt="vk" />
-						<img src="" width="22" height="16" alt="face" />
-						<img src="" width="22" height="16" alt="mail.ru" />
-						<img src="" width="22" height="16" alt="tweeter" />
-						<img src="" width="22" height="16" alt="livejournal" />
-						<img src="" width="22" height="16" alt="yandex" />
-					</span>
-				</div>
-			</div>
-	</div>
-	</div>
-	<div class="bio-content">
-		<div class="bio-section">	  
-			<span class="bio-section-title" > Биография </span>
-			<div class="bio-section-text">
-			Глобальный контекст виден всем программным модулям и определяет общую языковую среду конфигурации.
-			Локальный контекст модуля образуется тем конкретным местом конфигу¬рации задачи, для которого использован программный модуль. Локальный контекст виден только конкретному программному модулю и определяет для модуля набор непосредственно доступных модулю значений агрегатных типов данных, их атрибутов и методов (см. «Виды программных модулей»). Однако, контекст модуля можно передать как объект в виде параметра при вызове процедур и функций (см. «Передача локального контекста программного модуля в качестве параметра»). Кроме того, контекст модуля определяет тот набор мето¬дов, которые доступны только в данном контексте (см. «Атрибуты и методы контекста Модуля формы», «Методы контекста Модуля формы элемента справочника» и т. п.). Локальный контекст предназначен для того, чтобы дать воз¬можность управлять частными аспектами поведения задачи, присущими данному модулю.
+			<div style="margin:15px 0;">
+				<span class="artist-name"> Переводы  </span>
+				<img  src="img/flags/au.png" class="artist-flag" alt="Украина"/>
+				<img  src="img/flags/gb.png" class="artist-flag" alt="Украина"/>
+				<img  src="img/flags/fr.png" class="artist-flag" alt="Украина"/>
+				<img  src="img/flags/de.png" class="artist-flag" alt="Украина"/>
 			</div>
 		</div>
 		
-		<div  class="bio-section">	  
-			<span class="bio-section-title" > Награды </span>
-			<div class="bio-rewards">
-				<ul>
-					<li>2010
-						<ul>
-						<li>[Событие,Место] - [Название]</li>
-						<li>Первая гланда России, Берибово - Золотая связка из горла Баскова.</li>
-						<li>Пухлое горло стар-пома, Нижний Тагил - Лучший едок сырых яиц.</li>
-						</ul>
-					</li>
-					<li>2011</li>
-					<li>2012</li>
-					<li>2013</li>
-					
-				</ul>
+	  </div>
+	  
+	  <div class="video">
+		<span> 
+			<iframe width="180" height="115" src="http://www.youtube.com/embed/Qunj870HeRE" frameborder="0" allowfullscreen></iframe>
+		</span>
+	  </div>
+	  <div class="w50">
+		<div id="tabs2" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
+			<span class="song-title">Текст Песни</span> 
+			<div  class="song-text">  
+				Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. 	Nunc tristique tempus lectus.
 			</div>
-		</div>
-		<div class="bio-section">	  
-			<span class="bio-section-title" > Интересные факты </span>
-			<div class="bio-section-text">
-				<ul>
-					<li>
-					[Факт]
-					</li>
-					<li>
-					В 12 лет уже разбила все бокалы голосовыми связками, естественно чужими.
-					</li>
-					<li>
-					30-тый ребенок в семье Гирбета и Зирлоки Лораков, не говорила до 13 лет, но пела с 3.
-					</li>
-					<li>
-					Любимое блюдо жареные куринные лапки .
-					</li>
-				</ul>
-			</div>
-		</div>
-		
-		<div class="bio-section">	  
-			<span class="bio-section-title" > О себе </span>
-			<div class="bio-section-text">
-				<ul>
-					<li>[Думаю, что все равно что писать в этом разеделе]</li>
-					<li>Любит ездить верхом на верблюде и плювать им на поклонников.</li>
-					<li>Часто развлекается завязывая глаза перед дошкольными учереждениями и катаясь по кругу.</li>
-				</ul>
-			</div>
-		</div>
-		
-		<div class="bio-section">	  
-			<span class="bio-section-title" > Фото </span>
-			
-			<!--div  class="bio-section-gallery">
-				<a href="#" id="gallery-left-arrow"><</a>
-				<div id="gallery-content"></div>
-				<a href="#" id="gallery-right-arrow">></a>
+		</div>			
+			<!--div class="bio-section">	  
+				<span class="bio-section-title" > Песни/Альбомы </span>
+				
 			</div-->
-			
-			<!--TEST IMAGE BEGIN-->			
-			<div id="SlideItMoo_outer">	
-					<div class="SlideItMoo_back"><!--slide back button--></div>
-					
-					<!-- container inside used for hiding the elements outisde the view  -->
-					<div id="SlideItMoo_inner" style="width: 950px;">			
-					<!-- actual elements container, usually having a width bigger than the one of SlideItMoo_inner -->
-						<div id="SlideItMoo_items" style="width: 2680px; margin-left: 0px;">
-							<!-- a single element. Duplicate this for as many times you want to hold the individual elements in slider -->
-							
-							<!-- ROW 1-->
-							<div class="SlideItMoo_element">
-								<strong>1: Address</strong>
-								<a href="img/artist.jpg" rel="lightbox[galerie]" target="_blank">
-									<img src="img/artist.jpg" /></a>
-								Nam porta tellus ac urna    
-							</div>							
-							<div class="SlideItMoo_element">
-								<strong>2: Ads</strong>
-								<a href="img/artist.jpg" rel="lightbox[galerie]" target="_blank">
-									<img src="img/artist.jpg" /></a>
-								Praesent pellentesque eros nec nisl    
-							</div>
-							<div class="SlideItMoo_element">
-								<strong>3: Phone</strong>
-								<a href="img/artist.jpg" rel="lightbox[galerie]" target="_blank">
-									<img src="img/artist.jpg" /></a>
-								Vestibulum eleifend scelerisque purus  
-							</div>
-							<div class="SlideItMoo_element">
-								<strong>4: Lock</strong>
-								<a href="img/artist.jpg" rel="lightbox[galerie]" target="_blank">
-									<img src="img/artist.jpg" /></a>
-								 Felis nulla iaculis lacus
-							</div>
-							
-							<div class="SlideItMoo_element">
-								<strong>5: Zoo</strong>
-								<a href="img/artist.jpg" rel="lightbox[galerie]" target="_blank">
-									<img src="img/artist.jpg" /></a>
-								Quisque neque. Donec quam ante, pulvinar vitae
-							</div>
-							
-							<div class="SlideItMoo_element">
-								<strong>6: Donut</strong>
-								<a href="img/artist.jpg" rel="lightbox[galerie]" target="_blank">
-									<img src="img/artist.jpg" /></a>
-								Suspendisse sodales turpis. Aliquam lectus  
-							</div>
-							<!-- ROW 2-->
-							
-							
-							<div class="SlideItMoo_element">
-								<strong>11: Address</strong>
-								<a href="img/artist.jpg" rel="lightbox[galerie]" target="_blank">
-									<img src="img/artist.jpg" /></a>
-								Nam porta tellus ac urna    
-							</div>							
-							<div class="SlideItMoo_element">
-								<strong>22: Ads</strong>
-								<a href="img/artist.jpg" rel="lightbox[galerie]" target="_blank">
-									<img src="img/artist.jpg" /></a>
-								Praesent pellentesque eros nec nisl    
-							</div>
-							<div class="SlideItMoo_element">
-								<strong>33: Phone</strong>
-								<a href="img/artist.jpg" rel="lightbox[galerie]" target="_blank">
-									<img src="img/artist.jpg" /></a>
-								Vestibulum eleifend scelerisque purus  
-							</div>
-							<div class="SlideItMoo_element">
-								<strong>44: Lock</strong>
-								<a href="img/artist.jpg" rel="lightbox[galerie]" target="_blank">
-									<img src="img/artist.jpg" /></a>
-								 Felis nulla iaculis lacus
-							</div>
-							
-							<div class="SlideItMoo_element">
-								<strong>55: Zoo</strong>
-								<a href="img/artist.jpg" rel="lightbox[galerie]" target="_blank">
-									<img src="img/artist.jpg" /></a>
-								Quisque neque. Donec quam ante, pulvinar vitae
-							</div>
-							
-							<div class="SlideItMoo_element">
-								<strong>66: Donut</strong>
-								<a href="img/artist.jpg" rel="lightbox[galerie]" target="_blank">
-									<img src="img/artist.jpg" /></a>
-								Suspendisse sodales turpis. Aliquam lectus  
-							</div>
-							
-							<!--END ROWS-->
-							
-							
-						</div>			
-					</div>   
-					
-					<div class="SlideItMoo_forward"><!--slide forward button--></div>
+	  </div>
+	 
+		<!--Перевод Песни-->
+		<div class="w50">
+			<div id="tabs">
+			  <ul>
+				<li><a href="#tabs-1">Австралийский</a></li>
+				<li><a href="#tabs-2">Французский</a></li>
+				<li><a href="#tabs-3">Немецкий</a></li>
+			  </ul>
+			  <div id="tabs-1">
+				<p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
+			  </div>
+			  <div id="tabs-2">
+				<p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
+			  </div>
+			  <div id="tabs-3">
+				<p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
+				<p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
+			  </div>
 			</div>
-			<!--TEST IMAGE END-->			
-			
 		</div>
-		
-		<!--div class="bio-section">	  
-			<span class="bio-section-title" > Песни/Альбомы </span>
-			
-		</div-->
-	</div>
-			
 	</div>
 
- 
-	<script language="javascript" type="text/javascript" src="js/jquery.js"></script>
-	<script language="javascript" type="text/javascript">
 	
-		jQuery.noConflict();	
-			 jQuery(function(){
-			 //jQuery('#tabs').tabs();	
-			var sliderMoo = new SlideItMoo({
-								overallContainer: 'SlideItMoo_outer',
-								elementScrolled: 'SlideItMoo_inner',
-								thumbsContainer: 'SlideItMoo_items',		
-								itemsVisible:7,
-								elemsSlide:3,
-								duration:300,
-								itemsSelector: '.SlideItMoo_element',
-								itemWidth: 158,
-								showControls:1,
-								startIndex:5			
-					});
-				
-			 });
-		</script>
-		
-		<link rel="stylesheet" type="text/css" href="css/gallery/horizontal.css" />
-		
-		<script language="javascript" type="text/javascript" src="js/mootools-1.2.1-core.js"></script>
-		<script language="javascript" type="text/javascript" src="js/mootools-1.2-more.js"></script>
-		<script language="javascript" type="text/javascript" src="js/slideitmoo-1.1.js"></script>
-
-
+	<script language="javascript" type="text/javascript">
+		//jQuery.noConflict();	
+		$(function() {
+			$( "#tabs" ).tabs();
+		});
+	</script>
+	
+	<!--  PAGE END-->	 
+	
+	
 		 
 		  <p class="separator"></p>
 		<div>
-			<div class="span2" style="text-align:center;">
-				<div style="overflow:hidden;height:30px;">
-					<div id="new-heading-menu">
-						<p class="heading">Тексты</p>
-						<p class="heading">Клипы</p>
-						<p class="heading">Переводы</p>
-					</div>
-				</div>
-				<p class="heading btn-next-heading"> &nbsp </p>
-			</div>
-			<div  class="span10 " id="headings-container" style="overflow:hidden;height:500px;">
-				<div id="new-heading-block">
-				<!--Texts-->
-				<div class="new-heading-detailed texts" id="measure_block">
-					<div class="span11">
-						<div class="row-fluid">
-							<div class="span4">
-							  <h2>Заголовок т1</h2><!--235 !symbols! -->
-							  <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-							  <p><a class="btn" href="#">View details &raquo;</a></p>
-							</div><!--/span-->
-							<div class="span4">
-							  <h2>Заголовок т1</h2>
-							  <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-							  <p><a class="btn" href="#">View details &raquo;</a></p>
-							</div><!--/span-->
-							<div class="span4">
-							  <h2>Заголовок т1</h2>
-							  <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-							  <p><a class="btn" href="#">View details &raquo;</a></p>
-							</div><!--/span-->
-						</div><!--/row-->
-						<div class="row-fluid">
-							<div class="span4">
-							  <h2>Заголовок т2</h2>
-							  <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-							  <p><a class="btn" href="#">View details &raquo;</a></p>
-							</div><!--/span-->
-							<div class="span4">
-							  <h2>Заголовок т2</h2>
-							  <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-							  <p><a class="btn" href="#">View details &raquo;</a></p>
-							</div><!--/span-->
-							<div class="span4">
-							  <h2>Заголовок т2</h2>
-							  <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-							  <p><a class="btn" href="#">View details &raquo;</a></p>
-							</div><!--/span-->
-						</div><!--/row-->
-					</div>
-				</div>
-				<!--Clips-->
-				<div class="new-heading-detailed clips">
-					<div class="span11">
-						<div class="row-fluid">
-							<div class="span4">
-							  <h2>Заголовок к1</h2>
-							  <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-							  <p><a class="btn" href="#">View details &raquo;</a></p>
-							</div><!--/span-->
-							<div class="span4">
-							  <h2>Заголовок к1</h2>
-							  <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-							  <p><a class="btn" href="#">View details &raquo;</a></p>
-							</div><!--/span-->
-							<div class="span4">
-							  <h2>Заголовок к1</h2>
-							  <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-							  <p><a class="btn" href="#">View details &raquo;</a></p>
-							</div><!--/span-->
-						</div><!--/row-->
-						<div class="row-fluid">
-							<div class="span4">
-							  <h2>Заголовок к2</h2>
-							  <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-							  <p><a class="btn" href="#">View details &raquo;</a></p>
-							</div><!--/span-->
-							<div class="span4">
-							  <h2>Заголовок к2</h2>
-							  <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-							  <p><a class="btn" href="#">View details &raquo;</a></p>
-							</div><!--/span-->
-							<div class="span4">
-							  <h2>Заголовок к2</h2>
-							  <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-							  <p><a class="btn" href="#">View details &raquo;</a></p>
-							</div><!--/span-->
-						</div><!--/row-->
-					</div>
-				</div>
-				<!--Translations-->
-				<div class="new-heading-detailed translations">
-					<div class="span11">
-						<div class="row-fluid">
-							<div class="span4">
-							  <h2>Заголовок п1</h2>
-							  <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-							  <p><a class="btn" href="#">View details &raquo;</a></p>
-							</div><!--/span-->
-							<div class="span4">
-							  <h2>Заголовок п1</h2>
-							  <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-							  <p><a class="btn" href="#">View details &raquo;</a></p>
-							</div><!--/span-->
-							<div class="span4">
-							  <h2>Заголовок п1</h2>
-							  <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-							  <p><a class="btn" href="#">View details &raquo;</a></p>
-							</div><!--/span-->
-						</div><!--/row-->
-						<div class="row-fluid">
-							<div class="span4">
-							  <h2>Заголовок п2</h2>
-							  <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-							  <p><a class="btn" href="#">View details &raquo;</a></p>
-							</div><!--/span-->
-							<div class="span4">
-							  <h2>Заголовок п1</h2>
-							  <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-							  <p><a class="btn" href="#">View details &raquo;</a></p>
-							</div><!--/span-->
-							<div class="span4">
-							  <h2>Заголовок п1</h2>
-							  <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-							  <p><a class="btn" href="#">View details &raquo;</a></p>
-							</div><!--/span-->
-						</div><!--/row-->
-					</div>
-				</div>
-				</div>
-			</div>
+			
 		</div><!-- /detailed headings -->
 	   </div><!--/span-->
       </div><!--/row-->
@@ -565,22 +266,10 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery.js"></script>
 	<script src="js/jquery-timer.js"></script>
 	<script src="js/pesennik.js"></script>
-    <!--script src="js/bootstrap-transition.js"></script>
-    <script src="js/bootstrap-alert.js"></script>
-    <script src="js/bootstrap-modal.js"></script>
-    <script src="js/bootstrap-dropdown.js"></script>
-    <script src="js/bootstrap-scrollspy.js"></script>
-    <script src="js/bootstrap-tab.js"></script>
-    <script src="js/bootstrap-tooltip.js"></script>
-    <script src="js/bootstrap-popover.js"></script>
-    <script src="js/bootstrap-button.js"></script>
-    <script src="js/bootstrap-collapse.js"></script>
-    <script src="js/bootstrap-carousel.js"></script>
-    <script src="js/bootstrap-typeahead.js"></script-->
-
+    
+	
   </body>
 </html>
 
