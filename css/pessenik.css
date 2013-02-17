@@ -112,6 +112,7 @@ vertical-align:bottom;
 	height:1px !important;
 	display:block;
 	clear:both;
+	margin:10px 0px;
 }
 
 
@@ -338,6 +339,10 @@ vertical-align:bottom;
 	font-weight:bold;
 	font-size:16px;
 	cursor:pointer;
+	margin-left:10px;
+}
+.artist-name a{
+	text-decoration:none;
 }
 .artist-flag{
 	margin-bottom: 7px;
