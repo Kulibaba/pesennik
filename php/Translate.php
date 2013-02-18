@@ -11,6 +11,9 @@ class Translate {
 	private $info;
 	
 	function Translate($row){
+	/*
+		@row - array, params for constructor
+	*/
 		$this->lyrics = $row["lyrics"];
 		$this->languageUrl = $row["languageUrl"];
 		$this->languageName = $row["languageName"];

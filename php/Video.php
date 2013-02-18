@@ -8,6 +8,9 @@ class Video {
 	private $userUrl;
 	
 	function Video($row){
+	/*
+		@row - array, params for constructor
+	*/
 		$this->data = str_replace("URL", $row["videoUrl"], $row["data"]);
 		$this->videoTypeName = $row["videoTypeName"];
 		$this->userName = $row["userName"];

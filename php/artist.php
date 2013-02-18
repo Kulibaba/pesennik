@@ -7,14 +7,14 @@ class Artist {
 	private $id;
 	private $name;
 	private $nameCharacter;
-	private $url;
-	private $band;
+	private $url;	//result urlencode($name)
+	private $band;	// true - band, false - single 
 	private $bio;
-	private $photo;
+	private $photo; // true has photo
 	private $birthDate;
 	
 	private $deathDate;
-	private $countryName;		 	 	 	 	 	 		
+	private $countryName;	 	 	 	 	 		
 	private $countryUrl;		 	 	 	 	 	 		
 
 	private $birthplace;
@@ -28,6 +28,7 @@ class Artist {
 	function initListItem($row){
 		/*
 			Used only for lists
+			$row - array, params for constructor
 		*/
 		$this->name = $row["name"];
 		$this->searchName = $row["searchName"];
@@ -40,6 +41,7 @@ class Artist {
 	function initAll($url){
 		/*
 			Used for artist's pages
+			$url - string, unique artist's url 
 		*/
 		
 		$query = "

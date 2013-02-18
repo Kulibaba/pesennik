@@ -50,26 +50,7 @@ class Song {
 		$this->searchName = $row["searchName"];
 	}
 	
-	function getUrlById($id){
-		/*
-			Used only for lists
-		*/
-			
-		$query = "
-			SELECT
-				artist.url AS artistUrl,
-				song.url AS songUrl
-			FROM song
-			LEFT JOIN artist ON song.artistId = artist.id
-			WHERE song.id ='$id'
-		";
-		
-		$result = mysql_query($query,DB::getInstance());
-		$row = mysql_fetch_array ($result);
-
-		return $row["artistUrl"]."/".$row["songUrl"];
-	}
-	private function initVideoList($songId){
+	private function fillVideoList($songId){
 		$query = "
 			SELECT
 				video.url AS videoUrl,
@@ -91,9 +72,9 @@ class Song {
 		while($row = mysql_fetch_array ($result))
 			$resultList->push(new Video($row));
 		$resultList->rewind();
-		return $resultList;
+		$this->videoList = $resultList;
 	}
-	private function initTranslateList($songId){
+	private function fillTranslateList($songId){
 		$query = "
 			SELECT
 				translate.lyrics,
@@ -115,7 +96,7 @@ class Song {
 		while($row = mysql_fetch_array ($result))
 			$resultList->push(new Translate($row));
 		$resultList->rewind();
-		return $resultList;
+		$this->translateList = $resultList;
 	}
 	function initAll($artistId, $url){
 		/*
@@ -156,8 +137,8 @@ class Song {
 		$this->languageUrl = $row["languageUrl"];
 		$this->userName = $row["userName"]; 
 		$this->userUrl = $row["userUrl"];
-		$this->videoList = $this->initVideoList($this->id);
-		$this->translateList = $this->initTranslateList($this->id);
+		$this->initVideoList($this->id);
+		$this->initTranslateList($this->id);
 		$this->info = $row["info"];
 	}
 	function isLyrics() {

@@ -3,6 +3,13 @@ require_once 'Song.php';
 
 class SongList{
 	private function getArtistSongList($no, $artistId, $pattern, $sorting){
+	/*
+		used for show artist's song list
+		@no - int, number of items in list
+		$artistId, - int, artist's id
+		@pattern - string, order's field name
+		@sorting - string, way of sorting
+	*/
 		$query = "
 			SELECT
 				artist.name AS artistName,
@@ -38,6 +45,11 @@ class SongList{
 	}
 	
 	private function getSongList($no, $sorting){
+	/*
+		used for show song list
+		@no - int, number of items in list
+		@sorting - string, way of sorting
+	*/
 		$query = "
 			SELECT
 				artist.name AS artistName,
@@ -70,7 +82,6 @@ class SongList{
 	function getOldSongs($no){
 		return $this->getSongList($no, "DESC");
 	}
-	
 	function getNewArtistSongs($no, $artistId){
 		return $this->getArtistSongList($no, $artistId, "song.id", "ASC");
 	}

@@ -1,5 +1,8 @@
 <?php
 function toLowerCase($string){
+/*
+	return @string in lower case 
+*/
 	$string = strtolower ($string);
 	$string = str_replace("А", "а", $string);
 	$string = str_replace("Б", "б", $string);
@@ -41,8 +44,11 @@ function toLowerCase($string){
 	return $string;
 }
 
-
 function getFullDate($date) {
+/*
+	get russian-style date from 
+	@date - string, date from MySQL
+*/
 	$date_elements  = explode("-",$date);
 	$unix_date =  mktime(0,0,0,$date_elements[1],$date_elements[2],$date_elements[0]);
 	$rus_date = date('d F Y', $unix_date);
@@ -60,5 +66,4 @@ function getFullDate($date) {
 	$rus_date = str_replace("December", "декабря", $rus_date);
 	return  $rus_date;
 }
-
 ?>

@@ -3,6 +3,12 @@ require_once 'Artist.php';
 
 class ArtistList{
 	private function getArtistList($no, $pattern, $sorting){
+	/*
+		used for show artist list
+		@no - int, number of items in list
+		@pattern - string, order's field name
+		@sorting - string, way of sorting
+	*/
 		$query = "
 			SELECT
 				artist.name,
@@ -29,6 +35,12 @@ class ArtistList{
 	}
 	
 	private function getArtistCharacterList($no, $character, $sorting){
+	/*
+		used for show artist list by first letter
+		@no - int, number of items in list
+		@character - string, first user's name character 
+		@sorting - string, way of sorting
+	*/	
 		$query = "
 			SELECT
 				artist.name,
@@ -61,7 +73,6 @@ class ArtistList{
 	function getOldArtists($no){
 		return $this->getArtistList($no, "artist.id", "DESC");
 	}
-	
 	function getFirstArtistCharacterList($no, $character){
 		return $this->getArtistCharacterList($no, $character, "ASC");
 	}
