@@ -167,17 +167,14 @@
 			<div  class="item">
 				<div class="photo-small"><img src="img/artist.jpg" alt="artist" /></div>
 				<div class="span7"  >
-					<div style="float:left;">
-						<div style="display:inline;">
-							<span class="artist-name"> Ани Лорак  <img  src="img/flags/ru.png" class="artist-flag" alt="Украиная"/></span>
-							<div style="display:none;">
-							<a href="#"  class="btn btn-small">Биография »</a> 
-							<a href="#"  class="btn btn-small">Песни »</a> 
-							<a href="#"  class="btn btn-small">Альбомы »</a>
-							<a href="#"  class="btn btn-small">Клипы »</a> 
-							<a href="#"  class="btn btn-small">Переводы  »</a>
-							</div>
-						</div>
+					<span class="artist-name"> Ани Лорак  <img  src="img/flags/ru.png" class="artist-flag" alt="Украиная"/></span>
+					
+					<div class="hidden-block" >
+					<a href="#"  class="btn btn-small">Биография »</a> 
+					<a href="#"  class="btn btn-small">Песни »</a> 
+					<a href="#"  class="btn btn-small">Альбомы »</a>
+					<a href="#"  class="btn btn-small">Клипы »</a> 
+					<a href="#"  class="btn btn-small">Переводы  »</a>
 					</div>
 				</div>
 			</div>
@@ -185,19 +182,13 @@
 			<div  class="item">
 				<div class="photo-small"><img src="img/artist.jpg" alt="artist" /></div>
 				<div class="span7" >
-					<div style="float:left;">
-						<div style="display:inline;">
-							<span  class="artist-name"> Ани Лорак <img  src="img/flags/ru.png" class="artist-flag" alt="Украиная"/></span>
-							
-							<div style="display:none;">
-							<a href="#"  class="btn btn-small">Биография »</a> 
-							<a href="#"  class="btn btn-small">Песни »</a> 
-							<a href="#"  class="btn btn-small">Альбомы »</a>
-							<a style="visibility:hidden;"  href="#"  class="btn btn-small">Клипы »</a> 
-							<a href="#"  class="btn btn-small">Переводы  »</a>
-							</div>
-							
-						</div>
+					<span  class="artist-name"> Ани Лорак <img  src="img/flags/ru.png" class="artist-flag" alt="Украиная"/></span>
+					<div class="hidden-block" >
+					<a href="#"  class="btn btn-small">Биография »</a> 
+					<a href="#"  class="btn btn-small">Песни »</a> 
+					<a href="#"  class="btn btn-small">Альбомы »</a>
+					<a style="visibility:hidden;"  href="#"  class="btn btn-small">Клипы »</a> 
+					<a href="#"  class="btn btn-small">Переводы  »</a>
 					</div>
 				</div>
 			</div>
@@ -205,27 +196,21 @@
 			<div  class="item">
 				<div class="photo-small"><img src="img/artist.jpg" alt="artist" /></div>
 				<div class="span7" >
-					<div style="float:left;">
-						<div style="display:inline;">
-							<span class="artist-name"> Ани Лорак  <img  src="img/flags/ru.png" class="artist-flag" alt="Украина"/></span>
-							<div style="display:none;">
-							
-							<a style="visibility:hidden;" href="#"  class="btn btn-small">Биография »</a> 
-							<a href="#"  class="btn btn-small">Песни »</a> 
-							<a href="#"  class="btn btn-small">Альбомы »</a>
-							<a href="#"  class="btn btn-small">Клипы »</a> 
-							<a href="#"  class="btn btn-small">Переводы »</a>
-							</div>
-						</div>
+					<span class="artist-name"> Ани Лорак  <img  src="img/flags/ru.png" class="artist-flag" alt="Украина"/></span>
+					<div class="hidden-block" >
+					<a style="visibility:hidden;" href="#"  class="btn btn-small">Биография »</a> 
+					<a href="#"  class="btn btn-small">Песни »</a> 
+					<a href="#"  class="btn btn-small">Альбомы »</a>
+					<a href="#"  class="btn btn-small">Клипы »</a> 
+					<a href="#"  class="btn btn-small">Переводы »</a>
 					</div>
 				</div>
 			</div>
 			
 			<script language="javascript" type="text/javascript">
 			$(document).ready(function(){
-				$(".artist-name").hover(function(){
-					var elem = $(this);
-					$(elem).next().toggle('slow').delay(4000);
+				$(".item").hover(function(event){
+					$(this).find(".hidden-block").toggle();
 				});
 			});
 			</script>
@@ -250,18 +235,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
 	<script src="js/jquery-timer.js"></script>
 	<script src="js/pesennik.js"></script>
-    <!--script src="js/bootstrap-transition.js"></script>
-    <script src="js/bootstrap-alert.js"></script>
-    <script src="js/bootstrap-modal.js"></script>
-    <script src="js/bootstrap-dropdown.js"></script>
-    <script src="js/bootstrap-scrollspy.js"></script>
-    <script src="js/bootstrap-tab.js"></script>
-    <script src="js/bootstrap-tooltip.js"></script>
-    <script src="js/bootstrap-popover.js"></script>
-    <script src="js/bootstrap-button.js"></script>
-    <script src="js/bootstrap-collapse.js"></script>
-    <script src="js/bootstrap-carousel.js"></script>
-    <script src="js/bootstrap-typeahead.js"></script-->
+  
 
   </body>
 </html>

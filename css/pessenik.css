@@ -382,6 +382,9 @@ vertical-align:bottom;
 	position: relative;
 	top: 30px;
 }
+.hidden-block{
+	display:none;
+}
 /*
 	Kotov  END _____________________________________________
 */
