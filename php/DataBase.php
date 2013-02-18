@@ -23,16 +23,16 @@ class DB{
 				
 			}else{
 				$lastError =2; // remember last error
+				echo "Cant select database";
 				return false; //Cant select database
 			}
 		}else{
 			$lastError =1; // remember last error
+			echo "Unable to connect to MySQL";
 			return false; //Unable to connect to MySQL
 		}
-		
 	}
 	public static function getInstance(){
-		
 		if (!isset(self::$instance)){
 			$temp = new DB();
 			if ($temp->getDB()){
