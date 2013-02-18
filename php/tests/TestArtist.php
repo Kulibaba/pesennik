@@ -1,6 +1,6 @@
 <?
-require_once 'Song.php';
-require_once 'Artist.php';
+require_once '../Song.php';
+require_once '../Artist.php';
 
 $artist = new Artist();
 $artist->initAll("ani_lorak");

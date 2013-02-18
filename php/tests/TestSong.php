@@ -1,5 +1,5 @@
 <?
-require_once 'Song.php';
+require_once '../Song.php';
 
 $song = new Song();
 $song->initAll(1, "linka" );

@@ -1,7 +1,7 @@
 <?php 
 class DB{
 	private static $instance;
-	public int $lastError = 0; // 1 - Unable to connect to MySQL; 2 - Cant select database; 
+	public $lastError = 0; // 1 - Unable to connect to MySQL; 2 - Cant select database; 
 	private function getDB(){		
 		$hostname = "localhost"; 
 		$username = "root";	

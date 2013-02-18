@@ -1,5 +1,5 @@
 <?
-require_once 'ArtistList.php';
+require_once '../ArtistList.php';
 
 $artistList = new ArtistList();
 
