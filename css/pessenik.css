@@ -2,8 +2,11 @@
 	Kulibaba  BEGIN___________________________________________
 */
 body {
-    padding-top: 60px;
+    /*padding-top: 60px;*/
     padding-bottom: 30px;
+}
+a{
+	color:#222;
 }
 .sidebar-nav {
     padding: 9px 0;
@@ -11,6 +14,7 @@ body {
 #global-nav{
 	margin-left:0px;
 	float:left;
+	margin-top: 2px;
 }
 #global-nav li a{
 	margin-right:0px;
@@ -45,8 +49,7 @@ body {
 	/* NAV BAR BEGIN*/
 	#search{
 		float:left;
-		margin:10px;
-		
+		margin:8px;		
 	}
 	#search input {
 		display:inline;
@@ -179,11 +182,15 @@ vertical-align:bottom;
 
 .photo{
 	/*border:1px solid #123123;*/
-	border:solid 1px #DDD;
+	border-style: solid;
+	border-color:#DDD;
+	border-width:1px 1px 1px 0px;
 	text-align:center;
 	width:100px; 
 	height:130px; 
 	float:left;
+	position: relative;
+	top: 10px;
 	
 	-moz-border-radius: 12px;
 	-ms-border-radius: 12px;
@@ -205,6 +212,10 @@ vertical-align:bottom;
 	border-radius: 12px;
 	
 }
+.photo-small img{
+	width: 60px;
+	height: 80px;
+}
 
 .photo img , .photo-small img{
 	-moz-border-radius: 12px;
@@ -213,6 +224,8 @@ vertical-align:bottom;
 	border-radius: 12px;
 	}
 
+	
+	
 .vote-stars{
 	background-image: url("../img/star.png") !important;
 	background-repeat: repeat-x !important;
@@ -384,6 +397,18 @@ vertical-align:bottom;
 }
 .hidden-block{
 	display:none;
+}
+
+.social_likes{
+	border:0px solid #541;
+	width:182;
+	height: 18px; 
+	float:right;
+}
+.btn-block{
+	float:left;
+	margin-top:5px;
+	margin-bottom:-5px;
 }
 /*
 	Kotov  END _____________________________________________
