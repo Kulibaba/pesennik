@@ -1,0 +1,8 @@
+Options +SymLinksIfOwnerMatch
+ 
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+)/?$ ./index.php?param=$1 [L,NC]
+
+ErrorDocument 404 http://localhost/pesennik/404.html
