@@ -2,8 +2,8 @@
 	Kulibaba  BEGIN___________________________________________
 */
 body {
-    /*padding-top: 60px;*/
-    padding-bottom: 30px;
+    /*padding-top: 60px;
+    padding-bottom: 30px;*/
 }
 a{
 	color:#222;
@@ -122,7 +122,15 @@ vertical-align:bottom;
 	clear:both;
 	margin:10px 0px;
 }
-
+.separator-invisible{
+	width:100%;
+	background-color:#ccc;
+	min-height:0px !important;
+	height:0px !important;
+	display:block;
+	clear:both;
+	margin:10px 0px;
+}
 
 /*_______  HEDINGS MAIN PAGE*/
 .heading{
@@ -443,7 +451,40 @@ vertical-align:bottom;
 	margin-top:5px;
 	margin-bottom:-5px;
 }
+.top-new-block{
+	width: 100%px;
+	height: 120px;
 
+}
+.counters-block{
+	border: 1px solid #ccc;
+	border-radius: 12px;
+	padding: 5px;
+}
+
+.arrow-btn-wraper{
+	width: 12px;
+	height: 12px;
+	position:relative;
+	left:15px;
+}
+.arrow-btn-wraper a{
+	width: 12px !important;
+	height: 12px !important;
+	text-indent: -9999px;
+	z-index: 9999;
+	margin-top: 2px;
+	outline: 0;
+	text-decoration:none;
+	position:absolute;
+}
+.footer-arrow-btn 
+{	
+	background:url('images/footer-arrow.png') no-repeat no-repeat  -12px 0px;
+}
+.footer-arrow-btn:hover{	
+	background-position:-1px 0px;
+}
 /*
 	Kotov  END _____________________________________________
 */
