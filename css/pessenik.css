@@ -485,6 +485,12 @@ vertical-align:bottom;
 .footer-arrow-btn:hover{	
 	background-position:-1px 0px;
 }
+.footer-links{
+	text-align:center;
+}
+.footer-links a:hover{
+	text-decoration:none;
+}
 /*
 	Kotov  END _____________________________________________
 */
