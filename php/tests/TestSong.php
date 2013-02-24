@@ -69,17 +69,21 @@ $song->initAll(1, "linka" );
 		</td>
 		<?php 
 			$list = $song->getVideoList();
-			while($video = $list->current()){
-		?>
-				<td>
-					<?php
-						echo $video->getData(); 
-						echo $video->getVideoTypeName()."<br><b>".$video->getInfo()."</b><br>";
-						echo '<a href="'.$video->getUserUrl().'">'.$video->getUserName().'</a>';
-					?>
-				</td>
-		<?php 
-			$list->next();
+			if ($list!=null){			
+				while($video = $list->current()){
+				?>
+					<td>
+						<?php
+							echo $video->getData(); 
+							echo $video->getVideoTypeName()."<br><b>".$video->getInfo()."</b><br>";
+							echo '<a href="'.$video->getUserUrl().'">'.$video->getUserName().'</a>';
+						?>
+					</td>
+				<?php 
+				$list->next();
+				}
+			}else{
+				echo '<td> EMPTY VIDEO LIST ! </td>';
 			}
 		?>
 	</tr>

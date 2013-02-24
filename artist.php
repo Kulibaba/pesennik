@@ -7,15 +7,15 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+	
+		
     <!-- Le styles -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+  <link href="css/bootstrap.css" rel="stylesheet">
 	<link href="css/pessenik.css" rel="stylesheet">
-    <link href="css/bootstrap-responsive.css" rel="stylesheet">
-	<script src="js/jquery.js"></script>
-	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+  <link href="css/bootstrap-responsive.css" rel="stylesheet">
+	
 	<script language="javascript" type="text/javascript" src="js/jquery.js"></script>
-	<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
-
+	<script language="javascript" type="text/javascript" src="js/jquery.bxslider.min.js"></script>
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -24,8 +24,10 @@
   </head>
 
   <body>
+	
+	
 
-    <div class="navbar navbar-inverse">
+    <div class="navbar navbar-inverse "> <!--navbar-fixed-top-->
       <div class="navbar-inner">
         <div class="container-fluid">
 			  <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -104,6 +106,12 @@
             <p class="navbar-text pull-right">
               Вы вошли, как <a href="#" class="navbar-link">Гость</a>
             </p>
+           
+			<!--ul class="nav">
+              <li class="active"><a href="#">Главная</a></li>
+              <li><a href="#about">О проекте</a></li>
+              <li><a href="#contact">Контакты</a></li>
+            </ul-->
 			
           </div><!--/.nav-collapse -->
         </div>
@@ -112,10 +120,13 @@
 
     <div class="container-fluid">
       <div class="row-fluid">
+	  
+		<!--MENU BEGIN-->
         <div class="span2">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
 				<li class="nav-header active"><a href="#">Главная</a></li>
+			
 				<li class="nav-header header1">Новинки
 					<ul>
 						<li><a href="#" >тексты</a></li>
@@ -134,7 +145,6 @@
 					</ul>
 				</li>
 				
-
 				<li class="nav-header header3">Cбоники
 					<ul>
 						<li><a href="#" >о любви</a></li>
@@ -156,105 +166,174 @@
 			
           </div><!--/.well -->
         </div><!--/span-->
-        <div class="span10">
+		<!--MENU END-->
+		
+		<div class="span10">
+         
+				 
+				 
+				 
+<!-- BEGIN PEGE-->
+
+<?php
+require_once 'php/Song.php';
+require_once 'php/Artist.php';
+
+$artist = new Artist();?>
+<? $artist->initAll('ani_lorak');?>
+
+			<link href="css/jquery.bxslider.css" rel="stylesheet">
+		  <div class="main-container" >
+			  <div  id="short_bio">
+				<div class="photo"><img src="img/artist.jpg" alt="artist" /></div>
+				<div class="span7" id="short_bio_table" >
+					<span class="vote-stars">
+						<span class="current-rating" style="width:30%;">  </span>	
+					</span>
+					<span >
+						<!-- margin for element 2px , w:22 h:16-->
+						<img src="" width="22" height="16" alt="google" />
+						<img src="" width="22" height="16" alt="vk" />
+						<img src="" width="22" height="16" alt="face" />
+						<img src="" width="22" height="16" alt="mail.ru" />
+						<img src="" width="22" height="16" alt="tweeter" />
+						<img src="" width="22" height="16" alt="livejournal" />
+						<img src="" width="22" height="16" alt="yandex" />
+					</span>
+					
+						
+					<table class="bio-table table-bordered table-hover" style="cursor:pointer;" cellpadding="5" cellspacing="3">
+						<tbody class="table-striped ">
+						<tr><td>Полное имя</td> <td>: <?php echo $artist->getName(); ?></td></tr>
+						<tr><td>Даты</td> <td>: <?php echo $artist->getBirthDate(); ?> - <?php echo $artist->getDeathDate(); ?></td></tr>
+						<tr><td>Страны</td> <td>: <?php echo $artist->getCountryName(); echo " (".$artist->getBirthplace().")"; ?></td></tr>
+						</tbody>
+					</table>
+					
+					<div style="float:left;" class="btn-block">
+						<div style="display:inline;">
+							<a class="btn btn-primary btn-small" href="<?php echo $artist->getSongListURL();?>">Песни »</a> <!--NEED TO IMPLEMENT-->
+							<a class="btn btn-primary btn-small" href="<?php echo $artist->getAlbumListURL();?>">Альбомы »</a> <!--NEED TO IMPLEMENT-->
+						</div>
+					</div>
+			</div>
+			</div>
+			
+			<div class="bio-content">
+			
+				<div class="bio-section">	  
+					<span class="bio-section-title" >Биография</span>
+					<div class="bio-section-text" >
+						<?php echo $artist->getBio(); ?>	
+					</div>
+				</div>
+				
+				<p class="separator"></p>
+				<div  class="bio-section">	  
+					<span class="bio-section-title" >Награды</span>
+					<div class="bio-rewards" style="display:none;">
+						<ul>
+							<li>2010
+								<ul>
+								<li>[Событие,Место] - [Название]</li>
+								<li>Первая гланда России, Берибово - Золотая связка из горла Баскова.</li>
+								<li>Пухлое горло стар-пома, Нижний Тагил - Лучший едок сырых яиц.</li>
+								</ul>
+							</li>
+							<li>2011</li>
+							<li>2012</li>
+							<li>2013</li>
+							
+						</ul>
+					</div>
+				</div>
+				
+				<p class="separator"></p>
+				<div class="bio-section">	  
+					<span class="bio-section-title" >Интересные факты</span>
+					<div class="bio-section-text" style="display:none;">
+					<?php 
+					$delimiter = "\r\n";
+					$info_array = explode($delimiter, $artist->getInfo()); 
+					?>
+					<ul>
+							
+					<?
+						for ($i=0; $i < count( $info_array ); $i++)
+						{
+							?>
+							<li> <? echo $info_array[$i]; ?></li>
+							<?
+						}
+					?>
+					</ul>
+					</div>
+				</div>
+				
+				<p class="separator"></p>
+				<div class="bio-section">	  
+					<span class="bio-section-title" > Фото </span>
+					
+					<!--div  class="bio-section-gallery">
+						<a href="#" id="gallery-left-arrow"><</a>
+						<div id="gallery-content"></div>
+						<a href="#" id="gallery-right-arrow">></a>
+					</div-->
+					<div style="margin-top:30px;">
+						<ul class="bxslider">
+						  <li><img src="img/artist.jpg" title="Ani Lorak 1" /></li>
+						  <li><img src="img/artist.jpg" title="Ani Lorak 2" /></li>
+						  <li><img src="img/artist.jpg" title="Ani Lorak 3" /></li>
+						  <li><img src="img/artist.jpg" title="Ani Lorak 4" /></li>
+						  <li><img src="img/artist.jpg" title="Ani Lorak 5" /></li>
+						  <li><img src="img/artist.jpg" title="Ani Lorak 6" /></li>
+						  <li><img src="img/artist.jpg" title="Ani Lorak 7" /></li>
+						  <li><img src="img/artist.jpg" title="Ani Lorak 8" /></li>
+						  <li><img src="img/artist.jpg" title="Ani Lorak 9" /></li>
+						  <li><img src="img/artist.jpg" title="Ani Lorak 10" /></li>
+						</ul>		
+					</div>
+				</div>
+				
+			</div>
+					
+			</div>
+			
+			<!--DEBUG FOR jQuery-->
+			<!--script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script-->
+			<!--DEBUG FOR jQuery-->
+			<script language="javascript" type="text/javascript">
+				//jQuery.noConflict();	
+				$(document).ready(function(){
+					$('.bxslider').bxSlider( {
+					  minSlides: 6,
+					  maxSlides: 10,
+					  slideWidth: 200,
+					  slideMargin: 10,
+					  moveSlides:6,
+					  captions:true,
+					  adaptiveHeight:true,
+					  speed:2000
+					});
+					
+					$(".bio-section-title").click(function(){
+					var elem = $(this);
+						$(elem).next().toggle('slow');
+					});
+					 
+				});
+				</script>
+								
+				  <p class="separator"></p>
+				</div><!--/span-->
+			  </div><!--/row-->
   
-	<!--  PAGE BEGIN-->	 
-
-
-	<div class="main-container" style="margin:20px;">
-	  <div  id="short_bio">
-		<div class="photo"><img src="img/artist.jpg" alt="artist" /></div>
-		
-		
-		<div class="span4" id="short_bio_table" >
-		<span class="artist-name"> Ани Лорак  <img  src="img/flags/ru.png" class="artist-flag" alt="Украина"/></span>
-			<span style="border:1px solid #541;width:182; height: 18px; float:right;">
-				<!-- margin for element 2px , w:22 h:16-->
-				<img src="" width="22" height="16" alt="google" />
-				<img src="" width="22" height="16" alt="vk" />
-				<img src="" width="22" height="16" alt="face" />
-				<img src="" width="22" height="16" alt="mail.ru" />
-				<img src="" width="22" height="16" alt="tweeter" />
-				<img src="" width="22" height="16" alt="livejournal" />
-				<img src="" width="22" height="16" alt="yandex" />
-			</span>
-				
-			<div style="margin:15px 0;">
-				<span class="artist-name"> Переводы  </span>
-				<img  src="img/flags/au.png" class="artist-flag" alt="Украина"/>
-				<img  src="img/flags/gb.png" class="artist-flag" alt="Украина"/>
-				<img  src="img/flags/fr.png" class="artist-flag" alt="Украина"/>
-				<img  src="img/flags/de.png" class="artist-flag" alt="Украина"/>
-			</div>
-		</div>
-		
-	  </div>
-	  
-	  <div class="video">
-		<span> 
-			<iframe width="180" height="115" src="http://www.youtube.com/embed/u9OXEozPNuc" frameborder="0" allowfullscreen></iframe>
-		</span>
-	  </div>
-	  <div class="w50">
-		<div id="tabs2" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
-			<span class="song-title">Текст Песни</span> 
-			<div>  
-				Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. 	Nunc tristique tempus lectus.
-			</div>
-		</div>
-			
-			
-			<!--div class="bio-section">	  
-				<span class="bio-section-title" > Песни/Альбомы </span>
-				
-			</div-->
-	  </div>
-	 
-		<!--Перевод Песни-->
-		<div class="w50">
-			<div id="tabs">
-			  <ul>
-				<li><a href="#tabs-1">Австралийский</a></li>
-				<li><a href="#tabs-2">Французский</a></li>
-				<li><a href="#tabs-3">Немецкий</a></li>
-			  </ul>
-			  <div id="tabs-1">
-				<p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
-			  </div>
-			  <div id="tabs-2">
-				<p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
-			  </div>
-			  <div id="tabs-3">
-				<p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
-				<p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
-			  </div>
-			</div>
-		</div>
-	</div>
-
 	
 	
 	
 	
-	<p class="separator"></p>
-	
-	<script language="javascript" type="text/javascript">
-		//jQuery.noConflict();	
-		$(function() {
-			$( "#tabs" ).tabs();
-		});
-	</script>
-	<!--  PAGE END-->	 
-	
-	
-		 
-		  <p class="separator"></p>
-		<div>
-			
-		</div><!-- /detailed headings -->
-	   </div><!--/span-->
-      </div><!--/row-->
-		
+	  <!-- END PEGE-->
+      <hr>
 		<div class="container-fluid">
 			<div class="arrow-btn-wraper">
 				<a class="footer-arrow-btn" href>UpDown</a>
@@ -273,28 +352,34 @@
 				</div>
 			</div>
 			<hr>
-      <hr>
-			<footer>
-      	<div class="footer-links" >
+      <footer>
+        
+				<div class="footer-links" >
 					<a href="#">О проекте &nbsp </a>
 					<a href="#">Друзья &nbsp </a>
 					<a href="#">Вебмастеру &nbsp </a>
 					<a href="#">Правила</a>
-					<div  style="clear:both;width:100%; display:block;" >&copy; Company 2012 Кулибаба Сергей</div>
+					<div  style="clear:both;width:100%; display:block;" >&copy; Company 2013 Кулибаба Сергей</div>
 				</div>
-			</footer>
+				
+      </footer>
 			
 			<!-- Advertising Links -->
 			<div class="adv-links">
 			</div>
+
     </div><!--/.fluid-container-->
 
-    <!-- Le javascript
-    ================================================== -->
+    
     <!-- Placed at the end of the document so the pages load faster -->
 	<script src="js/jquery-timer.js"></script>
 	<script src="js/pesennik.js"></script>
-    
-	
+
   </body>
 </html>
+
+
+
+
+
+

@@ -143,5 +143,16 @@ class Artist {
 	function getSearchName() {
 		return $this->getSearchName;
 	}
+	
+	function getSongListURL(){
+	/* Function returns URL to page with 
+	 * list of artist songs.  (ex. pesennik.org/Ani_Lorak/Songs )
+	 */
+	}
+	function getAlbumListURL(){
+	/* Function returns URL to page with 
+	 * list of artist albums. (ex. pesennik.org/Ani_Lorak/Albums )
+	 */
+	}
 }
 ?>

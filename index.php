@@ -4,9 +4,9 @@ $param = explode('/',$_GET["param"]);
 require 'php/print.php';
 require 'php/OldVersionSupport.php';
 
-echo "OldVersionSupport: START!<br><b>";
-echo OldVersionSupport($param[0]);
-echo "</b><br>OldVersionSupport: FINISH!<br>";
+//echo "OldVersionSupport: START!<br><b>";
+//echo OldVersionSupport($param[0]);
+//echo "</b><br>OldVersionSupport: FINISH!<br>";
 
 switch($param[0]){
 	case "новые":{

@@ -69,10 +69,16 @@ class Song {
 		
 		$result = mysql_query($query,DB::getInstance());
 		$resultList = new SplDoublyLinkedList();
-		while($row = mysql_fetch_array ($result))
-			$resultList->push(new Video($row));
-		$resultList->rewind();
+		if ($result!= null){
+			while($row = mysql_fetch_array ($result))
+				$resultList->push(new Video($row));
+			$resultList->rewind();
+		}else{
+			echo "<span style='color:red;'>ERROR! Empty var \$result in song.php at line 71 </span><br/>";
+			error_log("EMPTY $result  song.php at line 71");
+		}
 		$this->videoList = $resultList;
+		
 	}
 	private function fillTranslateList($songId){
 		$query = "
@@ -93,9 +99,14 @@ class Song {
 		
 		$result = mysql_query($query,DB::getInstance());
 		$resultList = new SplDoublyLinkedList();
-		while($row = mysql_fetch_array ($result))
-			$resultList->push(new Translate($row));
-		$resultList->rewind();
+		if ($result!= null){
+			while($row = mysql_fetch_array ($result))
+				$resultList->push(new Translate($row));
+			$resultList->rewind();
+		}else{
+			echo "<span style='color:red;'>ERROR! Empty var \$result in song.php at line 100 </span><br/>";
+			error_log("EMPTY $result  song.php at line 100");
+		}
 		$this->translateList = $resultList;
 	}
 	function initAll($artistId, $url){
@@ -125,6 +136,7 @@ class Song {
 		";
 
 		$result = mysql_query($query,DB::getInstance());
+		if ($result!= NULL){
 		$row = mysql_fetch_array ($result);
 
 		$this->id = $row["id"];
@@ -137,9 +149,14 @@ class Song {
 		$this->languageUrl = $row["languageUrl"];
 		$this->userName = $row["userName"]; 
 		$this->userUrl = $row["userUrl"];
-		$this->initVideoList($this->id);
-		$this->initTranslateList($this->id);
+		$this->fillVideoList($this->id);
+		$this->fillTranslateList($this->id);
 		$this->info = $row["info"];
+		}else{
+			echo "<span style='color:red;'>ERROR! Empty var \$result in song.php at line 138 </span><br/>";
+			error_log("EMPTY $result  song.php at line 138");
+		}
+		
 	}
 	function isLyrics() {
 		return ($this->flags & 1)!=0;
@@ -217,6 +234,7 @@ class Song {
 		return $this->userUrl;
 	}
 	function getVideoList() {
+	/* return value @SplDoublyLinkedList */
 		return $this->videoList;
 	}
 	function getTranslateList() {
