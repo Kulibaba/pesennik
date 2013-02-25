@@ -7,8 +7,8 @@ require_once 'templateBegin.html';
 
 /*	BEGIN Setting "new style" URL from "old style"	*/
 $newStyleUrl = OldVersionSupport($param[0]);
-$param[0] = $newStyleUrl[0];
-$param[1] = $newStyleUrl[1];
+//$param[0] = $newStyleUrl[0];
+//$param[1] = $newStyleUrl[1];
 /*	END Setting "new style" URL from "old style" */ 
 
 switch($param[0]){
@@ -69,6 +69,7 @@ switch($param[0]){
 		}
 		else if($param[0] != ""){
 			//artist's page
+			echo 'printArtistPage';
 			printArtistPage($param[0]);
 		}else{
 			printMainPage();

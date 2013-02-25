@@ -20,7 +20,7 @@
 	function printArtistPage($artistUrl){
 		
 		$artist = new Artist();
-		$artist->initAll('ani_lorak');
+		$artist->initAll($artistUrl);
 		echo '<link href="css/jquery.bxslider.css" rel="stylesheet">';
 		echo '<div class="main-container" >
 			  <div  id="short_bio">
@@ -250,7 +250,7 @@ function printMainPage()
 													<p>
 														<span><?php echo $new_songs[$ind]->getArtistName().' - </span>'.$new_songs[$ind]->getName(); ?>
 													</p>
-												</a>';
+												</a>
 											</div>
 										<?php
 									}
