@@ -1,5 +1,6 @@
 <?
 require_once 'Song.php';
+require_once 'conf.php';
 
 class SongList{
 	private function getArtistSongList($no, $artistId, $pattern, $sorting){
@@ -34,13 +35,17 @@ class SongList{
 		";
 		$resultList = new SplDoublyLinkedList();
 		$result = mysql_query($query,DB::getInstance());
-		while($row = mysql_fetch_array ($result)){
-			$song = new Song();
-			$song->initListItem($row);
-			$resultList->push($song);
+		if ($result!=NULL){
+			while($row = mysql_fetch_array ($result)){
+				$song = new Song();
+				$song->initListItem($row);
+				$resultList->push($song);
+			}
+			$resultList->rewind();
+		}else{
+			if ($DEBUG_MODE){echo "<span style='color:red;'>ERROR! Empty var \$result in songList.php at line 36 </span><br/>";}
+			error_log("EMPTY \$result songList.php at line 36");
 		}
-		$resultList->rewind();
-		
 		return $resultList;
 	}
 	
@@ -68,12 +73,17 @@ class SongList{
 
 		$resultList = new SplDoublyLinkedList();
 		$result = mysql_query($query,DB::getInstance());
-		while($row = mysql_fetch_array ($result)){
-			$song = new Song();
-			$song->initListItem($row);
-			$resultList->push($song);
+		if ($result != NULL){
+			while($row = mysql_fetch_array ($result)){
+				$song = new Song();
+				$song->initListItem($row);
+				$resultList->push($song);
+			}
+			$resultList->rewind();
+		}else{
+			if ($DEBUG_MODE){echo "<span style='color:red;'>ERROR! Empty var \$result in songList.php at line 74 </span><br/>";}
+			error_log("EMPTY \$result songList.php at line 74");
 		}
-		$resultList->rewind();
 		return $resultList;
 	}
 	function getNewSongs($no){

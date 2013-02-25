@@ -3,20 +3,22 @@ require_once 'DataBase.php';
 require_once 'Utils.php';
 require_once 'Video.php';
 require_once 'Translate.php';
+require_once 'conf.php';
 
 class Song {
 	private $artistName;// array if duet
 	private $artistUrl;	//
 	
-	private $flags;	/*	1 - has lyrics
-						2 - has video
-						4 - has translate
-						8 - has accords
-						16 - has mp3
-						32 - has karaoke
-						64 - has phonogram
-						128 - reserved
-					*/
+	private $flags;	
+	/*	1 - has lyrics
+			2 - has video
+			4 - has translate
+			8 - has accords
+			16 - has mp3
+			32 - has karaoke
+			64 - has phonogram
+			128 - reserved
+	*/
 	private $id;
 	
 	private $name;
@@ -25,7 +27,7 @@ class Song {
 	private $languageName;
 	private $languageUrl;
 	
-	private $lyrics;
+	private $lyrics;	// song's text
 	
 	private $translateList;	// list of translation
 	
@@ -50,6 +52,7 @@ class Song {
 		$this->searchName = $row["searchName"];
 	}
 	
+	// MOVE TO VideoList.php or SongList.php
 	private function fillVideoList($songId){
 		$query = "
 			SELECT
@@ -74,12 +77,14 @@ class Song {
 				$resultList->push(new Video($row));
 			$resultList->rewind();
 		}else{
-			echo "<span style='color:red;'>ERROR! Empty var \$result in song.php at line 71 </span><br/>";
-			error_log("EMPTY $result  song.php at line 71");
+			if ($DEBUG_MODE){echo "<span style='color:red;'>ERROR! Empty var \$result in song.php at line 71 </span><br/>";}
+			error_log("EMPTY \$result  song.php at line 71");
 		}
 		$this->videoList = $resultList;
 		
 	}
+	
+	// MOVE TO TranslateList.php or SongList.php
 	private function fillTranslateList($songId){
 		$query = "
 			SELECT
@@ -104,11 +109,13 @@ class Song {
 				$resultList->push(new Translate($row));
 			$resultList->rewind();
 		}else{
-			echo "<span style='color:red;'>ERROR! Empty var \$result in song.php at line 100 </span><br/>";
-			error_log("EMPTY $result  song.php at line 100");
+			if ($DEBUG_MODE){echo "<span style='color:red;'>ERROR! Empty var \$result in song.php at line 100 </span><br/>";}
+			error_log("EMPTY \$result  song.php at line 100");
 		}
 		$this->translateList = $resultList;
 	}
+	
+	// MORE COMMENTS, RENAME FUNC
 	function initAll($artistId, $url){
 		/*
 			Used for song's pages
@@ -137,27 +144,28 @@ class Song {
 
 		$result = mysql_query($query,DB::getInstance());
 		if ($result!= NULL){
-		$row = mysql_fetch_array ($result);
+			$row = mysql_fetch_array ($result);
 
-		$this->id = $row["id"];
-		$this->lyrics = $row["lyrics"];
-		$this->name = $row["name"];
-		$this->url = $row["url"];
-		$this->artistName = $row["artistName"];
-		$this->artistUrl = $row["artistUrl"];
-		$this->languageName = $row["languageName"]; 
-		$this->languageUrl = $row["languageUrl"];
-		$this->userName = $row["userName"]; 
-		$this->userUrl = $row["userUrl"];
-		$this->fillVideoList($this->id);
-		$this->fillTranslateList($this->id);
-		$this->info = $row["info"];
+			$this->id = $row["id"];
+			$this->lyrics = $row["lyrics"];
+			$this->name = $row["name"];
+			$this->url = $row["url"];
+			$this->artistName = $row["artistName"];
+			$this->artistUrl = $row["artistUrl"];
+			$this->languageName = $row["languageName"]; 
+			$this->languageUrl = $row["languageUrl"];
+			$this->userName = $row["userName"]; 
+			$this->userUrl = $row["userUrl"];
+			$this->fillVideoList($this->id);
+			$this->fillTranslateList($this->id);
+			$this->info = $row["info"];
 		}else{
-			echo "<span style='color:red;'>ERROR! Empty var \$result in song.php at line 138 </span><br/>";
+			if ($DEBUG_MODE){	echo "<span style='color:red;'>ERROR! Empty var \$result in song.php at line 138 </span><br/>";}
 			error_log("EMPTY $result  song.php at line 138");
 		}
 		
 	}
+
 	function isLyrics() {
 		return ($this->flags & 1)!=0;
 	}
@@ -234,7 +242,6 @@ class Song {
 		return $this->userUrl;
 	}
 	function getVideoList() {
-	/* return value @SplDoublyLinkedList */
 		return $this->videoList;
 	}
 	function getTranslateList() {

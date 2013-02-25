@@ -3,6 +3,7 @@ $param = explode('/',$_GET["param"]);
 
 require 'php/print.php';
 require 'php/OldVersionSupport.php';
+require_once 'templateBegin.html';
 
 //echo "OldVersionSupport: START!<br><b>";
 //echo OldVersionSupport($param[0]);
@@ -64,11 +65,14 @@ switch($param[0]){
 			//song's page
 			printSongPage($param[0], $param[1]);
 		}
-		else{
+		else if($param[0] != ""){
 			//artist's page
 			printArtistPage($param[0]);
+		}else{
+			printMainPage();
 		}
 		break;
 	}
 }
+require_once 'templateEnd.html';
 ?>

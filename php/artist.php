@@ -1,6 +1,7 @@
 <?
 require_once 'DataBase.php';
 require_once 'Utils.php';
+require_once 'conf.php';
 
 class Artist {
 
@@ -70,24 +71,30 @@ class Artist {
 		";
 		
 		$result = mysql_query($query,DB::getInstance());
-		$row = mysql_fetch_array ($result);
+		if ($result!= null){
+			$row = mysql_fetch_array ($result);
 
-		$this->id = $row["id"];
-		$this->name = $row["name"];
-		$this->nameCharacter = toLowerCase(substr($row["name"], 0, 2));
-		$this->url = $row["url"];
-		$this->bio = $row["bio"];
-		$this->photo = $row["photo"];
-		$this->birthDate = getFullDate($row["birthDate"]);
-		$this->deathDate = getFullDate($row["deathDate"]);
-		$this->band = ($row["band"] != 0) ? true : false;
-		$this->countryName = $row["countryName"];
-		$this->countryUrl = $row["countryUrl"];
-		$this->birthplace = $row["birthplace"];		
-		$this->songNo = $row["songNo"];
-		$this->translateNo = $row["translateNo"];
-		$this->videoNo = $row["videoNo"];
-		$this->info = $row["info"];
+			$this->id = $row["id"];
+			$this->name = $row["name"];
+			$this->nameCharacter = toLowerCase(substr($row["name"], 0, 2));
+			$this->url = $row["url"];
+			$this->bio = $row["bio"];
+			$this->photo = $row["photo"];
+			$this->birthDate = getFullDate($row["birthDate"]);
+			$this->deathDate = getFullDate($row["deathDate"]);
+			$this->band = ($row["band"] != 0) ? true : false;
+			$this->countryName = $row["countryName"];
+			$this->countryUrl = $row["countryUrl"];
+			$this->birthplace = $row["birthplace"];		
+			$this->songNo = $row["songNo"];
+			$this->translateNo = $row["translateNo"];
+			$this->videoNo = $row["videoNo"];
+			$this->info = $row["info"];
+		}else{
+			if ($DEBUG_MODE){	echo "<span style='color:red;'>ERROR! Empty var \$result in artist.php at line 73 </span><br/>";}
+			error_log("EMPTY $result  artist.php at line 73");
+		}
+
 	}
 	function getId() {
 		return $this->id;

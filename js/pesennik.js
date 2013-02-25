@@ -1,11 +1,12 @@
 $(function ($) {
 
+	/*
 	$("#headings-container").css('height',$("#measure_block>div").height()+"px");
 	var counter_menu = 0;
 	var counter_block = 0;
 	var shift = $("#measure_block>div").height();
 	var shift_menu = $("#new-heading-menu>p").height();
-
+	*/
 	var timer_hero = $.timer(function() {
 		// may be next step - ajax request to server for new photo
 		$(".artist-photo-top-new").fadeOut(1500);
@@ -97,6 +98,7 @@ $(function ($) {
 	
 	
 	// TIMER 2
+	/*
 	$(".top-new-block").mouseover(function(){
 	 timer_top_new.pause();
 	});
@@ -106,4 +108,5 @@ $(function ($) {
 	
 	timer_top_new.set({ time : 15000, autostart : true });
 	timer_top_new.play();
+	*/
 });

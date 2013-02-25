@@ -3,8 +3,8 @@ require_once 'DataBase.php';
 require_once 'Utils.php';
 class Translate {
 	private $lyrics;
-	private $languageUrl;
-	private $languageName;
+	private $languageUrl; // ex .ru
+	private $languageName; // ex/ Русский
 	private $name;
 	private $userName;
 	private $userUrl;
