@@ -250,7 +250,7 @@ function printMainPage()
 													<p>
 														<span><?php echo $new_songs[$ind]->getArtistName().' - </span>'.$new_songs[$ind]->getName(); ?>
 													</p>
-												</a>';
+												</a>
 											</div>
 										<?php
 									}
