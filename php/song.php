@@ -6,8 +6,9 @@ require_once 'Translate.php';
 require_once 'conf.php';
 
 class Song {
-	private $artistName;// array if duet
-	private $artistUrl;	//
+	private $artistId;
+	private $artistName;
+	private $artistUrl;	
 	
 	private $flags;	
 	/*	1 - has lyrics
@@ -150,6 +151,59 @@ class Song {
 			$this->lyrics = $row["lyrics"];
 			$this->name = $row["name"];
 			$this->url = $row["url"];
+			$this->artistName = $row["artistName"];
+			$this->artistUrl = $row["artistUrl"];
+			$this->languageName = $row["languageName"]; 
+			$this->languageUrl = $row["languageUrl"];
+			$this->userName = $row["userName"]; 
+			$this->userUrl = $row["userUrl"];
+			$this->fillVideoList($this->id);
+			$this->fillTranslateList($this->id);
+			$this->info = $row["info"];
+		}else{
+			if ($DEBUG_MODE){	echo "<span style='color:red;'>ERROR! Empty var \$result in song.php at line 138 </span><br/>";}
+			error_log("EMPTY $result  song.php at line 138");
+		}
+		
+	}
+	
+	function initNewAll(){
+		/*
+			Used for song's pages
+		*/
+		
+		$query = "
+			SELECT
+				artist.id AS artistId,
+				artist.name AS artistName,
+				artist.url AS artistUrl,
+				song.id, 
+				song.name,
+				song.lyrics,
+				song.url,
+				song.info,
+				language.name AS languageName,
+				language.url AS languageUrl,
+				user.name AS userName,
+				user.url AS userUrl
+			FROM song 
+			INNER JOIN artistsong ON 	song.id = artistsong.songId
+			LEFT JOIN artist ON 		artistsong.artistId = artist.id
+			LEFT JOIN language ON 		song.languageId = language.id
+			LEFT JOIN user ON 			song.userId = user.id
+			ORDER BY id 
+			DESC LIMIT 1
+		";
+
+		$result = mysql_query($query,DB::getInstance());
+		if ($result!= NULL){
+			$row = mysql_fetch_array ($result);
+
+			$this->id = $row["id"];
+			$this->lyrics = $row["lyrics"];
+			$this->name = $row["name"];
+			$this->url = $row["url"];
+			$this->artistId = $row["artistId"];
 			$this->artistName = $row["artistName"];
 			$this->artistUrl = $row["artistUrl"];
 			$this->languageName = $row["languageName"]; 

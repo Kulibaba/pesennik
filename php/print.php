@@ -1,8 +1,8 @@
 <?php
 
 	// MAIN PAGE BEGIN
-	require_once 'php/Song.php'; 		
-	require_once 'php/Artist.php';	
+	require_once 'Song.php'; 		
+	require_once 'Artist.php';	
 	require_once 'ArtistList.php';	
 	require_once 'SongList.php';
 	// MAIN PAGE END
@@ -167,27 +167,21 @@
 function printMainPage()
 {
 	// Get random top-indexed artist
-	$SONGS_QUANTITY_HERO = 1;
+	$SONGS_QUANTITY_HERO = 10;
 	$SONGS_QUANTITY = 20;
 	
-	$curr_artist = new Artist();
-	
-	$songList = new SongList();
-	$fetched_song = $songList->getNewSongs( $SONGS_QUANTITY_HERO );
-	if (($fetched_song != NULL) && ($fetched_song->count() > 0)){
-		$curr_song = $fetched_song->pop();
-		$curr_artist->initAll( $curr_song->getArtistUrl() );
+	$song = new Song();
+	$song->initNewAll();
+	if ($song != NULL){
 		// DEBUG BEGIN
 		if ($DEBUG_MODE != NULL){
-			echo $fetched_song;
-			echo $curr_song;
-			echo $curr_song->getArtistUrl();
+			echo $song->getArtistName()." - ".$song->getName();
 		}
 		// DEBUG END
 	}else{
 		if ($DEBUG_MODE != NULL) {
 			?>
-				<p style='color:red;'>ERROR! Empty var \$fetched_song print.php at line 36 </p>
+				<p style='color:red;'>ERROR! Empty var \$song print.php at line 36 </p>
 			<?
 		}
 		error_log("EMPTY \$fetched_song print.php at line 36");
@@ -196,19 +190,19 @@ function printMainPage()
 	?>
 		<div class="hero-unit">
 			<div class="photo-big">
-				<img src="img/<?php echo $curr_song->getArtistId(); ?>.jpg"  class="artist-photo-top-new" alt="<?php echo $curr_song->getArtistName(); ?>" />
+				<img src="img/photo/largest/<?php echo $song->getArtistId(); ?>.jpg"  class="artist-photo-top-new" alt="<?php echo $song->getArtistName(); ?>" />
 			</div>
 			<div class="top-new-box-txt" >
 				<h1>
-					<?php echo $curr_song->getArtistName()." - ".$curr_song->getName();?>
+					<?php echo $song->getArtistName()." — ".$song->getName(); ?>
 				</h1>
 				<p>Уже доступна на нашем сайте</p>
 				<p class="new-song-txt">
-					<?php echo $curr_song->getLyrics(); ?>
+					<?php echo $song->getLyrics(); ?>
 					...
 				</p>
 			</div>
-			<p class="btn-paragraph"><a href="<?php echo $curr_song->getUrl();?>" class="btn btn-primary btn-large">читать далее &raquo;</a></p>
+			<p class="btn-paragraph"><a href="<?php echo $song->getArtistUrl()."/".$song->getUrl();?>" class="btn btn-primary btn-large">читать далее &raquo;</a></p>
 		</div>
 		  
 		<!-- MAIN BLOCK SEPARATOR -->
@@ -240,6 +234,8 @@ function printMainPage()
 						<div class="span10">
 							<?php
 								// $new_songs = GET TEXT LINKs LIST HERE
+								
+								
 								$new_songs = $songList->getNewSongs( $SONGS_QUANTITY );
 								if ($new_songs != null){
 									for ($ind = 1; $ind <= (count($new_songs) -1) && $ind<5 ;$ind++ )

@@ -33,6 +33,7 @@ class SongList{
 			ORDER BY $pattern $sorting
 			LIMIT 0, $no
 		";
+
 		$resultList = new SplDoublyLinkedList();
 		$result = mysql_query($query,DB::getInstance());
 		if ($result!=NULL){
