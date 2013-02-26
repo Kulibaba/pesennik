@@ -3,6 +3,7 @@ require_once 'Song.php';
 require_once 'Artist.php';
 require_once 'Video.php';
 require_once 'Translate.php';
+require_once 'Utils.php';
 
 function getSongUrl($songId){		
 	$query = "
@@ -30,7 +31,7 @@ function getVideoUrl($videoId){
 		LEFT JOIN artist ON 		artistsong.artistId = artist.id
 		WHERE video.id ='$videoId'
 	";
-
+	
 	$result = mysql_query($query,DB::getInstance());
 	$row = mysql_fetch_array ($result);
 	return $row["artistUrl"]."/".$row["url"];
@@ -56,25 +57,30 @@ function oldVersionSupport($param){
 	$param_arr = explode("_", $param);
 	$lenght = count($param_arr);
 	switch($param_arr[0]){
-		case "текст":{//текст
-			return getSongUrl($param_arr[$lenght - 1]);
+		case "текст":{
+			$result = getSongUrl($param_arr[$lenght - 1]);
 			break;
 		}
-		case "клип":{ //клип
-			return getVideoUrl($param_arr[$lenght - 1]);
+		case "клип":{ 
+			$result = getVideoUrl($param_arr[$lenght - 1]);
 			break;
 		}
-		case "перевод":{ //перевод
-			return getTranslateUrl($param_arr[$lenght - 1]);
+		case "перевод":{ 
+			$result = getTranslateUrl($param_arr[$lenght - 1]);
 			break;
 		}
-		case "исполнители":{ //исполнители
+		case "новые":
+		case "популярные":
+		case "исполнители":{ 
+			$result = $param_arr[0]."/".toLowerCase($param_arr[1]);
 			break;
 		}
 		default:{
-			echo "default";
 			break;
 		}
 	}
+	
+	
+	return explode("/", $result);
 }
 ?>

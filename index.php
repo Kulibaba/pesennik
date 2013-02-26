@@ -5,9 +5,11 @@ require 'php/print.php';
 require 'php/OldVersionSupport.php';
 require_once 'templateBegin.html';
 
-//echo "OldVersionSupport: START!<br><b>";
-//echo OldVersionSupport($param[0]);
-//echo "</b><br>OldVersionSupport: FINISH!<br>";
+/*	BEGIN Setting "new style" URL from "old style"	*/
+$newStyleUrl = OldVersionSupport($param[0]);
+$param[0] = $newStyleUrl[0];
+$param[1] = $newStyleUrl[1];
+/*	END Setting "new style" URL from "old style" */ 
 
 switch($param[0]){
 	case "новые":{
