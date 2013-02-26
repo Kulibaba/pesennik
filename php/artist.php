@@ -47,6 +47,7 @@ class Artist {
 		
 		$query = "
 			SELECT
+				artist.id,
 				artist.name,
 				artist.url,
 				artist.bio,

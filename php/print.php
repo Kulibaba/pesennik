@@ -1,10 +1,13 @@
 <?php
 
 	// MAIN PAGE BEGIN
-	require_once 'Song.php'; 		
+	require_once 'conf.php'; 
 	require_once 'Artist.php';	
 	require_once 'ArtistList.php';	
+	require_once 'Song.php'; 		
 	require_once 'SongList.php';
+	require_once 'TranslateList.php';
+	require_once 'VideoList.php';
 	// MAIN PAGE END
 	
 	function printNewSongPage($no){};
@@ -15,44 +18,158 @@
 	function printTopVideoPage($no){};
 	function printTopTranslatePage($no){};
 	function printTopArtistPage($no){};
-	function printSongPage($artistUrl, $songUrl){};
+	function printSongPage($artistUrl, $songUrl){
+		$song = new Song();
+		$song->initAll(1, "linka" );
+		?>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
 	
-	function printArtistPage($artistUrl){
+	<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+		<div class="main-container" style="margin:20px;">
+			<div  id="short_bio">
+				<div class="photo">
+					<img src="../img/photo/largest/<?php echo $song->getArtistId(); ?>.jpg" alt="<?php echo $song->getArtistName(); ?>" />
+				</div>
+				<div class="span4" id="short_bio_table" >
+				<span class="artist-name">
+					<a href="<?php echo $song->getArtistUrl(); ?>" >
+							<?php echo $song->getArtistName(); ?>
+					</a> - <?php echo $song->getName(); ?>  
+					<img  src="../img/flags/<?php echo $song->getLanguageUrl(); ?>.png" class="artist-flag" alt="<?php echo $song->getLanguageName(); ?>"/>
+				</span>
 		
+				<span style="border:1px solid #541;width:182; height: 18px; float:right;">
+					<!-- margin for element 2px , w:22 h:16-->
+					<img src="" width="22" height="16" alt="google" />
+					<img src="" width="22" height="16" alt="vk" />
+					<img src="" width="22" height="16" alt="face" />
+					<img src="" width="22" height="16" alt="mail.ru" />
+					<img src="" width="22" height="16" alt="tweeter" />
+					<img src="" width="22" height="16" alt="livejournal" />
+					<img src="" width="22" height="16" alt="yandex" />
+				</span>
+					
+				<div style="margin:15px 0;">
+					<span class="artist-name">Переводы</span>
+						<img  src="img/flags/au.png" class="artist-flag" alt="Украина"/>
+						<img  src="img/flags/gb.png" class="artist-flag" alt="Украина"/>
+						<img  src="img/flags/fr.png" class="artist-flag" alt="Украина"/>
+						<img  src="img/flags/de.png" class="artist-flag" alt="Украина"/>
+					</div>
+				</div>
+			</div>
+			
+					
+			<?php	// show all videos
+				$list = $song->getVideoList();
+				if ($list!=null){			
+					while($video = $list->current()){
+			?>
+				<div class="video">
+					<span> 
+						<?php
+							echo $video->getData(); 
+							echo $video->getVideoTypeName();
+						?>
+					</span>
+				</div>
+			<?php 
+						$list->next();
+					}
+				}else{
+					echo '<td> EMPTY VIDEO LIST ! </td>';
+			}
+			?>
+					
+					
+				
+			<div class="w50">
+				<div id="tabs2" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
+					<span class="song-title"><?php echo $song->getArtistName()." - ".$song->getName(); ?> (текст песни)</span> 
+					<div>  
+						<?php echo $song->getLyrics(); ?>
+					</div>
+				</div>
+					
+					
+					<!--div class="bio-section">	  
+						<span class="bio-section-title" > Песни/Альбомы </span>
+						
+					</div-->
+			</div>
+		 
+			<!--Перевод Песни-->
+			<div class="w50">
+				<div id="tabs">
+					<ul>
+						<li><a href="#tabs-1">Австралийский</a></li>
+						<li><a href="#tabs-2">Французский</a></li>
+						<li><a href="#tabs-3">Немецкий</a></li>
+					</ul>
+					<div id="tabs-1">
+						<p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
+					</div>
+					<div id="tabs-2">
+						<p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
+					</div>
+					<div id="tabs-3">
+						<p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
+						<p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<p class="separator"></p>
+	
+		<script language="javascript" type="text/javascript">
+			//jQuery.noConflict();	
+			$(function() {
+				$( "#tabs" ).tabs();
+			});
+		</script>
+	<?php
+	};
+	?>
+	
+	<?php
+	function printArtistPage($artistUrl){
+		echo $_ROOT;
 		$artist = new Artist();
 		$artist->initAll($artistUrl);
-		echo '<link href="css/jquery.bxslider.css" rel="stylesheet">';
-		echo '<div class="main-container" >
-			  <div  id="short_bio">
-				<div class="photo"><img src="img/artist.jpg" alt="artist" /></div>
-				<div class="span7" id="short_bio_table" >
-					<span class="vote-stars">
-						<span class="current-rating" style="width:30%;">  </span>	
-					</span>
-					<span >
-						<!-- margin for element 2px , w:22 h:16-->
-						<img src="" width="22" height="16" alt="google" />
-						<img src="" width="22" height="16" alt="vk" />
-						<img src="" width="22" height="16" alt="face" />
-						<img src="" width="22" height="16" alt="mail.ru" />
-						<img src="" width="22" height="16" alt="tweeter" />
-						<img src="" width="22" height="16" alt="livejournal" />
-						<img src="" width="22" height="16" alt="yandex" />
-					</span>
+		?>
+		<link href="css/jquery.bxslider.css" rel="stylesheet">
+		<div class="main-container" >
+		  <div  id="short_bio">
+			<div class="photo"><img src="./img/photo/largest/<?php echo $artist->getId(); ?>.jpg" alt="<?php echo $artist->getName(); ?>"/></div>
+			<div class="span7" id="short_bio_table">
+				<span class="vote-stars">
+					<span class="current-rating" style="width:30%;"></span>	
+				</span>
+				<span>
+					<!-- margin for element 2px , w:22 h:16-->
+					<img src="" width="22" height="16" alt="google" />
+					<img src="" width="22" height="16" alt="vk" />
+					<img src="" width="22" height="16" alt="face" />
+					<img src="" width="22" height="16" alt="mail.ru" />
+					<img src="" width="22" height="16" alt="tweeter" />
+					<img src="" width="22" height="16" alt="livejournal" />
+					<img src="" width="22" height="16" alt="yandex" />
+				</span>
 					
-						
-					<table class="bio-table table-bordered table-hover" style="cursor:pointer;" cellpadding="5" cellspacing="3">
-						<tbody class="table-striped ">
-						<tr><td>Полное имя</td> <td>: '.$artist->getName().'</td></tr>
-						<tr><td>Даты</td> <td>: '.$artist->getBirthDate().'  -  '.$artist->getDeathDate().' </td></tr>
-						<tr><td>Страны</td> <td>: '.$artist->getCountryName().' ('.$artist->getBirthplace().') </td></tr>
-						</tbody>
-					</table>
+				<table class="bio-table table-bordered table-hover" style="cursor:pointer;" cellpadding="5" cellspacing="3">
+					<tbody class="table-striped ">
+						<tr><td>Полное имя:</td><td><?php echo $artist->getName(); ?></td></tr>
+						<tr><td>Даты:</td><td><?php echo $artist->getBirthDate().'  -  '.$artist->getDeathDate(); ?></td></tr>
+						<tr><td>Страна:</td><td><?php echo $artist->getCountryName(); ?></td></tr>
+					</tbody>
+				</table>
 					
 					<div style="float:left;" class="btn-block">
 						<div style="display:inline;">
-							<a class="btn btn-primary btn-small" href="'.$artist->getSongListURL().'">Песни »</a> <!--NEED TO IMPLEMENT-->
-							<a class="btn btn-primary btn-small" href="'.$artist->getAlbumListURL().'">Альбомы »</a> <!--NEED TO IMPLEMENT-->
+							<a class="btn btn-primary btn-small" href="<?php echo $artist->getUrl(); ?>/%D0%BF%D0%B5%D1%81%D0%BD%D0%B8">Песни »</a> <!--NEED TO IMPLEMENT-->
+							<a class="btn btn-primary btn-small" href="<?php echo $artist->getUrl(); ?>/%D0%BA%D0%BB%D0%B8%D0%BF%D1%8B">Клипы »</a> <!--NEED TO IMPLEMENT-->
+							<a class="btn btn-primary btn-small" href="<?php echo $artist->getUrl(); ?>/%D0%BF%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%B4%D1%8B">Переводы »</a> <!--NEED TO IMPLEMENT-->
+							<a class="btn btn-primary btn-small" href="<?php echo $artist->getUrl(); ?>/%D0%B0%D0%BB%D1%8C%D0%B1%D0%BE%D0%BC%D1%8B">Альбомы »</a> <!--NEED TO IMPLEMENT-->
 						</div>
 					</div>
 			</div>
@@ -61,15 +178,15 @@
 			<div class="bio-content">
 			
 				<div class="bio-section">	  
-					<span class="bio-section-title" >Биография</span>
-					<div class="bio-section-text" >
-						'.$artist->getBio().'
+					<span class="bio-section-title">Биография</span>
+					<div class="bio-section-text">
+						<?php echo $artist->getBio(); ?>
 					</div>
 				</div>
 				
 				<p class="separator"></p>
 				<div  class="bio-section">	  
-					<span class="bio-section-title" >Награды</span>
+					<span class="bio-section-title">Награды</span>
 					<div class="bio-rewards" style="display:none;">
 						<ul>
 							<li>2010
@@ -88,31 +205,26 @@
 				</div>
 				
 				<p class="separator"></p>
-				<div class="bio-section">	  
-					<span class="bio-section-title" >Интересные факты</span>
-					<div class="bio-section-text" style="display:none;">';
-					 
-					$delimiter = "\r\n";
-					$info_array = explode($delimiter, $artist->getInfo()); 
-					
-					echo '<ul>';
-							
-					
-						for ($i=0; $i < count( $info_array ); $i++)
-						{
-							
-							echo '<li>'.   $info_array[$i].' </li>';
-							
-						}
-					
-					echo '</ul>
-					</div>
-				</div>
-				
+					<div class="bio-section">	  
+						<span class="bio-section-title" >Интересные факты</span>
+						<div class="bio-section-text" style="display:none;">';
+							<?php
+								$delimiter = "\r\n";
+								$info_array = explode($delimiter, $artist->getInfo()); 
+							?>
+							<ul>
+								<?php
+								for ($i=0; $i < count( $info_array ); $i++)
+								{
+									echo '<li>'.$info_array[$i].' </li>';
+								}
+							?>
+							</ul>
+						</div>
+					</div>	
 				<p class="separator"></p>
 				<div class="bio-section">	  
-					<span class="bio-section-title" > Фото </span>
-					
+					<span class="bio-section-title">Фото</span>	
 					<!--div  class="bio-section-gallery">
 						<a href="#" id="gallery-left-arrow"><</a>
 						<div id="gallery-content"></div>
@@ -120,20 +232,19 @@
 					</div-->
 					<div style="margin-top:30px;">
 						<ul class="bxslider">
-						  <li><img src="img/artist.jpg" title="Ani Lorak 1" /></li>
-						  <li><img src="img/artist.jpg" title="Ani Lorak 2" /></li>
-						  <li><img src="img/artist.jpg" title="Ani Lorak 3" /></li>
-						  <li><img src="img/artist.jpg" title="Ani Lorak 4" /></li>
-						  <li><img src="img/artist.jpg" title="Ani Lorak 5" /></li>
-						  <li><img src="img/artist.jpg" title="Ani Lorak 6" /></li>
-						  <li><img src="img/artist.jpg" title="Ani Lorak 7" /></li>
-						  <li><img src="img/artist.jpg" title="Ani Lorak 8" /></li>
-						  <li><img src="img/artist.jpg" title="Ani Lorak 9" /></li>
-						  <li><img src="img/artist.jpg" title="Ani Lorak 10" /></li>
+						  <li><img src="img/photo/largest/1.jpg" title="Ani Lorak 1" /></li>
+						  <li><img src="img/photo/largest/2.jpg" title="Ani Lorak 2" /></li>
+						  <li><img src="img/photo/largest/3.jpg" title="Ani Lorak 3" /></li>
+						  <li><img src="img/photo/largest/4.jpg" title="Ani Lorak 4" /></li>
+						  <li><img src="img/photo/largest/5.jpg" title="Ani Lorak 5" /></li>
+						  <li><img src="img/photo/largest/6.jpg" title="Ani Lorak 6" /></li>
+						  <li><img src="img/photo/largest/7.jpg" title="Ani Lorak 7" /></li>
+						  <li><img src="img/photo/largest/8.jpg" title="Ani Lorak 8" /></li>
+						  <li><img src="img/photo/largest/9.jpg" title="Ani Lorak 9" /></li>
+						  <li><img src="img/photo/largest/10.jpg" title="Ani Lorak 10" /></li>
 						</ul>		
 					</div>
 				</div>
-				
 			</div>
 					
 			</div>
@@ -161,14 +272,18 @@
 					});
 					 
 				});
-				</script>';
+				</script>
+				<?php
 	};	
+?>
+
 	
+<?php
 function printMainPage()
 {
 	// Get random top-indexed artist
 	$SONGS_QUANTITY_HERO = 10;
-	$SONGS_QUANTITY = 20;
+	$SONGS_QUANTITY = 4;
 	
 	$song = new Song();
 	$song->initNewAll();
@@ -235,20 +350,21 @@ function printMainPage()
 							<?php
 								// $new_songs = GET TEXT LINKs LIST HERE
 								
-								
+								$songList = new SongList();
 								$new_songs = $songList->getNewSongs( $SONGS_QUANTITY );
 								if ($new_songs != null){
-									for ($ind = 1; $ind <= (count($new_songs) -1) && $ind<5 ;$ind++ )
+									while($song = $new_songs->current())
 									{
 										?>
 											<div class="row-fluid">
-												<a href="'.$new_songs[$ind]->getUrl().'">
+												<a href="<?php echo $song->getArtistUrl()."/".$song->getUrl(); ?>">
 													<p>
-														<span><?php echo $new_songs[$ind]->getArtistName().' - </span>'.$new_songs[$ind]->getName(); ?>
+														<span><?php echo $song->getArtistName().' - '.$song->getName(); ?></span>
 													</p>
 												</a>
 											</div>
 										<?php
+										$new_songs->next();
 									}
 								}else{
 									?>
@@ -269,12 +385,14 @@ function printMainPage()
 						<div class="span10">	
 							<div class="row-fluid">
 							<?php
-								// $videoList = GET NEW VIDEO LIST HERE
-								//$videoList = $videoList->getNewSongs( $SONGS_QUANTITY );
+								$videoList = new VideoList();
+								$new_videos = $videoList->getNewVideos( $SONGS_QUANTITY );
 								if ($videoList != null){
-									for ($ind = 1; $ind <= (count($videoList) -1) && $ind<5 ;$ind++ )
+									while($video = $new_videos->current())
 									{
-										echo $videoList[$ind]->getData();
+										$video->setXY(320,240);
+										echo $video->getData();
+										$new_videos->next();
 									}
 								}else{
 							?>
@@ -298,21 +416,23 @@ function printMainPage()
 						</div>
 						<div class="span10">
 						<?php
-							// $textList = GET NEW TRANSLATIONS LIST HERE
-							if ($transList != null){
-								for ($ind = 1; $ind <= (count($$transList) -1) && $ind<5 ;$ind++ )
+							$translateList = new TranslateList();
+							$new_translates = $translateList->getNewTranslates( $SONGS_QUANTITY );
+							if ($translateList != null){
+								while($translate = $new_translates->current())
 								{
 									?>
 										<div class="row-fluid">
-											<a href="'.$transList[$ind]->getUrl().'">
+											<a href="<?php echo $translate->getArtistUrl()."/".$translate->getSongUrl(); ?>">
 												<p>
 													<span>
-														<?php echo $transList[$ind]->getArtistName().' - '.$transList[$ind]->getName(); ?>
+														<?php echo $translate->getArtistName().' - '.$translate->getSongName()." (".$translate->getName().")"; ?>
 													</span>
 												</p>
 											</a>
 										  </div>
 									<?php
+									$new_translates->next();
 								}
 							}else{
 								?>
