@@ -3,3 +3,6 @@
 /temp
 /.git-pass
 /.git-pass/*.*
+.settings
+.project
+.buildpath
