@@ -5,6 +5,8 @@
 	require_once 'Artist.php';	
 	require_once 'ArtistList.php';	
 	require_once 'SongList.php';
+	require_once 'TranslateList.php';
+	require_once 'VideoList.php';
 	// MAIN PAGE END
 	
 	function printNewSongPage($no){};
@@ -168,7 +170,7 @@ function printMainPage()
 {
 	// Get random top-indexed artist
 	$SONGS_QUANTITY_HERO = 10;
-	$SONGS_QUANTITY = 20;
+	$SONGS_QUANTITY = 4;
 	
 	$song = new Song();
 	$song->initNewAll();
@@ -235,20 +237,21 @@ function printMainPage()
 							<?php
 								// $new_songs = GET TEXT LINKs LIST HERE
 								
-								
+								$songList = new SongList();
 								$new_songs = $songList->getNewSongs( $SONGS_QUANTITY );
 								if ($new_songs != null){
-									for ($ind = 1; $ind <= (count($new_songs) -1) && $ind<5 ;$ind++ )
+									while($song = $new_songs->current())
 									{
 										?>
 											<div class="row-fluid">
-												<a href="'.$new_songs[$ind]->getUrl().'">
+												<a href="<?php echo $song->getArtistUrl()."/".$song->getUrl(); ?>">
 													<p>
-														<span><?php echo $new_songs[$ind]->getArtistName().' - </span>'.$new_songs[$ind]->getName(); ?>
+														<span><?php echo $song->getArtistName().' - '.$song->getName(); ?></span>
 													</p>
 												</a>
 											</div>
 										<?php
+										$new_songs->next();
 									}
 								}else{
 									?>
@@ -269,12 +272,14 @@ function printMainPage()
 						<div class="span10">	
 							<div class="row-fluid">
 							<?php
-								// $videoList = GET NEW VIDEO LIST HERE
-								//$videoList = $videoList->getNewSongs( $SONGS_QUANTITY );
+								$videoList = new VideoList();
+								$new_videos = $videoList->getNewVideos( $SONGS_QUANTITY );
 								if ($videoList != null){
-									for ($ind = 1; $ind <= (count($videoList) -1) && $ind<5 ;$ind++ )
+									while($video = $new_videos->current())
 									{
-										echo $videoList[$ind]->getData();
+										$video->setXY(320,240);
+										echo $video->getData();
+										$new_videos->next();
 									}
 								}else{
 							?>
@@ -298,21 +303,23 @@ function printMainPage()
 						</div>
 						<div class="span10">
 						<?php
-							// $textList = GET NEW TRANSLATIONS LIST HERE
-							if ($transList != null){
-								for ($ind = 1; $ind <= (count($$transList) -1) && $ind<5 ;$ind++ )
+							$translateList = new TranslateList();
+							$new_translates = $translateList->getNewTranslates( $SONGS_QUANTITY );
+							if ($translateList != null){
+								while($translate = $new_translates->current())
 								{
 									?>
 										<div class="row-fluid">
-											<a href="'.$transList[$ind]->getUrl().'">
+											<a href="<?php echo $translate->getArtistUrl()."/".$translate->getSongUrl(); ?>">
 												<p>
 													<span>
-														<?php echo $transList[$ind]->getArtistName().' - '.$transList[$ind]->getName(); ?>
+														<?php echo $translate->getArtistName().' - '.$translate->getSongName()." (".$translate->getName().")"; ?>
 													</span>
 												</p>
 											</a>
 										  </div>
 									<?php
+									$new_translates->next();
 								}
 							}else{
 								?>
