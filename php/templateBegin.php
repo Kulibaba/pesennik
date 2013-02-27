@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <title>pesennik.org</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,24 +8,22 @@
     <meta name="author" content="">
 
 	
-		
+	<?php $root = "http://localhost/pesennik"; ?>
     <!-- Le styles -->
-  <link href="css/bootstrap.css" rel="stylesheet">
-	<link href="css/pessenik.css" rel="stylesheet">
-  <link href="css/bootstrap-responsive.css" rel="stylesheet">
-		
-	<script language="javascript" type="text/javascript" src="js/jquery.js"></script>
-	<script language="javascript" type="text/javascript" src="js/jquery.bxslider.min.js"></script>
-	<script src="js/jquery-timer.js"></script>
-	<script src="js/pesennik.js"></script>
+	<link href="<?php echo $root; ?>/css/bootstrap.css" rel="stylesheet">
+	<link href="<?php echo $root; ?>/css/pessenik.css" rel="stylesheet">
+	<link href="<?php echo $root; ?>/css/bootstrap-responsive.css" rel="stylesheet">
+	
+	<script src="<?php echo $root; ?>/js/jquery.js"></script>
+	<script src="<?php echo $root; ?>/js/jquery.bxslider.min.js"></script>
+	<script src="<?php echo $root; ?>/js/jquery-timer.js"></script>
+	<script src="<?php echo $root; ?>/js/pesennik.js"></script>
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
-  </head>
-
-  <body>
+</head>
+<body>
 	
 	
 
@@ -37,7 +35,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			  </a>
-			<a class="brand" href="./"><img src="img/logo.png"/></a> <!--pesennik.org-->
+			<a class="brand" href="<?php echo $root; ?>"><img src="<?php echo $root; ?>/img/logo.png"/></a> <!--pesennik.org-->
 			<div id="global-nav"> 
 							<ul> 
 								<li><a href="%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D0%BD%D0%B8%D1%82%D0%B5%D0%BB%D0%B8/0">0-9</a></li> 

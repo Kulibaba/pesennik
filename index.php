@@ -3,7 +3,7 @@ $param = explode('/',$_GET["param"]);
 
 require 'php/print.php';
 require 'php/OldVersionSupport.php';
-require_once 'templateBegin.html';
+require_once 'php/templateBegin.php';
 
 /*	BEGIN Setting "new style" URL from "old style"	*/
 $newStyleUrl = OldVersionSupport($param[0]);
@@ -77,5 +77,5 @@ switch($param[0]){
 		break;
 	}
 }
-require_once 'templateEnd.html';
+require_once 'php/templateEnd.php';
 ?>
