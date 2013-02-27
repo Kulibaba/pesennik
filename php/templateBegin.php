@@ -13,11 +13,13 @@
 	<link href="<?php echo $_ROOT; ?>/css/bootstrap.css" rel="stylesheet">
 	<link href="<?php echo $_ROOT; ?>/css/pessenik.css" rel="stylesheet">
 	<link href="<?php echo $_ROOT; ?>/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="<?php echo $_ROOT; ?>/css/jquery.bxslider.css" rel="stylesheet">
 	
 	<script src="<?php echo $_ROOT; ?>/js/jquery.js"></script>
-	<script src="<?php echo $_ROOT; ?>/js/jquery.bxslider.min.js"></script>
+	
 	<script src="<?php echo $_ROOT; ?>/js/jquery-timer.js"></script>
 	<script src="<?php echo $_ROOT; ?>/js/pesennik.js"></script>
+	<script src="<?php echo $_ROOT; ?>/js/jquery.bxslider.min.js"></script>
  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
  <!--[if lt IE 9]>
  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -67,9 +69,6 @@
 								<li><a href="<?php echo $_ROOT; ?>/%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D0%BD%D0%B8%D1%82%D0%B5%D0%BB%D0%B8/z">Z</a></li> 
 							</ul> 
 							<ul>
-							
-							
-							
 								<li><a href="<?php echo $_ROOT; ?>/%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D0%BD%D0%B8%D1%82%D0%B5%D0%BB%D0%B8/%D0%B0">А</a></li>
 								<li><a href="<?php echo $_ROOT; ?>/%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D0%BD%D0%B8%D1%82%D0%B5%D0%BB%D0%B8/%D0%B1">Б</a></li>
 								<li><a href="<?php echo $_ROOT; ?>/%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D0%BD%D0%B8%D1%82%D0%B5%D0%BB%D0%B8/%D0%B2">В</a></li>
@@ -130,7 +129,7 @@
  <ul class="nav nav-list">
 				<li class="nav-header active"><a href="<?php echo $_ROOT; ?>">Главная</a></li>
 			
-				<li class="nav-header header1">Новинки
+				<li class="nav-header" id="header1">Новинки
 					<ul>
 						<li><a href="<?php echo $_ROOT; ?>/%D0%BD%D0%BE%D0%B2%D1%8B%D0%B5/%D1%82%D0%B5%D0%BA%D1%81%D1%82%D1%8B" >тексты</a></li>
 						<li><a href="<?php echo $_ROOT; ?>/%D0%BD%D0%BE%D0%B2%D1%8B%D0%B5/%D0%BA%D0%BB%D0%B8%D0%BF%D1%8B" >клипы</a></li>
@@ -140,7 +139,7 @@
 					</ul>
 				</li>
 			 
-				<li class="nav-header header2">Популярные
+				<li class="nav-header" id="header2">Популярные
 					<ul>
 						<li><a href="<?php echo $_ROOT; ?>/%D0%BF%D0%BE%D0%BF%D1%83%D0%BB%D1%8F%D1%80%D0%BD%D1%8B%D0%B5/%D1%82%D0%B5%D0%BA%D1%81%D1%82%D1%8B" >тексты</a></li>
 						<li><a href="<?php echo $_ROOT; ?>/%D0%BF%D0%BE%D0%BF%D1%83%D0%BB%D1%8F%D1%80%D0%BD%D1%8B%D0%B5/%D0%BA%D0%BB%D0%B8%D0%BF%D1%8B" >клипы</a></li>

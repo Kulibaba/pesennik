@@ -9,21 +9,71 @@
 	require_once 'TranslateList.php';
 	require_once 'VideoList.php';
 	// MAIN PAGE END
+	function printNewSongPage($no,$begin){
+	/*
+		@begin - var for pagination. Song number form wich start showing page
+	*/
+			?>
+		<div class="main-container" style="margin:20px;">
+			
+		<?php 
+		$sList = new SongList();
+		$newSList = $sList->getNewSongs($no);
+		if ($newSList!=NULL)
+		{
+			while($song = $newSList->current()){ ?>
+				<div  class="item">
+					<div class="photo-small">
+						<img src="img/<?php echo $song->getArtistId(); ?>.jpg" alt="artist" />
+					</div>
+					<div  class="text-middle">
+						<!--?php
+						$sList->getArtistName();
+						?-->
+						<span class="artist-name">
+							<a href="#"> <?php echo $song->getArtistName();?> 
+							</a>
+							<a href="#"> <?php echo ' - '.$song->getName();?>
+							</a>
+							<a href="#"><img src="<?php echo $_ROOT; ?>/img/icons/text.png" /></a> 
+							<a href="#"><img src="<?php echo $_ROOT; ?>/img/icons/translate.png" /></a> 
+					 </span>
+					</div>
+				</div>
+				<p class="separator"></p>
+		<?php 
+			$newSList->next();
+			}
+		}else
+		{
+			?>
+				<p style='color:red;'>ERROR! Empty var \$newSList at print.php::printNewSongPage()  </p>
+			<?
+		}
+		?>
+		<!--  PAGE END-->
+		</div><!--/span-->
+		<?php 
+	};
+	function printNewVideoPage($no,$begin,$end){};
+	function printNewTranslatePage($no,$begin,$end){};
+	function printNewArtistPage($no,$begin,$end){};
+	function printTopSongPage($no,$begin,$end){};
+	function printTopVideoPage($no,$begin,$end){};
+	function printTopTranslatePage($no,$begin,$end){};
+	function printTopArtistPage($no,$begin,$end){};
 	
-	function printNewSongPage($no){};
-	function printNewVideoPage($no){};
-	function printNewTranslatePage($no){};
-	function printNewArtistPage($no){};
-	function printTopSongPage($no){};
-	function printTopVideoPage($no){};
-	function printTopTranslatePage($no){};
-	function printTopArtistPage($no){};
+	function printSongList($no){
+			
+		printNewSongPage($no,0);
+		
+	};
+	
 	function printSongPage($artistUrl, $songUrl){
 		$song = new Song();
 		$song->initAll($artistUrl, $songUrl );
 		?>
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
-	
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
 	<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
 		<div class="main-container" style="margin:20px;">
 			<div id="short_bio">
@@ -89,7 +139,6 @@
 			?>
 					
 					
-				
 			<div class="w50">
 				<div id="tabs2" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
 					<span class="song-title"><?php echo $song->getArtistName()." — ".$song->getName(); ?> (текст песни)</span> 
@@ -97,7 +146,6 @@
 						<?php echo $song->getLyrics(); ?>
 					</div>
 				</div>
-					
 					
 					<!--div class="bio-section">	 
 						<span class="bio-section-title" > Песни/Альбомы </span>
@@ -144,13 +192,12 @@
 	};
 	?>
 	
-	<?php
-	function printArtistPage($artistUrl){
+<?php	function printArtistPage($artistUrl)
+	{
 		echo $_ROOT;
 		$artist = new Artist();
 		$artist->initAll($artistUrl);
-		?>
-		<link href="css/jquery.bxslider.css" rel="stylesheet">
+		?>		
 		<div class="main-container" >
 		 <div id="short_bio">
 			<div class="photo"><img src="./img/photo/largest/<?php echo $artist->getId(); ?>.jpg" alt="<?php echo $artist->getName(); ?>"/></div>
@@ -220,7 +267,7 @@
 				<p class="separator"></p>
 					<div class="bio-section">	 
 						<span class="bio-section-title" >Интересные факты</span>
-						<div class="bio-section-text" style="display:none;">';
+						<div class="bio-section-text" style="display:none;">
 							<?php
 								$delimiter = "\r\n";
 								$info_array = explode($delimiter, $artist->getInfo()); 
@@ -289,10 +336,8 @@
 				<?php
 	};	
 ?>
-
 	
-<?php
-function printMainPage()
+<?php function printMainPage()
 {
 	// Get random top-indexed artist
 	$SONGS_QUANTITY_HERO = 10;
@@ -312,7 +357,7 @@ function printMainPage()
 				<p style='color:red;'>ERROR! Empty var \$song print.php at line 36 </p>
 			<?
 		}
-		error_log("EMPTY \$fetched_song print.php at line 36");
+		error_log("EMPTY \$song print.php at line 36");
 	}
 
 	?>
@@ -461,6 +506,6 @@ function printMainPage()
 			</div>
 		</div><!-- /detailed headings -->
 	</div><!--/span-->
-<?php
-	};
+<?php	};
+	
 ?>

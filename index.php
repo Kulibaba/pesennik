@@ -14,8 +14,8 @@ $newStyleUrl = OldVersionSupport($param[0]);
 switch($param[0]){
 	case "новые":{
 		switch($param[1]){
-			case "песни":{
-				printNewSongPage(20);
+			case "тексты":{
+				printNewSongPage(20,0);
 				break;
 			}
 			case "клипы":{
@@ -39,7 +39,7 @@ switch($param[0]){
 	}
 	case "популярные":{
 		switch($param[1]){
-			case "песни":{
+			case "тексты":{
 				printTopSongPage(20);
 				break;
 			}

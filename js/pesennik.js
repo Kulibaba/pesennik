@@ -5,8 +5,10 @@ $(function ($) {
 	var counter_menu = 0;
 	var counter_block = 0;
 	var shift = $("#measure_block>div").height();
-	var shift_menu = $("#new-heading-menu>p").height();
 	*/
+	var shift_menu = $("#new-heading-menu>p").height();
+	var header1State=0;
+	var header2State=0;
 	var timer_hero = $.timer(function() {
 		// may be next step - ajax request to server for new photo
 		$(".artist-photo-top-new").fadeOut(1500);
@@ -37,21 +39,33 @@ $(function ($) {
 	
 	
 // MENU _BEGIN
-	$(".header1").click(function(){
-		$(".header1 ul>li").toggle('slow');
+	$("#header1").click(function(){
+		if (header1State==0){
+			$("#header1 ul>li").show('slow');
+			header1State=1;
+		}else{
+			$("#header1 ul>li").hide('slow');
+			header1State=0;
+		}
 	});
 	
-	$(".header2").click(function(){
-		$(".header2 ul>li").toggle('slow');
+	$("#header2").click(function(){
+		if (header2State==0){
+			$("#header2 ul>li").show('slow');
+			header2State=1;
+		}else{
+			$("#header2 ul>li").hide('slow');
+			header2State=0;
+		}
 	});
 	
-	$(".header3").click(function(){
-		$(".header3 ul>li").toggle('slow');
+	$("#header3").click(function(){
+		$("#header3 ul>li").toggle('slow');
 	});
 	
 	
-	$(".header4").click(function(){
-		$(".header4 ul>li").toggle('slow');
+	$("#header4").click(function(){
+		$("#header4 ul>li").toggle('slow');
 	});
 // MENU _END
 	
