@@ -31,42 +31,47 @@
 					<img src="../img/photo/largest/<?php echo $song->getArtistId(); ?>.jpg" alt="<?php echo $song->getArtistName(); ?>" />
 				</div>
 				<div class="span4" id="short_bio_table" >
-				<span class="artist-name">
-					<a href="<?php echo $song->getArtistUrl(); ?>" >
-							<?php echo $song->getArtistName(); ?>
-					</a> — <?php echo $song->getName(); ?> 
-					<img src="../img/flags/<?php echo $song->getLanguageUrl(); ?>.png" class="artist-flag" alt="<?php echo $song->getLanguageName(); ?>"/>
-				</span>
-		
-				<span style="border:1px solid #541;width:182; height: 18px; float:right;">
-					<!-- margin for element 2px , w:22 h:16-->
-					<img src="" width="22" height="16" alt="google" />
-					<img src="" width="22" height="16" alt="vk" />
-					<img src="" width="22" height="16" alt="face" />
-					<img src="" width="22" height="16" alt="mail.ru" />
-					<img src="" width="22" height="16" alt="tweeter" />
-					<img src="" width="22" height="16" alt="livejournal" />
-					<img src="" width="22" height="16" alt="yandex" />
-				</span>
-					
-				<div style="margin:15px 0;">
-					<span class="artist-name">Переводы</span>
-						<?php 
-							$list = $song->getTranslateList();
-							while($translate = $list->current()){
-								echo '<img src="../img/flags/'.$translate->getLanguageUrl().'.png" class="artist-flag" alt="'.$translate->getLanguageName().'"/>';
-								$list->next();
-							}
-							$list->rewind();
-						?>
-					</div>
+					<span class="artist-name">
+						<a href="<?php echo $song->getArtistUrl(); ?>" >
+								<?php echo $song->getArtistName(); ?>
+						</a> — <?php echo $song->getName(); ?> 
+						<img src="../img/flags/<?php echo $song->getLanguageUrl(); ?>.png" class="artist-flag" alt="<?php echo $song->getLanguageName(); ?>"/>
+					</span>
+			
+					<span style="border:1px solid #541;width:182; height: 18px; float:right;">
+						<!-- margin for element 2px , w:22 h:16-->
+						<img src="" width="22" height="16" alt="google" />
+						<img src="" width="22" height="16" alt="vk" />
+						<img src="" width="22" height="16" alt="face" />
+						<img src="" width="22" height="16" alt="mail.ru" />
+						<img src="" width="22" height="16" alt="tweeter" />
+						<img src="" width="22" height="16" alt="livejournal" />
+						<img src="" width="22" height="16" alt="yandex" />
+					</span>
+					<?php
+						if ($song->getTranslateList()->count() > 0 ){
+					?>
+							<div style="margin:15px 0;">
+								<span class="artist-name">Переводы</span>
+									<?php 
+										$list = $song->getTranslateList();
+										while($translate = $list->current()){
+											echo '<img src="../img/flags/'.$translate->getLanguageUrl().'.png" class="artist-flag" alt="'.$translate->getLanguageName().'"/>';
+											$list->next();
+										}
+										$list->rewind();
+									?>
+							</div>
+					<?
+						}
+					?>
 				</div>
 			</div>
 			
 					
 			<?php	// show all videos
 				$list = $song->getVideoList();
-				if ($list!=null){			
+				if ($list->count() > 0){			
 					while($video = $list->current()){
 			?>
 				<div class="video">
@@ -80,9 +85,7 @@
 			<?php 
 						$list->next();
 					}
-				}else{
-					echo '<td> EMPTY VIDEO LIST ! </td>';
-			}
+				}
 			?>
 					
 					
@@ -101,31 +104,36 @@
 						
 					</div-->
 			</div>
-		 
 			<!--Перевод Песни-->
-			<div class="w50">
-				<div id="tabs">
-					<ul>
-						<?php
-							$list = $song->getTranslateList();
-							while($translate = $list->current()){
-								echo '<li><a href="#tabs-'.$translate->getId().'">'.$translate->getLanguageName().'</a></li>';
-								$list->next();
-							}
-							$list->rewind();
-						?>
-					</ul>
-					<?php
-						while($translate = $list->current()){
-							echo '<div id="tabs-'.$translate->getId().'"><p>'.$translate->getLyrics().'</p></div>';
-							$list->next();
-						}
-					?>
-				</div>
-			</div>
+				
+			<?php 
+				$list = $song->getTranslateList();
+				if ($list->count() > 0){
+			?>
+					<div class="w50">
+						<div id="tabs">
+							<ul>
+								<?php									
+									while($translate = $list->current()){
+										echo '<li><a href="#tabs-'.$translate->getId().'">'.$translate->getLanguageName().'</a></li>';
+										$list->next();
+									}
+									$list->rewind();
+								?>
+							</ul>
+							<?php
+								while($translate = $list->current()){
+									echo '<div id="tabs-'.$translate->getId().'"><p>'.$translate->getLyrics().'</p></div>';
+									$list->next();
+								}
+							?>
+						</div>
+					</div>
+			<?php
+				}
+			?>
 		</div>
 		<p class="separator"></p>
-	
 		<script language="javascript" type="text/javascript">
 			//jQuery.noConflict();	
 			$(function() {
