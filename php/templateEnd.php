@@ -3,7 +3,7 @@
 		</div><!--/row-->
  
 		<!-- _________________BEGIN FOOTER_____________________ -->
-    <hr>
+ <hr>
 		<div class="container-fluid">
 			<div class="arrow-btn-wraper">
 				<a class="footer-arrow-btn" href>UpDown</a>
@@ -22,28 +22,28 @@
 				</div>
 			</div>
 			<hr>
-      <footer>
-        
+ <footer>
+ 
 				<div class="footer-links" >
-					<a href="#">О проекте &nbsp </a>
-					<a href="#">Друзья &nbsp </a>
-					<a href="#">Вебмастеру &nbsp </a>
+					<a href="#">О проекте</a>
+					<a href="#">Друзья</a>
+					<a href="#">Вебмастеру</a>
 					<a href="#">Правила</a>
-					<div  style="clear:both;width:100%; display:block;" >&copy; Company 2013 Кулибаба Сергей</div>
+					<div style="clear:both;width:100%; display:block;" >&copy; pesennik.org 2013</div>
 				</div>
 				
-      </footer>
+ </footer>
 			
 			<!-- Advertising Links -->
 			<div class="adv-links">
 			</div>
 
-    </div><!--/.fluid-container-->
+ </div><!--/.fluid-container-->
 
-    
-    <!-- Placed at the end of the document so the pages load faster -->
+ 
+ <!-- Placed at the end of the document so the pages load faster -->
 	<script src="js/jquery-timer.js"></script>
 	<script src="js/pesennik.js"></script>
 
-  </body>
+ </body>
 </html>

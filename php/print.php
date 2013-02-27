@@ -26,7 +26,7 @@
 	
 	<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
 		<div class="main-container" style="margin:20px;">
-			<div  id="short_bio">
+			<div id="short_bio">
 				<div class="photo">
 					<img src="../img/photo/largest/<?php echo $song->getArtistId(); ?>.jpg" alt="<?php echo $song->getArtistName(); ?>" />
 				</div>
@@ -34,8 +34,8 @@
 				<span class="artist-name">
 					<a href="<?php echo $song->getArtistUrl(); ?>" >
 							<?php echo $song->getArtistName(); ?>
-					</a> — <?php echo $song->getName(); ?>  
-					<img  src="../img/flags/<?php echo $song->getLanguageUrl(); ?>.png" class="artist-flag" alt="<?php echo $song->getLanguageName(); ?>"/>
+					</a> — <?php echo $song->getName(); ?> 
+					<img src="../img/flags/<?php echo $song->getLanguageUrl(); ?>.png" class="artist-flag" alt="<?php echo $song->getLanguageName(); ?>"/>
 				</span>
 		
 				<span style="border:1px solid #541;width:182; height: 18px; float:right;">
@@ -90,13 +90,13 @@
 			<div class="w50">
 				<div id="tabs2" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
 					<span class="song-title"><?php echo $song->getArtistName()." — ".$song->getName(); ?> (текст песни)</span> 
-					<div>  
+					<div> 
 						<?php echo $song->getLyrics(); ?>
 					</div>
 				</div>
 					
 					
-					<!--div class="bio-section">	  
+					<!--div class="bio-section">	 
 						<span class="bio-section-title" > Песни/Альбомы </span>
 						
 					</div-->
@@ -144,7 +144,7 @@
 		?>
 		<link href="css/jquery.bxslider.css" rel="stylesheet">
 		<div class="main-container" >
-		  <div  id="short_bio">
+		 <div id="short_bio">
 			<div class="photo"><img src="./img/photo/largest/<?php echo $artist->getId(); ?>.jpg" alt="<?php echo $artist->getName(); ?>"/></div>
 			<div class="span7" id="short_bio_table">
 				<span class="vote-stars">
@@ -164,7 +164,7 @@
 				<table class="bio-table table-bordered table-hover" style="cursor:pointer;" cellpadding="5" cellspacing="3">
 					<tbody class="table-striped ">
 						<tr><td>Полное имя:</td><td><?php echo $artist->getName(); ?></td></tr>
-						<tr><td>Даты:</td><td><?php echo $artist->getBirthDate().'  -  '.$artist->getDeathDate(); ?></td></tr>
+						<tr><td>Даты:</td><td><?php echo $artist->getBirthDate().' - '.$artist->getDeathDate(); ?></td></tr>
 						<tr><td>Страна:</td><td><?php echo $artist->getCountryName(); ?></td></tr>
 					</tbody>
 				</table>
@@ -182,7 +182,7 @@
 			
 			<div class="bio-content">
 			
-				<div class="bio-section">	  
+				<div class="bio-section">	 
 					<span class="bio-section-title">Биография</span>
 					<div class="bio-section-text">
 						<?php echo $artist->getBio(); ?>
@@ -190,7 +190,7 @@
 				</div>
 				
 				<p class="separator"></p>
-				<div  class="bio-section">	  
+				<div class="bio-section">	 
 					<span class="bio-section-title">Награды</span>
 					<div class="bio-rewards" style="display:none;">
 						<ul>
@@ -210,7 +210,7 @@
 				</div>
 				
 				<p class="separator"></p>
-					<div class="bio-section">	  
+					<div class="bio-section">	 
 						<span class="bio-section-title" >Интересные факты</span>
 						<div class="bio-section-text" style="display:none;">';
 							<?php
@@ -228,25 +228,25 @@
 						</div>
 					</div>	
 				<p class="separator"></p>
-				<div class="bio-section">	  
+				<div class="bio-section">	 
 					<span class="bio-section-title">Фото</span>	
-					<!--div  class="bio-section-gallery">
+					<!--div class="bio-section-gallery">
 						<a href="#" id="gallery-left-arrow"><</a>
 						<div id="gallery-content"></div>
 						<a href="#" id="gallery-right-arrow">></a>
 					</div-->
 					<div style="margin-top:30px;">
 						<ul class="bxslider">
-						  <li><img src="img/photo/largest/1.jpg" title="Ani Lorak 1" /></li>
-						  <li><img src="img/photo/largest/2.jpg" title="Ani Lorak 2" /></li>
-						  <li><img src="img/photo/largest/3.jpg" title="Ani Lorak 3" /></li>
-						  <li><img src="img/photo/largest/4.jpg" title="Ani Lorak 4" /></li>
-						  <li><img src="img/photo/largest/5.jpg" title="Ani Lorak 5" /></li>
-						  <li><img src="img/photo/largest/6.jpg" title="Ani Lorak 6" /></li>
-						  <li><img src="img/photo/largest/7.jpg" title="Ani Lorak 7" /></li>
-						  <li><img src="img/photo/largest/8.jpg" title="Ani Lorak 8" /></li>
-						  <li><img src="img/photo/largest/9.jpg" title="Ani Lorak 9" /></li>
-						  <li><img src="img/photo/largest/10.jpg" title="Ani Lorak 10" /></li>
+						 <li><img src="img/photo/largest/1.jpg" title="Ani Lorak 1" /></li>
+						 <li><img src="img/photo/largest/2.jpg" title="Ani Lorak 2" /></li>
+						 <li><img src="img/photo/largest/3.jpg" title="Ani Lorak 3" /></li>
+						 <li><img src="img/photo/largest/4.jpg" title="Ani Lorak 4" /></li>
+						 <li><img src="img/photo/largest/5.jpg" title="Ani Lorak 5" /></li>
+						 <li><img src="img/photo/largest/6.jpg" title="Ani Lorak 6" /></li>
+						 <li><img src="img/photo/largest/7.jpg" title="Ani Lorak 7" /></li>
+						 <li><img src="img/photo/largest/8.jpg" title="Ani Lorak 8" /></li>
+						 <li><img src="img/photo/largest/9.jpg" title="Ani Lorak 9" /></li>
+						 <li><img src="img/photo/largest/10.jpg" title="Ani Lorak 10" /></li>
 						</ul>		
 					</div>
 				</div>
@@ -261,14 +261,14 @@
 				//jQuery.noConflict();	
 				$(document).ready(function(){
 					$(".bxslider").bxSlider( {
-					  minSlides: 6,
-					  maxSlides: 10,
-					  slideWidth: 200,
-					  slideMargin: 10,
-					  moveSlides:6,
-					  captions:true,
-					  adaptiveHeight:true,
-					  speed:2000
+					 minSlides: 6,
+					 maxSlides: 10,
+					 slideWidth: 200,
+					 slideMargin: 10,
+					 moveSlides:6,
+					 captions:true,
+					 adaptiveHeight:true,
+					 speed:2000
 					});
 					
 					$(".bio-section-title").click(function(){
@@ -310,7 +310,7 @@ function printMainPage()
 	?>
 		<div class="hero-unit">
 			<div class="photo-big">
-				<img src="img/photo/largest/<?php echo $song->getArtistId(); ?>.jpg"  class="artist-photo-top-new" alt="<?php echo $song->getArtistName(); ?>" />
+				<img src="img/photo/largest/<?php echo $song->getArtistId(); ?>.jpg" class="artist-photo-top-new" alt="<?php echo $song->getArtistName(); ?>" />
 			</div>
 			<div class="top-new-box-txt" >
 				<h1>
@@ -324,7 +324,7 @@ function printMainPage()
 			</div>
 			<p class="btn-paragraph"><a href="<?php echo $song->getArtistUrl()."/".$song->getUrl();?>" class="btn btn-primary btn-large">читать далее &raquo;</a></p>
 		</div>
-		  
+		 
 		<!-- MAIN BLOCK SEPARATOR -->
 		<p class="separator"></p>	
 		<div class="top-new-block">
@@ -339,7 +339,7 @@ function printMainPage()
 				<p class="heading btn-next-heading"> &nbsp </p>
 			</div-->
 		
-			<div  class="span10 " id="headings-container" style="overflow:hidden;"><!--height:500px;-->
+			<div class="span10 " id="headings-container" style="overflow:hidden;"><!--height:500px;-->
 				<div id="new-heading-block">
 					<!--Texts-->
 					<div class="new-heading-detailed texts" id="measure_block">
@@ -435,7 +435,7 @@ function printMainPage()
 													</span>
 												</p>
 											</a>
-										  </div>
+										 </div>
 									<?php
 									$new_translates->next();
 								}
