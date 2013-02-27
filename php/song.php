@@ -74,8 +74,11 @@ class Song {
 		$result = mysql_query($query,DB::getInstance());
 		$resultList = new SplDoublyLinkedList();
 		if ($result!= null){
-			while($row = mysql_fetch_array ($result))
-				$resultList->push(new Video($row));
+			while($row = mysql_fetch_array ($result)){
+				$video = new Video();
+				$video->initAll($row);
+				$resultList->push($video);
+			}
 			$resultList->rewind();
 		}else{
 			if ($DEBUG_MODE){echo "<span style='color:red;'>ERROR! Empty var \$result in song.php at line 71 </span><br/>";}
@@ -124,6 +127,7 @@ class Song {
 		
 		$query = "
 			SELECT 
+				artist.id AS artistId,
 				artist.name AS artistName,
 				artist.url AS artistUrl,
 				song.id, 
@@ -151,6 +155,7 @@ class Song {
 			$this->lyrics = $row["lyrics"];
 			$this->name = $row["name"];
 			$this->url = $row["url"];
+			$this->artistId = $row["artistId"];
 			$this->artistName = $row["artistName"];
 			$this->artistUrl = $row["artistUrl"];
 			$this->languageName = $row["languageName"]; 

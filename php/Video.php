@@ -34,8 +34,6 @@ class Video {
 		@row - array, params for constructor
 	*/
 		$this->data = str_replace("URL", $row["videoUrl"], $row["data"]);
-		$this->data = str_replace("XXX", "240", $row["data"]);
-		$this->data = str_replace("YYY", "320", $row["data"]);
 		$this->videoTypeName = $row["videoTypeName"];
 		$this->userName = $row["userName"];
 		$this->userUrl = $row["userUrl"];

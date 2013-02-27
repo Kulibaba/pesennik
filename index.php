@@ -69,7 +69,6 @@ switch($param[0]){
 		}
 		else if($param[0] != ""){
 			//artist's page
-			echo 'printArtistPage';
 			printArtistPage($param[0]);
 		}else{
 			printMainPage();

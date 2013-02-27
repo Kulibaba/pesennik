@@ -33,7 +33,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			  </a>
-			<a class="brand" href="#"><img src="img/logo.png" /></a> <!--pesennik.org-->
+			<a class="brand" href="#"><img src="../../img/logo.png" /></a> <!--pesennik.org-->
 			<div id="global-nav"> 
 							<ul> 
 								<li><a href="%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D0%BD%D0%B8%D1%82%D0%B5%D0%BB%D0%B8_0">0-9</a></li> 
