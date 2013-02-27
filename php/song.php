@@ -92,9 +92,10 @@ class Song {
 	private function fillTranslateList($songId){
 		$query = "
 			SELECT
+				translate.id,
+				translate.info,
 				translate.lyrics,
 				translate.name,
-				translate.info,
 				language.name AS languageName,
 				language.url AS languageUrl,
 				user.name AS userName,
@@ -104,13 +105,17 @@ class Song {
 			LEFT JOIN language ON 	translate.languageId = language.id	
 			LEFT JOIN user ON 		translate.userId = user.id 
 			WHERE song.id ='$songId'
+			ORDER BY language.id
 		";
-		
+
 		$result = mysql_query($query,DB::getInstance());
 		$resultList = new SplDoublyLinkedList();
 		if ($result!= null){
-			while($row = mysql_fetch_array ($result))
-				$resultList->push(new Translate($row));
+			while($row = mysql_fetch_array ($result)){
+				$translate = new Translate();
+				$translate->initListItem($row);
+				$resultList->push($translate);
+			}
 			$resultList->rewind();
 		}else{
 			if ($DEBUG_MODE){echo "<span style='color:red;'>ERROR! Empty var \$result in song.php at line 100 </span><br/>";}
@@ -120,7 +125,7 @@ class Song {
 	}
 	
 	// MORE COMMENTS, RENAME FUNC
-	function initAll($artistId, $url){
+	function initAll($artistUrl, $url){
 		/*
 			Used for song's pages
 		*/
@@ -144,7 +149,7 @@ class Song {
 			LEFT JOIN artist ON 		artistsong.artistId = artist.id
 			LEFT JOIN language ON 		song.languageId = language.id
 			LEFT JOIN user ON 			song.userId = user.id
-			WHERE song.url ='$url' AND artist.id = '$artistId'
+			WHERE song.url ='$url' AND artist.url = '$artistUrl'
 		";
 
 		$result = mysql_query($query,DB::getInstance());

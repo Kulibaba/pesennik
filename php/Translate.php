@@ -9,7 +9,7 @@ class Translate {
 	private $userName;
 	private $userUrl;
 	private $info;
-	
+	private $id;
 	private $url;
 	private $artistUrl;
 	private $artistName;
@@ -35,6 +35,7 @@ class Translate {
 		$this->userName = $row["userName"];
 		$this->userUrl = $row["userUrl"];
 		$this->info = $row["info"];
+		$this->id = $row["id"];
 	}
 	function getArtistUrl() {
 		return $this->artistUrl;
@@ -68,6 +69,9 @@ class Translate {
 	}
 	function getInfo() {
 		return $this->info;
+	}
+	function getId() {
+		return $this->id;
 	}
 }
 ?>
