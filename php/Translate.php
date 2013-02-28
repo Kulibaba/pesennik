@@ -11,6 +11,7 @@ class Translate {
 	private $info;
 	private $id;
 	private $url;
+	private $artistId;
 	private $artistUrl;
 	private $artistName;
 	private $songUrl;
@@ -22,6 +23,7 @@ class Translate {
 	/*
 		@row - array, params for constructor
 	*/
+		$this->artistId = $row["artistId"];
 		$this->artistName = $row["artistName"];
 		$this->artistUrl = $row["artistUrl"];
 		
@@ -36,6 +38,10 @@ class Translate {
 		$this->userUrl = $row["userUrl"];
 		$this->info = $row["info"];
 		$this->id = $row["id"];
+	}
+	
+	function getArtistId() {
+		return $this->artistId;
 	}
 	function getArtistUrl() {
 		return $this->artistUrl;

@@ -26,11 +26,11 @@ switch($param[0]){
 				break;
 			}
 			case "переводы":{
-				printNewTranslatePage(20);
+				printNewTranslatePage(20,0);
 				break;
 			}
 			case "исполнители":{
-				printNewArtistPage(20);
+				printNewArtistPage(20,0);
 				break;
 			}
 			default:{
@@ -43,19 +43,19 @@ switch($param[0]){
 	case "популярные":{
 		switch($param[1]){
 			case "тексты":{
-				printTopSongPage(20);
+				printTopSongPage(20,0);
 				break;
 			}
 			case "клипы":{
-				printTopVideoPage(20);
+				printTopVideoPage(20,0);
 				break;
 			}
 			case "переводы":{
-				printTopTranslatePage(20);
+				printTopTranslatePage(20,0);
 				break;
 			}
 			case "исполнители":{
-				printTopArtistPage(20);
+				printTopArtistPage(20,0);
 				break;
 			}
 			default:{

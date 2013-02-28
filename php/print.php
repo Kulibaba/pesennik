@@ -14,7 +14,7 @@
 	/*
 		@begin - var for pagination. Song number form wich start showing page
 	*/
-			?>
+		?>
 		<div class="main-container" style="margin:20px;">
 		<?php 
 		$sList = new SongList();
@@ -70,24 +70,22 @@
 	*/
 			?>
 		<div class="main-container" style="margin:20px;">
+			<div class="section">			
 		<?php 
 		$vList = new VideoList();
-		
+		$count = 1;
+		$delta = 10;
 		$newVList = $vList->getNewVideos($no);
 		//print_r($newVList);
 		if ($newVList != NULL)
 		{
-		
-		?>
-			<div class="section">		
-			<?php
-			while($video = $newVList->current()){ 
+			while(($video = $newVList->current())&& ($count < $delta)){ 
+			//echo $video;
 			?>
 				<div class="video">
 					<span> 
 						<?php
 							echo $video->getData(); 
-							echo $video->getVideoTypeName();
 						?>
 					</span>
 					
@@ -100,9 +98,10 @@
 					<?php }?>
 					</div>
 				</div>
-			</div>
+				<?php if ($count%3==0){?>
 				<p class="separator"></p>
-		<?php 
+		<?php }
+			$count++;
 			$newVList->next();
 			}
 		}else
@@ -112,21 +111,62 @@
 			<?
 		}
 		?>
+			</div>
 		<!--  PAGE END-->
 		</div><!--/span-->
 		<?php 
 	};
-	function printNewTranslatePage($no,$begin,$end){};
-	function printNewArtistPage($no,$begin,$end){};
-	function printTopSongPage($no,$begin,$end){};
-	function printTopVideoPage($no,$begin,$end){};
-	function printTopTranslatePage($no,$begin,$end){};
-	function printTopArtistPage($no,$begin,$end){};
+	function printNewTranslatePage($no,$begin){
+		/*
+		@begin - var for pagination. Song number form wich start showing page
+	*/
+		?>
+		<div class="main-container" style="margin:20px;">
+		<?php 
+		$tList = new TranslateList();
+		$newTList = $tList->getNewTranslates($no);
+		
+		if ($newTList != NULL)
+		{
+			while($translate = $newTList->current()){ 
+			?>
+				<div  class="item">
+					<div class="photo-small">
+						<img src="../img/photo/small/<?php echo $translate->getArtistId(); ?>.jpg" alt="artist" />
+					</div>
+					<div  class="text-middle">
+						<span class="artist-name">
+							<a href="../<?php echo $translate->getArtistUrl()."/".$translate->getSongUrl(); ?>"> 
+								<?php echo $translate->getArtistName().' - '.$translate->getSongName();?>
+							</a>
+							<img class="artist-flag" src="../img/flags/<?php echo $translate->getLanguageUrl(); ?>.png"  alt="<?php echo $translate->getLanguageName(); ?>"/>
+							
+					 </span>
+					</div>
+				</div>
+				<p class="separator"></p>
+		<?php 
+			$newTList->next();
+			}
+		}else
+		{
+			?>
+				<p style='color:red;'>ERROR! Empty var \$newTList at print.php::printNewTranslatePage()  </p>
+			<?
+		}
+		?>
+		<!--  PAGE END-->
+		</div><!--/span-->
+		<?php 
+	};
+	function printNewArtistPage($no,$begin){};
+	function printTopSongPage($no,$begin){};
+	function printTopVideoPage($no,$begin){};
+	function printTopTranslatePage($no,$begin){};
+	function printTopArtistPage($no,$begin){};
 	
 	function printSongList($no){
-			
 		printNewSongPage($no,0);
-		
 	};
 	
 	function printSongPage($artistUrl, $songUrl){
@@ -147,6 +187,26 @@
 						</a>
 					</span> — <?php echo $song->getName(); ?> 
 					<img src="../img/flags/<?php echo $song->getLanguageUrl(); ?>.png" class="artist-flag" alt="<?php echo $song->getLanguageName(); ?>"/>
+					
+					<?php
+						if ($song->getTranslateList()->count() > 0 ){
+					?>
+							<div style="margin:15px 0;">
+								<span class="artist-name">Переводы</span>
+									<?php 
+										$list = $song->getTranslateList();
+										while($translate = $list->current()){
+											?><img class="artist-flag" src="../img/flags/<?php echo $translate->getLanguageUrl(); ?>.png"  alt="<?php echo $translate->getLanguageName(); ?>"/>
+											<?php 
+											$list->next();
+										}
+										$list->rewind();
+									?>
+							</div>
+					<?
+						}
+					?>
+					
 					<span style="border:1px solid #541;width:182; height: 18px; float:right;">
 						<!-- margin for element 2px , w:22 h:16-->
 						<img src="" width="22" height="16" alt="google" />
@@ -157,24 +217,8 @@
 						<img src="" width="22" height="16" alt="livejournal" />
 						<img src="" width="22" height="16" alt="yandex" />
 					</span>
-					<?php
-						if ($song->getTranslateList()->count() > 0 ){
-					?>
-							<div style="margin:15px 0;">
-								<span class="artist-name">Переводы</span>
-									<?php 
-										$list = $song->getTranslateList();
-										while($translate = $list->current()){
-											echo '<img src="../../img/flags/'.$translate->getLanguageUrl().'.png" class="artist-flag" alt="'.$translate->getLanguageName().'"/>';
-											$list->next();
-										}
-										$list->rewind();
-									?>
-							</div>
-					<?
-						}
-					?>
 				</div>
+				
 			</div>
 			
 					
@@ -207,7 +251,7 @@
 				</div>
 				</div>
 			<?php 
-						$list->next();
+						$list->next(); break; /* ONLY ONE VIDEO CLIP FOR EVERY SONG */
 					}
 				}
 			?>

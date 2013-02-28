@@ -12,12 +12,14 @@ class TranslateList{
 	*/
 		$query = "
 			SELECT
+				artist.id AS artistId,
 				artist.name AS artistName,
 				artist.url AS artistUrl,
 				artist.photo AS artistPhoto,
 				song.name AS songName,
 				song.url AS songUrl,
 				language.name AS languageName,
+				language.url AS languageUrl,
 				translate.name,
 				translate.languageId
 			FROM translate

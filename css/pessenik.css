@@ -90,7 +90,7 @@ vertical-align:bottom;
 }
 
 .nav-header  ul >li{
-	display:none;
+	/*display:none;*/
 	list-style-type:none;
 	border-top:0px solid #0088dd;
 }
