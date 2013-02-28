@@ -1,7 +1,7 @@
 <?php
 
 	// MAIN PAGE BEGIN
-	require_once 'conf.php'; 
+	include 'conf.php'; 
 	require_once 'Artist.php';	
 	require_once 'ArtistList.php';	
 	require_once 'Song.php'; 		
@@ -19,45 +19,41 @@
 		<div class="main-container" style="margin:20px;">
 			
 		<?php 
-		$_ROOT = "http://localhost/pesennik.org";
 		$sList = new SongList();
 		$sList = new SongList();
 		$newSList = $sList->getNewSongs($no);
 		$count=0;
+		$_ROOT ="http://localhost/pesennik";
 		//print_r($newSList);
 		if ($newSList != NULL)
 		{
 			while($song = $newSList->current()){ 
-			//echo $_ROOT; 
 			?>
-			
 				<div  class="item">
 				<?php// echo ++$count;?>
 					<div class="photo-small">
 						<img src="<?php echo $_ROOT;?>/img/photo/small/<?php echo $song->getArtistId(); ?>.jpg" alt="artist" />
 					</div>
 					<div  class="text-middle">
-						<!--?php
-						$sList->getArtistName();
-						?-->
+						
 						<span class="artist-name">
 							<a href="<?php echo $_ROOT."/".$song->getArtistUrl();?>"> 
-								<?php echo $song->getArtistName();?> 
+								
 							</a>
 							<a href="<?php echo $_ROOT."/".$song->getArtistUrl()."/".$song->getUrl(); ?>"> 
-								<?php echo ' - '.$song->getName();?>
+								<?php echo $song->getArtistName().' - '.$song->getName();?>
 							</a>
 							
 							<?php if ($song->isLyrics()){?>
-							<a href="#"><img class="icon" alt="текст" src=" <?php echo $_ROOT; ?> /img/icons/text.png" /></a> 
+							<a href="#"><img class="icon" alt="текст" src="<?php echo $_ROOT;?>/img/icons/text.png" /></a> 
 							<?php }
 							
 							if ($song->isVideo()){?>
-							<a href="#"><img class="icon" alt="перевод" src=" <?php echo $_ROOT; ?> /img/icons/translate.png" /></a> 
+							<a href="#"><img class="icon" alt="перевод" src="<?php echo $_ROOT;?>/img/icons/translate.png" /></a> 
 							<?php }
 							
 							 if ($song->isTranslate()){?>
-							<a href="#"><img class="icon" alt="видео" src=" <?php echo $_ROOT; ?> /img/icons/video.png" /></a> 
+							<a href="#"><img class="icon" alt="видео" src=" <?php echo $_ROOT; ?>/img/icons/video.png" /></a> 
 							<?php }?>
 					 </span>
 					</div>
@@ -141,18 +137,8 @@
 			</div>
 			
 					
-					
-			<div class="video">
-			<span> 
-				<iframe width="180" height="115" src="http://www.youtube.com/embed/u9OXEozPNuc" frameborder="0" allowfullscreen></iframe>
-			</span>
-			<div class="text">
-				<a href="#" title=""> VIDEO NAME</a>
-				<div>
-					<a href="№" title="" class="screen-user-link "> USER NAME</a>
-				</div>
-			</div>
-	  </div>
+		
+		<div class="section">		
 			<?php	// show all videos
 				$list = $song->getVideoList();
 				if ($list->count() > 0){			
@@ -165,55 +151,64 @@
 							echo $video->getVideoTypeName();
 						?>
 					</span>
+					<span class="video-info">
+						<?php
+							echo $video->getVideoInfo(); 
+						?>
+					</span>
+					<div class="video-text">
+					<a href="#" title=""> <?php echo $video->getVideoName();?></a>
+					<?php if (($_SITE_MAJOR_VERSION==1)&&($_SITE_MINOR_VERSION == 1)){?>
+						<div>
+							<a href="<?php echo $video->getUserUrl();?>" title="<?php echo $video->getUserName();?>" class="video-screen-user-link"> <?php echo $video->getUserName();?></a>
+						</div>
+					<?php }?>
+				</div>
 				</div>
 			<?php 
 						$list->next();
 					}
 				}
 			?>
-					
-					
-			<div class="w50">
-				<div id="tabs2" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
-					<span class="song-title"><?php echo $song->getArtistName()." — ".$song->getName(); ?> (текст песни)</span> 
-					<div> 
-						<?php echo $song->getLyrics(); ?>
-					</div>
-				</div>
-					
-					<!--div class="bio-section">	 
-						<span class="bio-section-title" > Песни/Альбомы </span>
-						
-					</div-->
-			</div>
-			<!--Перевод Песни-->
-				
-			<?php 
-				$list = $song->getTranslateList();
-				if ($list->count() > 0){
-			?>
-					<div class="w50">
-						<div id="tabs">
-							<ul>
-								<?php									
-									while($translate = $list->current()){
-										echo '<li><a href="#tabs-'.$translate->getId().'">'.$translate->getLanguageName().'</a></li>';
-										$list->next();
-									}
-									$list->rewind();
-								?>
-							</ul>
-							<?php
-								while($translate = $list->current()){
-									echo '<div id="tabs-'.$translate->getId().'"><p>'.$translate->getLyrics().'</p></div>';
-									$list->next();
-								}
-							?>
+		</div>	
+			<div class="section">
+				<div class="w50">
+					<div id="tabs2" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
+						<span class="song-title"><?php echo $song->getArtistName()." — ".$song->getName(); ?> (текст песни)</span> 
+						<div class="song-text"> 
+							<?php echo $song->getLyrics(); ?>
 						</div>
 					</div>
-			<?php
-				}
-			?>
+				</div>
+				<!--Перевод Песни-->
+					
+				<?php 
+					$list = $song->getTranslateList();
+					if ($list->count() > 0){
+				?>
+						<div class="w50">
+							<div id="tabs">
+								<ul>
+									<?php									
+										while($translate = $list->current()){
+											echo '<li><a href="#tabs-'.$translate->getId().'">'.$translate->getLanguageName().'</a></li>';
+											$list->next();
+										}
+										$list->rewind();
+									?>
+								</ul>
+								<?php
+									while($translate = $list->current()){
+										echo '<div id="tabs-'.$translate->getId().'"><p><span class="song-title">'.$translate->getName().'</span>'.$translate->getLyrics().'</p></div>';
+										$list->next();
+									}
+								?>
+							</div>
+						</div>
+				<?php
+					}
+				?>
+			</div>
 		</div>
 		<p class="separator"></p>
 		<script language="javascript" type="text/javascript">

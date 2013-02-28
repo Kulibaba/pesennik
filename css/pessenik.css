@@ -502,6 +502,40 @@ display: inline-block;
   background-position: 14px 14px;
   background-repeat: no-repeat;
 }
+
+.video{
+	float:left;
+	margin-right:20px;
+	text-decoration:none;
+	border-radius:12px;
+	-moz-border-radius: 12px;
+	-ms-border-radius: 12px;
+	-webkit-border-radius: 12px;
+	border:1px solid #838383;
+	padding:5px;
+}
+.video-text{
+	clear: both;
+	margin-left: 5px;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000;
+}
+.video-screen-user-link{
+font-weight: normal;
+color: #838484;
+}
+.video-info{
+	vertical-align: top;
+	padding: 5px;
+}
+.section{
+clear:both;
+}
+.song-text{
+	padding: 1em 1.4em;
+	display:block;
+}
 /*
 	Kotov  END _____________________________________________
 */
