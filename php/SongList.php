@@ -60,6 +60,7 @@ class SongList{
 			SELECT
 				artist.name AS artistName,
 				artist.url AS artistUrl,
+				artist.id AS artistId,
 				song.id,
 				song.name,
 				song.searchName,

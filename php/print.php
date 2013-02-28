@@ -9,6 +9,8 @@
 	require_once 'TranslateList.php';
 	require_once 'VideoList.php';
 	// MAIN PAGE END
+	
+	
 	function printNewSongPage($no,$begin){
 	/*
 		@begin - var for pagination. Song number form wich start showing page
@@ -17,26 +19,46 @@
 		<div class="main-container" style="margin:20px;">
 			
 		<?php 
+		$_ROOT = "http://localhost/pesennik.org";
+		$sList = new SongList();
 		$sList = new SongList();
 		$newSList = $sList->getNewSongs($no);
-		if ($newSList!=NULL)
+		$count=0;
+		//print_r($newSList);
+		if ($newSList != NULL)
 		{
-			while($song = $newSList->current()){ ?>
+			while($song = $newSList->current()){ 
+			//echo $_ROOT; 
+			?>
+			
 				<div  class="item">
+				<?php// echo ++$count;?>
 					<div class="photo-small">
-						<img src="img/<?php echo $song->getArtistId(); ?>.jpg" alt="artist" />
+						<img src="<?php echo $_ROOT;?>/img/photo/small/<?php echo $song->getArtistId(); ?>.jpg" alt="artist" />
 					</div>
 					<div  class="text-middle">
 						<!--?php
 						$sList->getArtistName();
 						?-->
 						<span class="artist-name">
-							<a href="#"> <?php echo $song->getArtistName();?> 
+							<a href="<?php echo $_ROOT."/".$song->getArtistUrl();?>"> 
+								<?php echo $song->getArtistName();?> 
 							</a>
-							<a href="#"> <?php echo ' - '.$song->getName();?>
+							<a href="<?php echo $_ROOT."/".$song->getArtistUrl()."/".$song->getUrl(); ?>"> 
+								<?php echo ' - '.$song->getName();?>
 							</a>
-							<a href="#"><img src="<?php echo $_ROOT; ?>/img/icons/text.png" /></a> 
-							<a href="#"><img src="<?php echo $_ROOT; ?>/img/icons/translate.png" /></a> 
+							
+							<?php if ($song->isLyrics()){?>
+							<a href="#"><img class="icon" alt="текст" src=" <?php echo $_ROOT; ?> /img/icons/text.png" /></a> 
+							<?php }
+							
+							if ($song->isVideo()){?>
+							<a href="#"><img class="icon" alt="перевод" src=" <?php echo $_ROOT; ?> /img/icons/translate.png" /></a> 
+							<?php }
+							
+							 if ($song->isTranslate()){?>
+							<a href="#"><img class="icon" alt="видео" src=" <?php echo $_ROOT; ?> /img/icons/video.png" /></a> 
+							<?php }?>
 					 </span>
 					</div>
 				</div>

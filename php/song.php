@@ -45,6 +45,7 @@ class Song {
 		$this->url = $row["url"];
 		$this->flags = $row["flags"];
 		$this->artistName = $row["artistName"];
+		$this->artistId = $row["artistId"];
 		$this->artistUrl = $row["artistUrl"];
 		$this->languageUrl = $row["languageUrl"];
 		$this->languageName = $row["languageName"];
