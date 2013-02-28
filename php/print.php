@@ -141,6 +141,18 @@
 			</div>
 			
 					
+					
+			<div class="video">
+			<span> 
+				<iframe width="180" height="115" src="http://www.youtube.com/embed/u9OXEozPNuc" frameborder="0" allowfullscreen></iframe>
+			</span>
+			<div class="text">
+				<a href="#" title=""> VIDEO NAME</a>
+				<div>
+					<a href="№" title="" class="screen-user-link "> USER NAME</a>
+				</div>
+			</div>
+	  </div>
 			<?php	// show all videos
 				$list = $song->getVideoList();
 				if ($list->count() > 0){			
