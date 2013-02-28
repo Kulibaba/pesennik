@@ -1,5 +1,5 @@
 <?php 
-class DB{
+class newDB{
 	private static $instance;
 	public $lastError = 0; // 1 - Unable to connect to MySQL; 2 - Cant select database; 
 	private function getDB(){		
@@ -34,7 +34,7 @@ class DB{
 	}
 	public static function getInstance(){
 		if (!isset(self::$instance)){
-			$temp = new DB();
+			$temp = new newDB();
 			if ($temp->getDB()){
 				return self::$instance;
 			}else{

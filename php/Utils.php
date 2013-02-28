@@ -43,7 +43,55 @@ function toLowerCase($string){
 	$string = str_replace("Э", "э", $string);
 	return $string;
 }
+function toCleanString($string){
+/*
+	return @string without special symbols
+*/
+	$string = toLowerCase($string);
+	
+	$string = str_replace(".", "", $string);
+	$string = str_replace("?", "", $string);
+	$string = str_replace("!", "", $string);
+	$string = str_replace("'", "", $string);
+	$string = str_replace("\"", "", $string);
+	$string = str_replace("~", "", $string);
+	$string = str_replace("`", "", $string);
+	$string = str_replace("@", "", $string);
+	$string = str_replace("#", "", $string);
+	$string = str_replace("$", "", $string);
+	$string = str_replace("%", "", $string);
+	$string = str_replace("^", "", $string);
+	$string = str_replace("&", "", $string);
+	$string = str_replace("*", "", $string);
+	$string = str_replace("(", "", $string);
+	$string = str_replace(")", "", $string);
+	$string = str_replace("[", "", $string);
+	$string = str_replace("]", "", $string);
+	$string = str_replace("{", "", $string);
+	$string = str_replace("}", "", $string);
+	$string = str_replace("/", "", $string);
+	$string = str_replace("\\", "", $string);
+	$string = str_replace("|", "", $string);
+	$string = str_replace(";", "", $string);
+	$string = str_replace(":", "", $string);
+	$string = str_replace("+", "", $string);
+	$string = str_replace("-", "", $string);
+	$string = str_replace("<", "", $string);
+	$string = str_replace(">", "", $string);
 
+	return $string;
+}
+function toNiceUrl($string){
+/*
+	return @string in nice urlencode style
+*/
+	$string = toCleanString($string);
+	$string = urlencode($string);
+	$string = str_replace("+", "_", $string);
+	$string = str_replace("__", "_", $string);
+	$string = str_replace("___", "_", $string);
+	return $string;
+}
 function getFullDate($date) {
 /*
 	get russian-style date from 

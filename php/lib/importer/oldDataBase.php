@@ -1,12 +1,12 @@
 <?php 
-class DB{
+class oldDB{
 	private static $instance;
 	public $lastError = 0; // 1 - Unable to connect to MySQL; 2 - Cant select database; 
 	private function getDB(){		
 		$hostname = "localhost"; 
 		$username = "root";	
 		$passwd = "";		
-		$dbname = "pesennik_psn";
+		$dbname = "old_psn";
 		
 		$curr_result; // current result from DataBase functions
 
@@ -34,7 +34,7 @@ class DB{
 	}
 	public static function getInstance(){
 		if (!isset(self::$instance)){
-			$temp = new DB();
+			$temp = new oldDB();
 			if ($temp->getDB()){
 				return self::$instance;
 			}else{
