@@ -10,27 +10,21 @@
 	require_once 'VideoList.php';
 	// MAIN PAGE END
 	
-	
 	function printNewSongPage($no,$begin){
 	/*
 		@begin - var for pagination. Song number form wich start showing page
 	*/
 			?>
 		<div class="main-container" style="margin:20px;">
-			
 		<?php 
 		$sList = new SongList();
-		$sList = new SongList();
 		$newSList = $sList->getNewSongs($no);
-		$count=0;
-		$_ROOT ="http://localhost/pesennik";
-		//print_r($newSList);
+		
 		if ($newSList != NULL)
 		{
 			while($song = $newSList->current()){ 
 			?>
 				<div  class="item">
-				<?php// echo ++$count;?>
 					<div class="photo-small">
 						<img src="<?php echo $_ROOT;?>/img/photo/small/<?php echo $song->getArtistId(); ?>.jpg" alt="artist" />
 					</div>
@@ -73,7 +67,59 @@
 		</div><!--/span-->
 		<?php 
 	};
-	function printNewVideoPage($no,$begin,$end){};
+	
+	function printNewVideoPage($no,$begin){
+	/*
+		@begin - var for pagination. Song number form wich start showing page
+	*/
+			?>
+		<div class="main-container" style="margin:20px;">
+		<?php 
+		$vList = new VideoList();
+		
+		$newVList = $vList->getNewVideos($no);
+		//print_r($newVList);
+		if ($newVList != NULL)
+		{
+		
+		?>
+			<div class="section">		
+			<?php
+			while($video = $newVList->current()){ 
+			?>
+				<div class="video">
+					<span> 
+						<?php
+							echo $video->getData(); 
+							echo $video->getVideoTypeName();
+						?>
+					</span>
+					
+					<div class="video-text">
+					<a href="#" title=""> <?php echo $video->getVideoName().' - '.$video->getVideoName();?></a>
+					<?php if (($_SITE_MAJOR_VERSION==1)&&($_SITE_MINOR_VERSION == 1)){?>
+						<div>
+							<a href="<?php echo $video->getUserUrl();?>" title="<?php echo $video->getUserName();?>" class="video-screen-user-link"> <?php echo $video->getUserName();?></a>
+						</div>
+					<?php }?>
+					</div>
+				</div>
+			</div>
+				<p class="separator"></p>
+		<?php 
+			$newVList->next();
+			}
+		}else
+		{
+			?>
+				<p style='color:red;'>ERROR! Empty var \$newSList at print.php::printNewSongPage()  </p>
+			<?
+		}
+		?>
+		<!--  PAGE END-->
+		</div><!--/span-->
+		<?php 
+	};
 	function printNewTranslatePage($no,$begin,$end){};
 	function printNewArtistPage($no,$begin,$end){};
 	function printTopSongPage($no,$begin,$end){};
@@ -171,6 +217,7 @@
 				}
 			?>
 		</div>	
+		
 			<div class="section">
 				<div class="w50">
 					<div id="tabs2" class="ui-tabs ui-widget ui-widget-content ui-corner-all">

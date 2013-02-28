@@ -19,7 +19,7 @@ switch($param[0]){
 				break;
 			}
 			case "клипы":{
-				printNewVideoPage(20);
+				printNewVideoPage(20,0);
 				break;
 			}
 			case "переводы":{
