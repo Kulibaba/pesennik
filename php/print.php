@@ -26,28 +26,24 @@
 			?>
 				<div  class="item">
 					<div class="photo-small">
-						<img src="<?php echo $_ROOT;?>/img/photo/small/<?php echo $song->getArtistId(); ?>.jpg" alt="artist" />
+						<img src="../img/photo/small/<?php echo $song->getArtistId(); ?>.jpg" alt="artist" />
 					</div>
 					<div  class="text-middle">
-						
 						<span class="artist-name">
-							<a href="<?php echo $_ROOT."/".$song->getArtistUrl();?>"> 
-								
-							</a>
-							<a href="<?php echo $_ROOT."/".$song->getArtistUrl()."/".$song->getUrl(); ?>"> 
+							<a href="../<?php echo $song->getArtistUrl()."/".$song->getUrl(); ?>"> 
 								<?php echo $song->getArtistName().' - '.$song->getName();?>
 							</a>
 							
 							<?php if ($song->isLyrics()){?>
-							<a href="#"><img class="icon" alt="текст" src="<?php echo $_ROOT;?>/img/icons/text.png" /></a> 
+							<a href="../<?php echo $song->getArtistUrl()."/".$song->getUrl(); ?>"><img class="icon" alt="текст" src="../img/icons/text.png" /></a> 
 							<?php }
 							
 							if ($song->isVideo()){?>
-							<a href="#"><img class="icon" alt="перевод" src="<?php echo $_ROOT;?>/img/icons/translate.png" /></a> 
+							<a href="../<?php echo $song->getArtistUrl()."/".$song->getUrl(); ?>"><img class="icon" alt="перевод" src="../img/icons/translate.png" /></a> 
 							<?php }
 							
 							 if ($song->isTranslate()){?>
-							<a href="#"><img class="icon" alt="видео" src=" <?php echo $_ROOT; ?>/img/icons/video.png" /></a> 
+							<a href="../<?php echo $song->getArtistUrl()."/".$song->getUrl(); ?>"><img class="icon" alt="видео" src="../img/icons/video.png" /></a> 
 							<?php }?>
 					 </span>
 					</div>
@@ -68,7 +64,7 @@
 		<?php 
 	};
 	
-	function printNewVideoPage($no,$begin){
+	function printNewVideoPage($no, $begin){
 	/*
 		@begin - var for pagination. Song number form wich start showing page
 	*/
@@ -96,7 +92,7 @@
 					</span>
 					
 					<div class="video-text">
-					<a href="#" title=""> <?php echo $video->getVideoName().' - '.$video->getVideoName();?></a>
+					<a href="../<?php echo $video->getArtistUrl().'/'.$video->getSongUrl(); ?>"><?php echo $video->getArtistName().' - '.$video->getSongName().' ('.$video->getVideoTypeName();?>)</a>
 					<?php if (($_SITE_MAJOR_VERSION==1)&&($_SITE_MINOR_VERSION == 1)){?>
 						<div>
 							<a href="<?php echo $video->getUserUrl();?>" title="<?php echo $video->getUserName();?>" class="video-screen-user-link"> <?php echo $video->getUserName();?></a>

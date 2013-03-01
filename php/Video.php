@@ -8,6 +8,12 @@ class Video {
 	private $userName;
 	private $userUrl;
 	
+	private $artistName;
+	private $artistUrl;
+	private $songName;
+	private $songUrl;
+	
+	
 	function Video(){}
 	function setWidth($x){
 		$this->data = str_replace("XXX", $x, $this->getData());
@@ -28,6 +34,10 @@ class Video {
 		$this->userName = $row["userName"];
 		$this->userUrl = $row["userUrl"];
 		$this->info = $row["info"];
+		$this->songName = $row["name"];
+		$this->songUrl = $row["songUrl"];
+		$this->artistName = $row["artistName"];
+		$this->artistUrl = $row["artistUrl"];
 	}
 	
 	function initAll($row){
@@ -56,6 +66,18 @@ class Video {
 	}
 	function getInfo() {
 		return $this->info;
+	}
+	function getArtistName() {
+		return $this->artistName;
+	}
+	function getArtistUrl() {
+		return $this->artistUrl;
+	}
+	function getSongName() {
+		return $this->songName;
+	}
+	function getSongUrl() {
+		return $this->songUrl;
 	}
 }
 ?>
