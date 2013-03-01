@@ -48,6 +48,7 @@ function toCleanString($string){
 	return @string without special symbols
 */
 	$string = str_replace(".", "", $string);
+	$string = str_replace("’", "'", $string);
 	$string = str_replace("?", "", $string);
 	$string = str_replace("!", "", $string);
 	$string = str_replace("'", "'", $string);
@@ -91,6 +92,7 @@ function toNiceUrl($string){
 */
 	$string = toCleanString($string);
 	$string = urlencode($string);
+	$string = str_replace("%27", "", $string);
 	$string = str_replace("%28", "(", $string);
 	$string = str_replace("%29", ")", $string);
 	$string = str_replace("+", "_", $string);

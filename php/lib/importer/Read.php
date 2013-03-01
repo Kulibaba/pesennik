@@ -36,6 +36,41 @@ class Read{
 		}
 		return $res;
 	}
+	function songs(){
+		$query = "
+			SELECT
+				id_artist AS artistId,
+				id_song AS id,
+				name_song AS name,
+				text_song AS lyrics
+			FROM song
+			ORDER BY id_song
+		";
+		$result = mysql_query($query,oldDB::getInstance());
+		while($row = mysql_fetch_array ($result)){
+		
+		if (preg_match_all('/\\(([^()]*)\\)/', $row["name"], $matches))
+			$row["info"] = $matches[1][0];
+		
+		if (preg_match_all('/ \(.+\)/', $row["name"], $matches))
+			$row["name"] = preg_replace("/ \(.+\)/","",$row["name"]);	
+		
+		$row["name"] = str_replace("'", "\'", $row["name"]);
+		$row["lyrics"] = str_replace("'", "\'", $row["lyrics"]);
+		$row["lyrics"] = str_replace("<br>", "\n", $row["lyrics"]);
+		
+		$row["searchName"] = toSearchString($row["name"]);
+		$row["url"] = toNiceUrl($row["name"]);
+		$row["flags"] = '1';
+		$row["languageId"] = '0';
+		$row["userId"] = '0';
+		$row["artistsongId"] = '0';
+		$row["no"] = '0';
+		$row["songId"] = $row["id"];
+		$res[] = $row;
+		}
+		return $res;
+	}
 	function videos(){
 		$query = "
 			SELECT
@@ -51,6 +86,28 @@ class Read{
 			$row["userId"] = 0;
 			$row["videoTypeId"] = 0;
 			$row["videoSiteId"] = 1;
+			$res[] = $row;
+		}
+		return $res;
+	}
+	function translates(){
+		$query = "
+			SELECT
+				id_translate AS id,
+				id_song AS songId,
+				name_translate AS name,
+				text_translate AS lyrics
+			FROM translate
+			ORDER BY id_translate
+		";
+
+		$result = mysql_query($query,oldDB::getInstance());
+		while($row = mysql_fetch_array ($result)){
+			$row["userId"] = 0;
+			$row["name"] = str_replace("'", "\'", $row["name"]);
+			$row["lyrics"] = str_replace("'", "\'", $row["lyrics"]);
+			$row["lyrics"] = str_replace("<br>", "\n", $row["lyrics"]);
+		
 			$res[] = $row;
 		}
 		return $res;

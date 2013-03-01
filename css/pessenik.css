@@ -427,6 +427,7 @@ vertical-align:bottom;
 	margin:15px auto;
 }
 .song-text{
+	white-space: pre-wrap;
 	text-align:justify;
 	padding:10px;
 }

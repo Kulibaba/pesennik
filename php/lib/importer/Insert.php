@@ -56,9 +56,102 @@ class Insert{
 		";
 		$result = mysql_query($query, newDB::getInstance());
 	}
-	function song($row){
+	function artistsong($row){
+		$artistId = $row["artistId"];
+		$id = $row["artistsongId"];
+		$no = $row["no"];
+		$songId = $row["songId"];
+		
+		$query = "
+			INSERT INTO artistsong
+			(
+				`artistId`, 
+				`id`, 
+				`no`,
+				`songId`
+			) 
+			VALUES 
+			(
+				'$artistId', 
+				'$id', 
+				'$no',
+				'$songId'
+			);
+		";
+		$result = mysql_query($query, newDB::getInstance());
+
 	}
+	function song($row){
+		$flags = $row["flags"];
+		$id = $row["id"];
+		$info = $row["info"];
+		$languageId = $row["languageId"];
+		$lyrics = $row["lyrics"];
+		$name = $row["name"];
+		$searchName = $row["searchName"];
+		$url = $row["url"];
+		$userId = $row["userId"];
+	
+		$query = "
+			INSERT INTO song
+			(
+				`flags`, 
+				`id`, 
+				`info`,
+				`languageId`, 
+				`lyrics`, 
+				`name`, 
+				`searchName`, 
+				`url`, 
+				`userId`
+			) 
+			VALUES 
+			(
+				'$flags', 
+				'$id', 
+				'$info',
+				'$languageId',				
+				'$lyrics', 
+				'$name',
+				'$searchName',
+				'$url',
+				'$userId' 
+				
+			);
+		";
+
+		$result = mysql_query($query, newDB::getInstance());
+	}
+
 	function translate($row){
+		$id = $row["id"];
+		$songId = $row["songId"];
+		$name = $row["name"];
+		$lyrics = $row["lyrics"];
+		$userId = $row["userId"];
+		$info = $row["info"];
+	
+		$query = "
+			INSERT INTO translate
+			(
+				`id`, 
+				`songId`, 
+				`name`, 
+				`lyrics`, 
+				`userId`, 
+				`info`
+			) 
+			VALUES 
+			(
+				'$id', 
+				'$songId', 
+				'$name', 
+				'$lyrics', 
+				'$userId', 
+				'$info'
+			);
+		";
+		$result = mysql_query($query, newDB::getInstance());
 	}
 	function video($row){
 		$id = $row["id"];
@@ -94,37 +187,7 @@ class Insert{
 
 		$result = mysql_query($query, newDB::getInstance());
 	}
-function translate($row){
-		$id = $row["id"];
-		$songId = $row["songId"];
-		$name = $row["name"];
-		$lyrics = $row["lyrics"];
-		$userId = $row["userId"];
-		$info = $row["info"];
-	
-		$query = "
-			INSERT INTO video 
-			(
-				`id`, 
-				`songId`, 
-				`name`, 
-				`lyrics`, 
-				`userId`, 
-				`info`
-			) 
-			VALUES 
-			(
-				'$id', 
-				'$songId', 
-				'$name', 
-				'$lyrics', 
-				'$userId', 
-				'$info'
-			);
-		";
 
-		$result = mysql_query($query, newDB::getInstance());
-	}
 }
 
 ?>
