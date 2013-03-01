@@ -3,13 +3,16 @@ require_once 'Song.php';
 require_once 'conf.php';
 
 class SongList{
+
+	public $ALL_SONGS  = 0;
+	
 	private function getArtistSongList($no, $artistId, $pattern, $sorting){
 	/*
-		used for show artist's song list
-		@no - int, number of items in list
-		$artistId, - int, artist's id
-		@pattern - string, order's field name
-		@sorting - string, way of sorting
+		used for show artist's song list;
+		@no - int, number of items in list; 0 - no LIMIT in query
+		$artistId, - int, artist's id;
+		@pattern - string, order's field name;
+		@sorting - string, way of sorting;
 	*/
 		$query = "
 			SELECT
@@ -31,8 +34,10 @@ class SongList{
 			LEFT JOIN user ON user.id = song.userId
 			WHERE artist.id = $artistId
 			ORDER BY $pattern $sorting
-			LIMIT 0, $no
 		";
+		if ($no != $ALL_SONGS) { 
+			$query.="LIMIT 0, $no"; 
+		}
 
 		$resultList = new SplDoublyLinkedList();
 		$result = mysql_query($query,DB::getInstance());
@@ -52,9 +57,9 @@ class SongList{
 	
 	private function getSongList($no, $sorting){
 	/*
-		used for show song list
-		@no - int, number of items in list
-		@sorting - string, way of sorting
+		Used for show song list;
+		@no - int, number of items in list; 
+		@sorting - string, way of sorting;
 	*/
 		$query = "
 			SELECT
@@ -105,6 +110,9 @@ class SongList{
 	}
 	function getLastArtistSongs($no, $artistId){
 		return $this->getArtistSongList($no, $artistId, "song.name", "DESC");
+	}
+	function getArtistSongs($no,$artistId){
+		return $this->getArtistSongList($no, $artistId, "song.name", "ASC");
 	}
 }
 ?>

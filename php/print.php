@@ -10,6 +10,121 @@
 	require_once 'VideoList.php';
 	// MAIN PAGE END
 	
+	$DELTA = 10; // for pagination
+	
+	function printArtistSCT($artistUrl,$sct){
+	/* Func generates page depending on var $sct ( song/clip/translate ) for specific artist in $artistUrl
+			$sct = 1 -song's; 2 -clip's; 3 -translates page
+			$artistUrl = artist string identifier (ex. ani_lorak)
+	*/
+	$artist = new artist();
+	$artist->initAll($artistUrl);
+	?>
+		<div class="main-container" style="margin:20px;">
+		<div class="photo-small">
+						<img src="../img/photo/small/<?php echo $artist->getId(); ?>.jpg" alt="artist" />
+		</div>
+		<div  class="text-middle">
+			<a href="../<?php echo $artist->getUrl(); ?>"> 
+				<span class="artist-name"><?php echo $artist->getName(); ?></span>
+			</a>
+		</div>
+		
+		<?php 
+		$item_count=0;
+		
+		$tList = new TranslateList();
+		//$newTList = $tList->getNewTranslates($no);
+		switch($sct){
+			case 1:{
+			
+				$sList = new SongList();
+				$newSList = $sList->getFirstArtistSongs($sList->ALL_SONGS,$artist->getId());
+		
+				if ($newSList != NULL)
+				{
+					while($song = $newSList->current()){ 
+					?>
+						<div  class="item-short">
+							
+								<span class="artist-name">
+								<?php echo ++$item_count.". ";?>
+									<a href="../<?php echo $song->getArtistUrl()."/".$song->getUrl(); ?>"> 
+										<?php echo $song->getName();?>
+									</a>
+							 </span>
+							
+						</div>
+						<p class="separator"></p>
+				<?php 
+					$newSList->next();
+					}
+				}else {	?> <p style='color:red;'>ERROR! Empty var \$newSList at print.php::printArtistSCT()  </p><? }
+				break;
+			}//case 1
+			
+			case 2:{
+				$vList = new VideoList();
+				$newVList = $vList->getArtistVideos($vList->ALL_VIDEOS,$artist->getId());
+
+				if ($newVList != NULL)
+				{
+					while($video = $newVList->current()){ 
+					?>
+						<div  class="item-short">
+								<span class="artist-name">
+								<?php echo ++$item_count.".";?>
+									<a href="../<?php echo $video->getArtistUrl()."/".$video->getSongUrl(); ?>"> 
+										<?php echo $video->getSongName();?> 
+									</a>
+							 </span>
+						</div>
+						<p class="separator"></p>
+				<?php 
+					$newVList->next();
+					}
+				}else {	?> <p style='color:red;'>ERROR! Empty var \$newVList at print.php::printArtistSCT()  </p><? }
+				break;
+			}//case 2
+			
+			case 3:{
+				$tList = new TranslateList();
+				$newTList = $tList->getArtistTranslates($tList->ALL_TRANSLATES,$artist->getId());
+
+				if ($newTList != NULL)
+				{
+					while($translate = $newTList->current()){ 
+					?>
+						<div  class="item-short">
+								<span class="artist-name">
+								<?php echo ++$item_count;?>
+									<a href="../<?php echo $translate->getArtistUrl()."/".$translate->getSongUrl(); ?>"> 
+										<?php echo $translate->getArtistName().' - '.$translate->getSongName();?>
+									</a>
+								<!-- СДЕСЬ РАЗМЕЩАТЬ ФЛАГИ  $translate->getTranslateLangId()-->
+							 </span>
+						</div>
+						<p class="separator"></p>
+				<?php 
+					$newTList->next();
+					}
+				}else {	?> <p style='color:red;'>ERROR! Empty var \$newTList at print.php::printArtistSCT()  </p><? }
+				break;
+			}//case 3
+			
+		
+		}//switch
+		?>
+		
+		
+		
+		
+		<!--  PAGE END-->
+		</div><!--/span-->
+		<?php 
+		
+	}
+	
 	function printNewSongPage($no,$begin){
 	/*
 		@begin - var for pagination. Song number form wich start showing page
@@ -74,7 +189,7 @@
 		<?php 
 		$vList = new VideoList();
 		$count = 1;
-		$delta = 10;
+		
 		$newVList = $vList->getNewVideos($no);
 		//print_r($newVList);
 		if ($newVList != NULL)

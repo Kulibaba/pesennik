@@ -38,7 +38,6 @@ class ArtistList{
 			error_log("EMPTY \$result artistList.php at line 26");
 		}
 		return $resultList;
-		
 	}
 	
 	private function getArtistCharacterList($no, $character, $sorting){

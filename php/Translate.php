@@ -3,8 +3,10 @@ require_once 'DataBase.php';
 require_once 'Utils.php';
 class Translate {
 	private $lyrics;
+	private $languageId;
 	private $languageUrl; 	// ex .ru
 	private $languageName; 	// ex Русский
+	private $songLanguageId;
 	private $songLanguageUrl; 	// ex .ru
 	private $songLanguageName; 	// ex Русский
 	private $name;
@@ -33,9 +35,11 @@ class Translate {
 		$this->songUrl = $row["songUrl"];
 		
 		$this->lyrics = $row["lyrics"];
+		$this->songLanguageId = $row["songLanguageId"];
 		$this->songLanguageUrl = $row["songLanguageUrl"];
 		$this->songLanguageName = $row["songLanguageName"];
 		
+		$this->languageId = $row["languageId"];
 		$this->languageUrl = $row["languageUrl"];
 		$this->languageName = $row["languageName"];
 		$this->name = $row["name"];
@@ -63,11 +67,17 @@ class Translate {
 	function getLyrics() {
 		return $this->lyrics;
 	}
+	function getLanguageId() {
+		return $this->languageId;
+	}
 	function getLanguageName() {
 		return $this->languageName;
 	}
 	function getLanguageUrl() {
 		return $this->languageUrl;
+	}
+	function getSongLanguageId() {
+		return $this->songLanguageName;
 	}
 	function getSongLanguageName() {
 		return $this->songLanguageName;

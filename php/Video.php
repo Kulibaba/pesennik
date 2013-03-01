@@ -10,9 +10,10 @@ class Video {
 	
 	private $artistName;
 	private $artistUrl;
+	
+	private $songId;
 	private $songName;
 	private $songUrl;
-	
 	
 	function Video(){}
 	function setWidth($x){
@@ -34,7 +35,7 @@ class Video {
 		$this->userName = $row["userName"];
 		$this->userUrl = $row["userUrl"];
 		$this->info = $row["info"];
-		$this->songName = $row["name"];
+		$this->songName = $row["songName"];
 		$this->songUrl = $row["songUrl"];
 		$this->artistName = $row["artistName"];
 		$this->artistUrl = $row["artistUrl"];
@@ -72,6 +73,9 @@ class Video {
 	}
 	function getArtistUrl() {
 		return $this->artistUrl;
+	}
+	function getSongId() {
+		return $this->songId;
 	}
 	function getSongName() {
 		return $this->songName;
