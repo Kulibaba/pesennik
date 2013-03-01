@@ -10,6 +10,27 @@ class TranslateList{
 		@pattern - string, order's field name
 		@sorting - string, way of sorting
 	*/
+	$query = "
+			SELECT
+				language.name,
+				language.url
+			FROM translate
+			INNER JOIN song ON 			translate.songId = song.id	
+			INNER JOIN artistsong ON	song.id = artistsong.songId
+			LEFT JOIN artist ON			artistsong.artistId = artist.id
+			LEFT JOIN language ON		song.languageId = language.id
+			ORDER BY $pattern $sorting
+			LIMIT 0, $no
+		";
+		$result = mysql_query($query,DB::getInstance());
+		if ($result!= NULL){
+			$i = 0;
+			while($row = mysql_fetch_array ($result)){
+				$songLanguage[$i]["name"] = $row["name"];
+				$songLanguage[$i]["url"] = $row["url"];
+				$i++;
+			}
+		}
 		$query = "
 			SELECT
 				artist.id AS artistId,
@@ -34,7 +55,11 @@ class TranslateList{
 		$resultList = new SplDoublyLinkedList();
 		$result = mysql_query($query,DB::getInstance());
 		if ($result!= NULL){
+			$i = 0;
 			while($row = mysql_fetch_array ($result)){
+				$row["songLanguageName"] = $songLanguage[$i]["name"];
+				$row["songLanguageUrl"] = $songLanguage[$i]["url"];
+				$i++;
 				$translate = new Translate();
 				$translate->initListItem($row);
 				$resultList->push($translate);

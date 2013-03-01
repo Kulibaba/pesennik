@@ -5,6 +5,8 @@ class Translate {
 	private $lyrics;
 	private $languageUrl; 	// ex .ru
 	private $languageName; 	// ex Русский
+	private $songLanguageUrl; 	// ex .ru
+	private $songLanguageName; 	// ex Русский
 	private $name;
 	private $userName;
 	private $userUrl;
@@ -31,6 +33,9 @@ class Translate {
 		$this->songUrl = $row["songUrl"];
 		
 		$this->lyrics = $row["lyrics"];
+		$this->songLanguageUrl = $row["songLanguageUrl"];
+		$this->songLanguageName = $row["songLanguageName"];
+		
 		$this->languageUrl = $row["languageUrl"];
 		$this->languageName = $row["languageName"];
 		$this->name = $row["name"];
@@ -63,6 +68,12 @@ class Translate {
 	}
 	function getLanguageUrl() {
 		return $this->languageUrl;
+	}
+	function getSongLanguageName() {
+		return $this->songLanguageName;
+	}
+	function getSongLanguageUrl() {
+		return $this->songLanguageUrl;
 	}
 	function getName() {
 		return $this->name;

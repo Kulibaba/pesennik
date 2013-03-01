@@ -139,6 +139,8 @@
 							<a href="../<?php echo $translate->getArtistUrl()."/".$translate->getSongUrl(); ?>"> 
 								<?php echo $translate->getArtistName().' - '.$translate->getSongName();?>
 							</a>
+							<img class="artist-flag" src="../img/flags/<?php echo $translate->getSongLanguageUrl(); ?>.png"  alt="<?php echo $translate->getSongLanguageName(); ?>"/>
+					&#x21d2;
 							<img class="artist-flag" src="../img/flags/<?php echo $translate->getLanguageUrl(); ?>.png"  alt="<?php echo $translate->getLanguageName(); ?>"/>
 							
 					 </span>
