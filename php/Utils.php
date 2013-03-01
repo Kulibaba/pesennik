@@ -47,24 +47,20 @@ function toCleanString($string){
 /*
 	return @string without special symbols
 */
-	$string = toLowerCase($string);
-	
 	$string = str_replace(".", "", $string);
 	$string = str_replace("?", "", $string);
 	$string = str_replace("!", "", $string);
-	$string = str_replace("'", "", $string);
-	$string = str_replace("\"", "", $string);
+	$string = str_replace("'", "'", $string);
+	$string = str_replace("\"", "'", $string);
 	$string = str_replace("~", "", $string);
-	$string = str_replace("`", "", $string);
+	$string = str_replace("`", "'", $string);
 	$string = str_replace("@", "", $string);
 	$string = str_replace("#", "", $string);
 	$string = str_replace("$", "", $string);
 	$string = str_replace("%", "", $string);
 	$string = str_replace("^", "", $string);
-	$string = str_replace("&", "", $string);
+	$string = str_replace("&", "and", $string);
 	$string = str_replace("*", "", $string);
-	$string = str_replace("(", "", $string);
-	$string = str_replace(")", "", $string);
 	$string = str_replace("[", "", $string);
 	$string = str_replace("]", "", $string);
 	$string = str_replace("{", "", $string);
@@ -75,10 +71,18 @@ function toCleanString($string){
 	$string = str_replace(";", "", $string);
 	$string = str_replace(":", "", $string);
 	$string = str_replace("+", "", $string);
-	$string = str_replace("-", "", $string);
 	$string = str_replace("<", "", $string);
 	$string = str_replace(">", "", $string);
-
+	$string = str_replace("’", "'", $string);
+	return $string;
+}
+function toSearchString($string){
+	$string = toLowerCase($string);
+	$string = toCleanString($string);
+	$string = str_replace("(", "", $string);
+	$string = str_replace(")", "", $string);
+	$string = str_replace("'", "", $string);
+	$string = str_replace("-", " ", $string);
 	return $string;
 }
 function toNiceUrl($string){
@@ -87,6 +91,8 @@ function toNiceUrl($string){
 */
 	$string = toCleanString($string);
 	$string = urlencode($string);
+	$string = str_replace("%28", "(", $string);
+	$string = str_replace("%29", ")", $string);
 	$string = str_replace("+", "_", $string);
 	$string = str_replace("__", "_", $string);
 	$string = str_replace("___", "_", $string);
