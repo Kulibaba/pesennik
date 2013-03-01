@@ -121,7 +121,8 @@ class Insert{
 		";
 
 		$result = mysql_query($query, newDB::getInstance());
-	}
+	echo "(".$result.")".$id;
+		}
 
 	function translate($row){
 		$id = $row["id"];

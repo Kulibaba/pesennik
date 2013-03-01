@@ -6,21 +6,18 @@ require 'php/OldVersionSupport.php';
 require_once 'php/templateBegin.php';
 
 /*	BEGIN Setting "new style" URL from "old style"	*/
-$newStyleUrl = OldVersionSupport($param[0]);
-//$param[0] = $newStyleUrl[0];
-//$param[1] = $newStyleUrl[1];
+/*$newStyleUrl = OldVersionSupport($param[0]);
+$param[0] = $newStyleUrl[0];
+if ($param[1]=="")
+	$param[1] = $newStyleUrl[1];
+*/
 /*	END Setting "new style" URL from "old style" */ 
-
-if ($param[0]!="")
-	$param[0] = urlencode($param[0]);
-
-if ($param[1]!="")
-	$param[1] = urlencode($param[1]);
 
 switch($param[0]){
 	case "новые":{
 		switch($param[1]){
 			case "тексты":{
+			
 				printNewSongPage(20,0);
 				break;
 			}
@@ -69,12 +66,15 @@ switch($param[0]){
 		break;
 	}
 	default:{
+		$param[0] = urlencode($param[0]);
+		$param[1] = urlencode($param[1]);
 		if ($param[1] != ""){
 			//song's page
 			printSongPage($param[0], $param[1]);
 		}
 		else if($param[0] != ""){
 			//artist's page
+			
 			printArtistPage($param[0]);
 		}else{
 			printMainPage();
