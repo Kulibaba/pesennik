@@ -12,6 +12,7 @@ class ArtistList{
 	*/
 		$query = "
 			SELECT
+				artist.id,
 				artist.name,
 				artist.searchName,
 				artist.url,

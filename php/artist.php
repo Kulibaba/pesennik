@@ -31,6 +31,7 @@ class Artist {
 			Used only for lists
 			$row - array, params for constructor
 		*/
+		$this->id = $row["id"];
 		$this->name = $row["name"];
 		$this->searchName = $row["searchName"];
 		$this->url = $row["url"];
