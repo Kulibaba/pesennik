@@ -246,7 +246,7 @@
 								</ul>
 								<?php
 									while($translate = $list->current()){
-										echo '<div id="tabs-'.$translate->getId().'"><p><span class="song-title">'.$translate->getName().'</span>'.$translate->getLyrics().'</p></div>';
+										echo '<div id="tabs-'.$translate->getId().'"><p><span class="song-title">'.$translate->getName().'</span><div class="song-text">'.$translate->getLyrics().'</div></p></div>';
 										$list->next();
 									}
 								?>
