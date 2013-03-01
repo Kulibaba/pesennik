@@ -11,6 +11,12 @@ $newStyleUrl = OldVersionSupport($param[0]);
 //$param[1] = $newStyleUrl[1];
 /*	END Setting "new style" URL from "old style" */ 
 
+if ($param[0]!="")
+	$param[0] = urlencode($param[0]);
+
+if ($param[1]!="")
+	$param[1] = urlencode($param[1]);
+
 switch($param[0]){
 	case "новые":{
 		switch($param[1]){

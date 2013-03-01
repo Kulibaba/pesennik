@@ -170,7 +170,7 @@
 									<?php 
 										$list = $song->getTranslateList();
 										while($translate = $list->current()){
-											echo '<img src="../img/flags/'.$translate->getLanguageUrl().'.png" class="artist-flag" alt="'.$translate->getLanguageName().'"/>';
+											echo '<img src="../../img/flags/'.$translate->getLanguageUrl().'.png" class="artist-flag" alt="'.$translate->getLanguageName().'"/>';
 											$list->next();
 										}
 										$list->rewind();
@@ -199,11 +199,11 @@
 					</span>
 					<span class="video-info">
 						<?php
-							echo $video->getVideoInfo(); 
+							echo $video->getInfo(); 
 						?>
 					</span>
 					<div class="video-text">
-					<a href="#" title=""> <?php echo $video->getVideoName();?></a>
+					<a href="#" title=""> <?php echo $video->getVideoTypeName();?></a>
 					<?php if (($_SITE_MAJOR_VERSION==1)&&($_SITE_MINOR_VERSION == 1)){?>
 						<div>
 							<a href="<?php echo $video->getUserUrl();?>" title="<?php echo $video->getUserName();?>" class="video-screen-user-link"> <?php echo $video->getUserName();?></a>

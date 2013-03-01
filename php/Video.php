@@ -2,6 +2,7 @@
 require_once 'DataBase.php';
 require_once 'Utils.php';
 class Video {
+	private $info;
 	private $videoTypeName;
 	private $data;		// included full video frame
 	private $userName;
