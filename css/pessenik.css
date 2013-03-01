@@ -305,6 +305,7 @@ vertical-align:bottom;
 	cursor:pointer;
 }
 .bio-section-text{
+	white-space: pre-wrap;
 	margin-left:10px;
 	text-align:justify;
 }

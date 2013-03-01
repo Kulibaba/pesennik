@@ -146,12 +146,11 @@
 				</div>
 				<div class="span4" id="short_bio_table" >
 					<span class="artist-name">
-						<a href="<?php echo $song->getArtistUrl(); ?>" >
-								<?php echo $song->getArtistName(); ?>
-						</a> — <?php echo $song->getName(); ?> 
-						<img src="../img/flags/<?php echo $song->getLanguageUrl(); ?>.png" class="artist-flag" alt="<?php echo $song->getLanguageName(); ?>"/>
-					</span>
-			
+						<a href="../<?php echo $song->getArtistUrl(); ?>" >
+							<?php echo $song->getArtistName(); ?>
+						</a>
+					</span> — <?php echo $song->getName(); ?> 
+					<img src="../img/flags/<?php echo $song->getLanguageUrl(); ?>.png" class="artist-flag" alt="<?php echo $song->getLanguageName(); ?>"/>
 					<span style="border:1px solid #541;width:182; height: 18px; float:right;">
 						<!-- margin for element 2px , w:22 h:16-->
 						<img src="" width="22" height="16" alt="google" />
@@ -302,10 +301,9 @@
 					
 					<div style="float:left;" class="btn-block">
 						<div style="display:inline;">
-							<a class="btn btn-primary btn-small" href="<?php echo $artist->getUrl(); ?>/%D0%BF%D0%B5%D1%81%D0%BD%D0%B8">Песни »</a> <!--NEED TO IMPLEMENT-->
-							<a class="btn btn-primary btn-small" href="<?php echo $artist->getUrl(); ?>/%D0%BA%D0%BB%D0%B8%D0%BF%D1%8B">Клипы »</a> <!--NEED TO IMPLEMENT-->
-							<a class="btn btn-primary btn-small" href="<?php echo $artist->getUrl(); ?>/%D0%BF%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%B4%D1%8B">Переводы »</a> <!--NEED TO IMPLEMENT-->
-							<a class="btn btn-primary btn-small" href="<?php echo $artist->getUrl(); ?>/%D0%B0%D0%BB%D1%8C%D0%B1%D0%BE%D0%BC%D1%8B">Альбомы »</a> <!--NEED TO IMPLEMENT-->
+							<a class="btn btn-primary btn-small" href="<?php echo $artist->getUrl(); ?>/%D0%BF%D0%B5%D1%81%D0%BD%D0%B8">Песни <?php echo $artist->getSongNo(); ?></a> <!--NEED TO IMPLEMENT-->
+							<a class="btn btn-primary btn-small" href="<?php echo $artist->getUrl(); ?>/%D0%BA%D0%BB%D0%B8%D0%BF%D1%8B">Клипы <?php echo $artist->getVideoNo(); ?></a> <!--NEED TO IMPLEMENT-->
+							<a class="btn btn-primary btn-small" href="<?php echo $artist->getUrl(); ?>/%D0%BF%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%B4%D1%8B">Переводы <?php echo $artist->getTranslateNo(); ?></a> <!--NEED TO IMPLEMENT-->
 						</div>
 					</div>
 			</div>
