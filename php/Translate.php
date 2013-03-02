@@ -77,7 +77,7 @@ class Translate {
 		return $this->languageUrl;
 	}
 	function getSongLanguageId() {
-		return $this->songLanguageName;
+		return $this->songLanguageId;
 	}
 	function getSongLanguageName() {
 		return $this->songLanguageName;

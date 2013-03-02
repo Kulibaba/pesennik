@@ -8,6 +8,7 @@
 	require_once 'SongList.php';
 	require_once 'TranslateList.php';
 	require_once 'VideoList.php';
+	require_once 'Language.php';
 	// MAIN PAGE END
 	
 	$DELTA = 10; // for pagination
@@ -90,10 +91,15 @@
 			case 3:{
 				$tList = new TranslateList();
 				$newTList = $tList->getArtistTranslates($tList->ALL_TRANSLATES,$artist->getId());
-
+				$lang = new Language();
+				
 				if ($newTList != NULL)
 				{
+					$translate_lang = new Language();						
+					$song_lang = new Language();
 					while($translate = $newTList->current()){ 
+						$translate_lang = $lang->getLanguageById($translate->getLanguageId());
+						$song_lang = $lang->getLanguageById($translate->getSongLanguageId());
 					?>
 						<div  class="item-short">
 								<span class="artist-name">
@@ -101,7 +107,10 @@
 									<a href="../<?php echo $translate->getArtistUrl()."/".$translate->getSongUrl(); ?>"> 
 										<?php echo $translate->getArtistName().' - '.$translate->getSongName();?>
 									</a>
-								<!-- СДЕСЬ РАЗМЕЩАТЬ ФЛАГИ  $translate->getTranslateLangId()-->
+									<img class="artist-flag" src="../img/flags/<?php echo $song_lang->getUrl(); ?>.png"  alt="<?php echo $song_lang->getName(); ?>"/>
+					&#x21d2;
+							<img class="artist-flag" src="../img/flags/<?php echo $translate_lang->getUrl(); ?>.png"  alt="<?php echo $translate_lang->getName(); ?>"/>
+							
 							 </span>
 						</div>
 						<p class="separator"></p>

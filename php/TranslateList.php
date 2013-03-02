@@ -39,14 +39,14 @@ class TranslateList{
 		$result = mysql_query($query,DB::getInstance());
 		if ($result!= NULL){
 			while($row = mysql_fetch_array ($result)){
-				$video = new Video();
-				$video->initListItem($row);
-				$resultList->push($video);
+				$translate = new Translate();
+				$translate->initListItem($row);
+				$resultList->push($translate);
 			}
 			$resultList->rewind();
 		}else{
-			if ($DEBUG_MODE){echo "<span style='color:red;'>ERROR! Empty var \$result in VideoList::getArtistVideoList </span><br/>";}
-			error_log("EMPTY \$result VideoList::getArtistVideoList");
+			if ($DEBUG_MODE){echo "<span style='color:red;'>ERROR! Empty var \$result in TranslateList::getArtistTranslateList </span><br/>";}
+			error_log("EMPTY \$result TranslateList::getArtistTranslateList");
 		}
 		return $resultList;
 	}
