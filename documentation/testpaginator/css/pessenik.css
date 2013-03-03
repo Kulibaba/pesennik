@@ -1,0 +1,557 @@
+/*
+	Kulibaba  BEGIN___________________________________________
+*/
+body {
+    /*padding-top: 60px;
+    padding-bottom: 30px;*/
+}
+a{
+	color:#222;
+}
+.sidebar-nav {
+    padding: 9px 0;
+}
+#global-nav{
+	margin-left:0px;
+	float:left;
+	margin-top: 2px;
+}
+#global-nav li a{
+	margin-right:0px;
+	outline:none;
+}
+#global-nav li {
+	margin-right:0px;
+	outline:none;
+	float:left;
+}
+#global-nav ul li a{
+	color:#bababa;
+	padding: 0px 0px 0px 5px;
+	display:block;
+	font-weight:normal;
+}
+#global-nav a:hover{
+	text-decoration:none;
+}
+#global-nav ul{
+	display:block;
+	list-style-type:none;
+	margin:0;
+}
+
+/*	Kulibaba  END _____________________________________________
+*/
+
+/*	Kotov  BEGIN ___________________________________________
+*/
+
+	/* NAV BAR BEGIN*/
+	#search{
+		float:left;
+		margin:8px;		
+	}
+	#search input {
+		display:inline;
+		width:78%;
+		padding:0 5px;
+		border:solid 1px #DDD;
+
+		-moz-border-radius: 12px;
+		-ms-border-radius: 12px;
+		-webkit-border-radius: 12px;
+		border-radius: 12px;
+	
+	}
+	
+	
+	/* NAV BAR END*/
+.btn-paragraph{
+	text-align: right;
+	margin-top:10px;
+	margin-bottom:5px;
+}
+
+.hero-unit p .btn-paragraph{
+vertical-align:bottom;
+}
+.new-song-txt
+{
+
+}
+
+.top-new-box-txt{
+	z-index:2;
+	height:190px; 
+	overflow:hidden;
+	border:0px solid #999;
+	text-align:justify;
+	padding-left: 10px;
+}
+
+.nav-header  ul >li{
+	/*display:none;*/
+	list-style-type:none;
+	border-top:0px solid #0088dd;
+}
+
+.nav-header  a{
+	text-decoration:none;
+	cursor:point;
+}
+
+
+.artist-photo-top-new{
+	width: 200px;
+	height: 240px;
+	display: inline;
+	float: left;
+	margin-right: 15px;
+	-moz-border-radius: 12px;
+	-ms-border-radius: 12px;
+	-webkit-border-radius: 12px;
+	border-radius: 12px;
+}
+
+.separator{
+	width:100%;
+	background-color:#ccc;
+	min-height:1px !important;
+	height:1px !important;
+	display:block;
+	clear:both;
+	margin:10px 0px;
+}
+.separator-invisible{
+	width:100%;
+	background-color:#ccc;
+	min-height:0px !important;
+	height:0px !important;
+	display:block;
+	clear:both;
+	margin:10px 0px;
+}
+
+/*_______  HEDINGS MAIN PAGE*/
+.heading{
+	text-align:center;
+	display:block;
+	font-size:20px;
+}
+#new-heading-menu{
+	position: relative;
+}
+.btn-next-heading{
+	cursor:pointer;
+	margin-top:10px;
+	width:76px;
+	height:46px;
+	background-image: url("../img/next_button.png");
+	background-repeat:no-repeat;
+	display:inline-block;
+}
+
+.btn-next-heading:active{
+	background-image: url("../img/next_button_active.png");
+}
+
+.btn-next-heading:hover{
+	background-image: url("../img/next_button_hover3.png");
+}
+
+#new-heading-block{
+	position: relative;
+	width: 780px;
+}
+.new-heading-detailed{}
+
+#headings-container{}
+.texts{}
+.clips{}
+.translations{}
+
+/* ARTIST PAGE _BEGIN*/
+#short_bio{
+	width:100%;
+	height:150px;
+	margin-left:10px;
+	/*background-color:#999;*/
+	
+	border:solid 1px #DDD;
+	-moz-border-radius-topleft: 0;
+	-webkit-border-top-left-radius: 0;
+	border-top-left-radius:0;
+	
+	-moz-border-radius: 12px;
+	-ms-border-radius: 12px;
+	-webkit-border-radius: 12px;
+	border-radius: 12px;
+}
+
+.photo{
+	/*border:1px solid #123123;*/
+	border-style: solid;
+	border-color:#DDD;
+	border-width:1px 1px 1px 1px;
+	text-align:center;
+	width:100px; 
+	height:130px; 
+	float:left;
+	position: relative;
+	top: 10px;
+	left:10px;
+	-moz-border-radius: 12px;
+	-ms-border-radius: 12px;
+	-webkit-border-radius: 12px;
+	border-radius: 12px;	
+}
+.photo img{
+	width:100px;
+	height:130px;
+}
+.photo-big{
+	/*border:1px solid #123123;*/
+	border-style: solid;
+	border-color:#DDD;
+	border-width:1px 1px 1px 1px;
+	text-align:center;
+	width:200px; 
+	height:240px; 
+	float:left;
+	position: relative;
+	-moz-border-radius: 12px;
+	-ms-border-radius: 12px;
+	-webkit-border-radius: 12px;
+	border-radius: 12px;
+}
+.photo-big img{
+	width: 200px;
+	height: 240px;
+}
+
+.photo-small{
+	/*border:1px solid #123123;*/
+	border:solid 1px #DDD;
+	text-align:center;
+	width:60px; 
+	height:80px; 
+	float:left;
+	
+	-moz-border-radius: 12px;
+	-ms-border-radius: 12px;
+	-webkit-border-radius: 12px;
+	border-radius: 12px;
+	
+}
+.photo-small img{
+	width: 60px;
+	height: 80px;
+}
+
+.photo img , .photo-small img{
+	-moz-border-radius: 12px;
+	-ms-border-radius: 12px;
+	-webkit-border-radius: 12px;
+	border-radius: 12px;
+	}
+
+	
+	
+.vote-stars{
+	background-image: url("../img/star.png") !important;
+	background-repeat: repeat-x !important;
+	background-color:transparent !important;
+	background-position:-25;
+	overflow: hidden;
+	height: 25px;
+	width: 125px;
+	display: inline-block;
+	position: relative;
+	top: 0;
+	vertical-align: middle;
+}
+
+.current-rating{
+	background-image: url("../img/star.png") !important;
+	background-repeat: repeat-x !important;
+	background-color:transparent !important;
+	background-position:25px;
+	overflow: hidden;
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	height: 25px;
+}
+.bio-table{
+	font-family: Helvetica, Arial; /* "Segoe UI", Segoe, */
+	font-size:18px;
+}
+
+.bio-content{
+	margin-left:40px;
+}
+.bio-section{
+	clear:both; 
+	margin: 20px 0px 20px 0px;
+}
+
+.bio-section >div{
+	/*display:none;*/
+}
+.bio-section-title{
+	color:#006dcc;
+	font-size:30px; 
+	font-family:"Monotype Corsiva",Segoe, Verdana,sans-serif;
+	cursor:pointer;
+}
+.bio-section-text{
+	white-space: pre-wrap;
+	margin-left:10px;
+	text-align:justify;
+}
+.bio-rewards{
+	margin-left:10px;
+}
+.bio-section-gallery{
+	background-color:#222;
+	border:2px solid #999;
+	width:100%;
+	height:100px;
+}
+#gallery-left-arrow ,#gallery-right-arrow{
+	font-size: 100px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+	opacity: 0.5;
+	width:40px;
+	height:80px;
+	-webkit-border-radius: 23px;
+	-moz-border-radius: 23px;
+	border-radius: 23px;
+	text-decoration:none;
+	border:1px solid #999;
+	vertical-align:center;
+	background-color:#AAA;
+	display:block;
+}
+#gallery-left-arrow {
+	position:relative;
+	left:20px;
+	top:20px;
+	float:left;	
+}
+#gallery-right-arrow{
+	position:relative;
+	right:40px;
+	top:20px;
+	float:right;
+}
+
+/* fancy css */
+.ui-border-large{
+	border: 3px solid #CCC;
+}
+.ui-border-small{
+	border: 1px solid #CCC;
+}
+.ui-corner-large *{
+	-moz-border-radius: 12px;
+	-ms-border-radius: 12px;
+	-webkit-border-radius: 12px;
+	border-radius: 12px;
+}
+.ui-corner-small *{
+	-moz-border-radius: 6px;
+	-ms-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+}
+.ui-corner-mini{
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+.item{
+	clear:both;
+	display:block;
+	padding:5px;
+	height: 84px;
+	width: 100%;
+	
+	-moz-border-radius: 12px;
+	-ms-border-radius: 12px;
+	-webkit-border-radius: 12px;
+	border-radius: 12px;
+}
+.item-short{ 
+clear:both;
+	display:block;
+	padding:5px;
+	height: 20px;
+	width: 100%;
+	padding-top:15px;
+	-moz-border-radius: 12px;
+	-ms-border-radius: 12px;
+	-webkit-border-radius: 12px;
+	border-radius: 12px;
+}
+.item:hover  {
+  background-color: #f5f5f5;
+}
+.visible
+{
+	display:block;
+}
+.artist-name{
+	font-weight:bold;
+	font-size:16px;
+	cursor:pointer;
+	margin-left:10px;
+}
+.artist-name a{
+	text-decoration:none;
+}
+.artist-flag{
+	margin-bottom: 7px;
+	border:1px solid #333;
+}
+
+/* ARTIST PAGE _END*/
+
+/* SONG PAGE _BEGIN*/
+.video{
+	margin: 20px 10px;
+}
+
+.w50{
+	width:49%;
+	float:left;
+	margin:5px;
+}
+
+.song-title{
+	font-weight:bold;
+	font-size:18px;
+	left:auto;
+	position: relative;
+	width: 100%;
+	display: block;
+	text-align: center;
+	margin:15px auto;
+}
+.song-text{
+	white-space: pre-wrap;
+	text-align:justify;
+	padding:10px;
+}
+/* SONG PAGE _BEGIN*/
+.text-middle{
+	vertical-align: middle;
+	position: relative;
+	top: 30px;
+}
+.hidden-block{
+	display:none;
+}
+
+.social_likes{
+	border:0px solid #541;
+	width:182;
+	height: 18px; 
+	float:right;
+}
+.btn-block{
+	float:left;
+	margin-top:5px;
+	margin-bottom:-5px;
+}
+.top-new-block{
+	width: 100%px;
+	/*height: 120px;*/
+
+}
+.counters-block{
+	border: 1px solid #ccc;
+	border-radius: 12px;
+	padding: 5px;
+}
+
+.arrow-btn-wraper{
+	width: 12px;
+	height: 12px;
+	position:relative;
+	left:15px;
+}
+.arrow-btn-wraper a{
+	width: 12px !important;
+	height: 12px !important;
+	text-indent: -9999px;
+	z-index: 9999;
+	margin-top: 2px;
+	outline: 0;
+	text-decoration:none;
+	position:absolute;
+}
+.footer-arrow-btn 
+{	
+	background:url('images/footer-arrow.png') no-repeat no-repeat  -12px 0px;
+}
+.footer-arrow-btn:hover{	
+	background-position:-1px 0px;
+}
+.footer-links{
+	text-align:center;
+}
+.footer-links a:hover{
+	text-decoration:none;
+}
+.icon{
+display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin-top: -6px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-position: 14px 14px;
+  background-repeat: no-repeat;
+}
+
+.video{
+	float:left;
+	margin-right:20px;
+	text-decoration:none;
+	border-radius:12px;
+	-moz-border-radius: 12px;
+	-ms-border-radius: 12px;
+	-webkit-border-radius: 12px;
+	border:1px solid #838383;
+	padding:5px;
+}
+.video-text{
+	clear: both;
+	margin-left: 5px;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000;
+}
+.video-screen-user-link{
+font-weight: normal;
+color: #838484;
+}
+.video-info{
+	vertical-align: top;
+	padding: 5px;
+}
+.section{
+clear:both;
+}
+.song-text{
+	padding: 1em 1.4em;
+	display:block;
+}
+/*
+	Kotov  END _____________________________________________
+*/
+
+/* UNUSED */

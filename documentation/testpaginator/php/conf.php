@@ -1,0 +1,7 @@
+<?php
+
+$DEBUG_MODE = 1;  // 1 - ON { show debug msg's }, 0 - OFF { do not show debug msg's }
+$_ROOT = "http://localhost/testpaginator";
+$_SITE_MAJOR_VERSION = 1;
+$_SITE_MINOR_VERSION = 0;
+?>
