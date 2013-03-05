@@ -67,7 +67,10 @@ switch($param[0]){
 		}
 		break;
 	}
-	
+	case "исполнители":{
+		printCharArtistPage(20, $param[1]);
+		break;
+	}
 	default:{
 		$param[0] = urlencode($param[0]);
 		$param[1] = urlencode($param[1]);
