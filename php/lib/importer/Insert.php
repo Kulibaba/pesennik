@@ -115,13 +115,14 @@ class Insert{
 				'$name',
 				'$searchName',
 				'$url',
-				'$userId' 
-				
+				'$userId'
 			);
 		";
 
 		$result = mysql_query($query, newDB::getInstance());
 	echo "(".$result.")".$id;
+	if ($result=="")
+	echo "[".$query."]";
 		}
 
 	function translate($row){
@@ -152,6 +153,25 @@ class Insert{
 				'$info'
 			);
 		";
+		$result = mysql_query($query, newDB::getInstance());
+		
+		/*
+			Select flags from song
+		*/
+		$query = "
+			SELECT flags 
+			FROM song
+			WHERE id='$songId'
+		";
+		$result = mysql_query($query, newDB::getInstance());
+		$row = mysql_fetch_array ($result);
+		$flags = $row["flags"];
+		$flags |= 4;
+
+		/*
+			Update song flags 
+		*/
+		$query = "UPDATE `song` SET `flags` = '$flags' WHERE `id`='$songId'";
 		$result = mysql_query($query, newDB::getInstance());
 	}
 	function video($row){
@@ -186,6 +206,26 @@ class Insert{
 			);
 		";
 
+		$result = mysql_query($query, newDB::getInstance());
+		
+		
+		/*
+			Select flags from song
+		*/
+		$query = "
+			SELECT flags 
+			FROM song
+			WHERE id='$songId'
+		";
+		$result = mysql_query($query, newDB::getInstance());
+		$row = mysql_fetch_array ($result);
+		$flags = $row["flags"];
+		$flags |= 2;
+
+		/*
+			Update song flags 
+		*/
+		$query = "UPDATE `song` SET `flags` = '$flags' WHERE `id`='$songId'";
 		$result = mysql_query($query, newDB::getInstance());
 	}
 

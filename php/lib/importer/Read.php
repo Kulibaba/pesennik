@@ -46,19 +46,21 @@ class Read{
 			FROM song
 			ORDER BY id_song
 		";
+
 		$result = mysql_query($query,oldDB::getInstance());
 		while($row = mysql_fetch_array ($result)){
 		
-		if (preg_match_all('/\\(([^()]*)\\)/', $row["name"], $matches))
+		if (preg_match_all('/\\(feat.([^()]*)\\)/', $row["name"], $matches))
 			$row["info"] = $matches[1][0];
 		
-		if (preg_match_all('/ \(.+\)/', $row["name"], $matches))
+		$row["name"] = toNiceName($row["name"]);
+		
+		if (preg_match_all('/ \(feat.+\)/', $row["name"], $matches))
 			$row["name"] = preg_replace("/ \(.+\)/","",$row["name"]);	
 		
-		$row["name"] = str_replace("'", "\'", $row["name"]);
-		$row["lyrics"] = str_replace("'", "\'", $row["lyrics"]);
-		$row["lyrics"] = str_replace("<br>", "\n", $row["lyrics"]);
-		
+		$row["name"] = toNiceName($row["name"]);
+		$row["info"] = toNiceLyrics($row["info"]);	
+		$row["lyrics"] = toNiceLyrics($row["lyrics"]);	
 		$row["searchName"] = toSearchString($row["name"]);
 		$row["url"] = toNiceUrl($row["name"]);
 		$row["flags"] = '1';

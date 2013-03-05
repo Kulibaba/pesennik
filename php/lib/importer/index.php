@@ -4,8 +4,6 @@ set_time_limit(0);
 require_once 'Read.php';
 require_once 'Insert.php';
 
-
-
 function moveArtists(){
 /*
 	oldDB -> newDB (artist)
@@ -55,7 +53,8 @@ function moveTranslates(){
 		$insert->translate($translates[$i]);
 	}
 }
-moveSongs();
-
-
+//moveSongs();
+//moveTranslates();
+//moveVideos();
+moveArtists();
 ?>
