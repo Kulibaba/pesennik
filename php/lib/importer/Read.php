@@ -50,12 +50,12 @@ class Read{
 		$result = mysql_query($query,oldDB::getInstance());
 		while($row = mysql_fetch_array ($result)){
 		
-		if (preg_match_all('/\\(feat.([^()]*)\\)/', $row["name"], $matches))
+		if (preg_match_all('/\\(.([^()]*)\\)/', $row["name"], $matches))
 			$row["info"] = $matches[1][0];
 		
 		$row["name"] = toNiceName($row["name"]);
 		
-		if (preg_match_all('/ \(feat.+\)/', $row["name"], $matches))
+		if (preg_match_all('/ \(.+\)/', $row["name"], $matches))
 			$row["name"] = preg_replace("/ \(.+\)/","",$row["name"]);	
 		
 		$row["name"] = toNiceName($row["name"]);
@@ -106,10 +106,8 @@ class Read{
 		$result = mysql_query($query,oldDB::getInstance());
 		while($row = mysql_fetch_array ($result)){
 			$row["userId"] = 0;
-			$row["name"] = str_replace("'", "\'", $row["name"]);
-			$row["lyrics"] = str_replace("'", "\'", $row["lyrics"]);
-			$row["lyrics"] = str_replace("<br>", "\n", $row["lyrics"]);
-		
+			$row["name"] = toNiceName($row["name"]);
+			$row["lyrics"] = toNiceLyrics($row["lyrics"]);	
 			$res[] = $row;
 		}
 		return $res;

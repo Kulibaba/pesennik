@@ -55,6 +55,6 @@ function moveTranslates(){
 }
 //moveSongs();
 //moveTranslates();
-//moveVideos();
-moveArtists();
+moveVideos();
+//moveArtists();
 ?>
