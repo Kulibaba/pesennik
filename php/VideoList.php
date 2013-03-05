@@ -20,8 +20,8 @@ class VideoList{
 				song.url AS songUrl,
 				video.url AS videoUrl
 			FROM video
-			INNER JOIN song on video.songId=song.id
-      INNER JOIN artistsong ON	video.songId = artistsong.songId AND ( artistsong.artistId = $artistId)
+			INNER JOIN song ON 			video.songId=song.id
+			INNER JOIN artistsong ON	video.songId = artistsong.songId AND ( artistsong.artistId = $artistId)
 			LEFT JOIN artist ON			artistsong.artistId = $artistId
 			ORDER BY $pattern $sorting";
 		
@@ -57,7 +57,7 @@ class VideoList{
 				artist.name AS artistName,
 				artist.url AS artistUrl,
 				artist.photo AS artistPhoto,
-				song.name,
+				song.name AS songName,
 				song.url AS songUrl,
 				video.url AS videoUrl,
 				video.info,

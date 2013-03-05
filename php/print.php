@@ -23,7 +23,7 @@
 	?>
 		<div class="main-container" style="margin:20px;">
 		<div class="photo-small">
-						<img src="../img/photo/small/<?php echo $artist->getId(); ?>.jpg" alt="artist" />
+						<img src="../img/photo/small/<?php echo $artist->isPhoto()?$artist->getId():0;?>.jpg" alt="artist" />
 		</div>
 		<div  class="text-middle">
 			<a href="../<?php echo $artist->getUrl(); ?>"> 
@@ -150,7 +150,7 @@
 			?>
 				<div  class="item">
 					<div class="photo-small">
-						<img src="../img/photo/small/<?php echo $song->getArtistId(); ?>.jpg" alt="artist" />
+						<img src="../img/photo/small/<?php echo $song->isArtistPhoto()?$song->getArtistId():0; ?>.jpg" alt="artist" />
 					</div>
 					<div  class="text-middle">
 						<span class="artist-name">
@@ -203,7 +203,7 @@
 		//print_r($newVList);
 		if ($newVList != NULL)
 		{
-			while(($video = $newVList->current())&& ($count < $delta)){ 
+			while($video = $newVList->current()){ 
 			//echo $video;
 			?>
 				<div class="video">
@@ -256,7 +256,7 @@
 			?>
 				<div  class="item">
 					<div class="photo-small">
-						<img src="../img/photo/small/<?php echo $translate->getArtistId(); ?>.jpg" alt="artist" />
+						<img src="../img/photo/small/<?php echo $translate->isArtistPhoto()?$translate->getArtistId():0; ?>.jpg" alt="artist" />
 					</div>
 					<div  class="text-middle">
 						<span class="artist-name">
@@ -302,7 +302,7 @@
 			?>
 				<div  class="item">
 					<div class="photo-small">
-						<img src="../img/photo/small/<?php echo $artist->getId();?>.jpg" alt="artist" />
+						<img src="../img/photo/small/<?php echo $artist->isPhoto()?$artist->getId():0;?>.jpg" alt="artist" />
 					</div>
 					<div  class="text-middle">
 						<span class="artist-name">
@@ -347,7 +347,7 @@
 		<div class="main-container" style="margin:20px;">
 			<div id="short_bio">
 				<div class="photo">
-					<img src="../img/photo/largest/<?php echo $song->getArtistId(); ?>.jpg" alt="<?php echo $song->getArtistName(); ?>" />
+					<img src="../img/photo/largest/<?php echo $song->isArtistPhoto()?$song->getArtistId():0; ?>.jpg" alt="<?php echo $song->getArtistName(); ?>" />
 				</div>
 				<div class="span4" id="short_bio_table" >
 					<span class="artist-name">
@@ -402,7 +402,6 @@
 					<span> 
 						<?php
 							echo $video->getData(); 
-							echo $video->getVideoTypeName();
 						?>
 					</span>
 					<span class="video-info">
@@ -411,7 +410,7 @@
 						?>
 					</span>
 					<div class="video-text">
-					<a href="#" title=""> <?php echo $video->getVideoTypeName();?></a>
+				 <?php echo $video->getVideoTypeName();?>
 					<?php if (($_SITE_MAJOR_VERSION==1)&&($_SITE_MINOR_VERSION == 1)){?>
 						<div>
 							<a href="<?php echo $video->getUserUrl();?>" title="<?php echo $video->getUserName();?>" class="video-screen-user-link"> <?php echo $video->getUserName();?></a>
@@ -430,6 +429,9 @@
 				<div class="w50">
 					<div id="tabs2" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
 						<span class="song-title"><?php echo $song->getArtistName()." — ".$song->getName(); ?> (текст песни)</span> 
+						<div class="song-info"> 
+							<?php echo $song->getInfo(); ?>
+						</div>
 						<div class="song-text"> 
 							<?php echo $song->getLyrics(); ?>
 						</div>
@@ -484,7 +486,7 @@
 		?>		
 		<div class="main-container" >
 		 <div id="short_bio">
-			<div class="photo"><img src="./img/photo/largest/<?php echo $artist->getId(); ?>.jpg" alt="<?php echo $artist->getName(); ?>"/></div>
+			<div class="photo"><img src="./img/photo/largest/<?php echo $artist->isPhoto()?$artist->getId():0; ?>.jpg" alt="<?php echo $artist->getName(); ?>"/></div>
 			<div class="span7" id="short_bio_table">
 				<span class="vote-stars">
 					<span class="current-rating" style="width:30%;"></span>	
@@ -646,7 +648,7 @@
 	?>
 		<div class="hero-unit">
 			<div class="photo-big">
-				<img src="img/photo/largest/<?php echo $song->getArtistId(); ?>.jpg" class="artist-photo-top-new" alt="<?php echo $song->getArtistName(); ?>" />
+				<img src="img/photo/largest/<?php echo $song->isArtistPhoto()?$song->getArtistId():0; ?>.jpg" class="artist-photo-top-new" alt="<?php echo $song->getArtistName(); ?>" />
 			</div>
 			<div class="top-new-box-txt" >
 				<h1>

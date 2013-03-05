@@ -170,7 +170,7 @@ function toNiceUrl($string){
 	$string = str_replace("%27", "", $string);
 	$string = str_replace("%28", "(", $string);
 	$string = str_replace("%29", ")", $string);
-	$string = str_replace("%E2%80%99", "’", $string);
+	$string = str_replace("%2C", ",", $string);
 	$string = str_replace("+", "_", $string);
 	$string = str_replace("/_+/", "_", $string);
 	return $string;

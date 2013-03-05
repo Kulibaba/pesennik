@@ -8,6 +8,7 @@ require_once 'conf.php';
 class Song {
 	private $artistId;
 	private $artistName;
+	private $artistPhoto;
 	private $artistUrl;	
 	
 	private $flags;	
@@ -135,6 +136,7 @@ class Song {
 			SELECT 
 				artist.id AS artistId,
 				artist.name AS artistName,
+				artist.photo AS artistPhoto,
 				artist.url AS artistUrl,
 				song.id, 
 				song.name,
@@ -163,6 +165,7 @@ class Song {
 			$this->url = $row["url"];
 			$this->artistId = $row["artistId"];
 			$this->artistName = $row["artistName"];
+			$this->artistPhoto = $row["artistPhoto"];
 			$this->artistUrl = $row["artistUrl"];
 			$this->languageName = $row["languageName"]; 
 			$this->languageUrl = $row["languageUrl"];
@@ -187,6 +190,7 @@ class Song {
 			SELECT
 				artist.id AS artistId,
 				artist.name AS artistName,
+				artist.photo AS artistPhoto,
 				artist.url AS artistUrl,
 				song.id, 
 				song.name,
@@ -216,6 +220,7 @@ class Song {
 			$this->url = $row["url"];
 			$this->artistId = $row["artistId"];
 			$this->artistName = $row["artistName"];
+			$this->artistPhoto = $row["artistPhoto"];
 			$this->artistUrl = $row["artistUrl"];
 			$this->languageName = $row["languageName"]; 
 			$this->languageUrl = $row["languageUrl"];
@@ -254,6 +259,9 @@ class Song {
 	}
 	function getArtistName() {
 		return $this->artistName;
+	}
+	function isArtistPhoto() {
+		return $this->artistPhoto;
 	}
 	function getArtistUrl() {
 		return $this->artistUrl;

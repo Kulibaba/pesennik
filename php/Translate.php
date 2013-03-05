@@ -18,6 +18,7 @@ class Translate {
 	private $artistId;
 	private $artistUrl;
 	private $artistName;
+	private $artistPhoto;
 	private $songUrl;
 	private $songName;
 	
@@ -29,6 +30,7 @@ class Translate {
 	*/
 		$this->artistId = $row["artistId"];
 		$this->artistName = $row["artistName"];
+		$this->artistPhoto = $row["artistPhoto"];
 		$this->artistUrl = $row["artistUrl"];
 		
 		$this->songName = $row["songName"];
@@ -49,6 +51,9 @@ class Translate {
 		$this->id = $row["id"];
 	}
 	
+	function isArtistPhoto() {
+		return $this->artistPhoto;
+	}
 	function getArtistId() {
 		return $this->artistId;
 	}

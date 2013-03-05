@@ -78,16 +78,16 @@ class ArtistList{
 		return $resultList;
 	}
 	function getNewArtists($no){
-		return $this->getArtistList($no, "artist.id", "ASC");
-	}
-	function getOldArtists($no){
 		return $this->getArtistList($no, "artist.id", "DESC");
 	}
+	function getOldArtists($no){
+		return $this->getArtistList($no, "artist.id", "ASC");
+	}
 	function getFirstArtistCharacterList($no, $character){
-		return $this->getArtistCharacterList($no, $character, "ASC");
+		return $this->getArtistCharacterList($no, $character, "DESC");
 	}
 	function getLastArtistCharacterList($no, $character){
-		return $this->getArtistCharacterList($no, $character, "DESC");
+		return $this->getArtistCharacterList($no, $character, "ASC");
 	}
 }
 ?>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
  <meta charset="utf-8">
- <title>pesennik.org</title>
+ <title><?php $song?> — pesennik.org</title>
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <meta name="description" content="">
  <meta name="author" content="">
@@ -139,17 +139,7 @@
 									<li><a href="<?php echo $_ROOT; ?>/%D0%BD%D0%BE%D0%B2%D1%8B%D0%B5/%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B8">комментарии</a></li>
 								</ul>
 							</li>
-						 
-							<li class="nav-header" id="header2">Популярные
-								<ul>
-									<li><a href="<?php echo $_ROOT; ?>/%D0%BF%D0%BE%D0%BF%D1%83%D0%BB%D1%8F%D1%80%D0%BD%D1%8B%D0%B5/%D1%82%D0%B5%D0%BA%D1%81%D1%82%D1%8B" >тексты</a></li>
-									<li><a href="<?php echo $_ROOT; ?>/%D0%BF%D0%BE%D0%BF%D1%83%D0%BB%D1%8F%D1%80%D0%BD%D1%8B%D0%B5/%D0%BA%D0%BB%D0%B8%D0%BF%D1%8B" >клипы</a></li>
-									<li><a href="<?php echo $_ROOT; ?>/%D0%BF%D0%BE%D0%BF%D1%83%D0%BB%D1%8F%D1%80%D0%BD%D1%8B%D0%B5/%D0%BF%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%B4%D1%8B">переводы</a></li>
-									<li><a href="<?php echo $_ROOT; ?>/%D0%BF%D0%BE%D0%BF%D1%83%D0%BB%D1%8F%D1%80%D0%BD%D1%8B%D0%B5/%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D0%BD%D0%B8%D1%82%D0%B5%D0%BB%D0%B8">исполнители</a></li>
-									<li><a href="<?php echo $_ROOT; ?>/%D0%BF%D0%BE%D0%BF%D1%83%D0%BB%D1%8F%D1%80%D0%BD%D1%8B%D0%B5/%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B8">комментарии</a></li>
-								</ul>
-							</li>
-			 
+
 			 </ul>
 						
 			 </div><!--/.well -->

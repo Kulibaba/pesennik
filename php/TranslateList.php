@@ -123,13 +123,13 @@ class TranslateList{
 	
 	
 	function getNewTranslates($no){
-		return $this->getTranslateList($no, "translate.id", "ASC");
-	}
-	function getOldTranslates($no){
 		return $this->getTranslateList($no, "translate.id", "DESC");
 	}
+	function getOldTranslates($no){
+		return $this->getTranslateList($no, "translate.id", "ASC");
+	}
 	function getArtistTranslates($no,$artistId){
-		return $this->getArtistTranslateList($no, $artistId, "translate.id", "ASC");
+		return $this->getArtistTranslateList($no, $artistId, "translate.id", "DESC");
 	}
 }
 ?>

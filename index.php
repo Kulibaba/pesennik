@@ -20,7 +20,6 @@ switch($param[0]){
 	case "новые":{
 		switch($param[1]){
 			case "тексты":{
-			
 				printNewSongPage(20,0);
 				break;
 			}
