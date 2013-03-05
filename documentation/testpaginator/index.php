@@ -8,6 +8,9 @@ require 'php/print.php';
 require 'php/OldVersionSupport.php';
 require_once 'php/templateBegin.php';
 
+$test_param = $_GET["param"]; $i=1;
+print_r ($_GET["param"]);
+echo "<a href='".$_ROOT.$test_param."/".$i."' > 1</a>";
 /*	BEGIN Setting "new style" URL from "old style"	*/
 /*$newStyleUrl = OldVersionSupport($param[0]);
 $param[0] = $newStyleUrl[0];
