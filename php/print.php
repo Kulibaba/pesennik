@@ -25,7 +25,7 @@
 		<div class="photo-small">
 						<img src="../img/photo/small/<?php echo $artist->isPhoto()?$artist->getId():0;?>.jpg" alt="artist" />
 		</div>
-		<div  class="text-middle">
+		<divclass="text-middle">
 			<a href="../<?php echo $artist->getUrl(); ?>"> 
 				<span class="artist-name"><?php echo $artist->getName(); ?></span>
 			</a>
@@ -46,7 +46,7 @@
 				{
 					while($song = $newSList->current()){ 
 					?>
-						<div  class="item-short">
+						<divclass="item-short">
 							
 								<span class="artist-name">
 								<?php echo ++$item_count.". ";?>
@@ -60,7 +60,7 @@
 				<?php 
 					$newSList->next();
 					}
-				}else {	?> <p style='color:red;'>ERROR! Empty var \$newSList at print.php::printArtistSCT()  </p><? }
+				}else {	?> <p style='color:red;'>ERROR! Empty var \$newSList at print.php::printArtistSCT()</p><? }
 				break;
 			}//case 1
 			
@@ -72,7 +72,7 @@
 				{
 					while($video = $newVList->current()){ 
 					?>
-						<div  class="item-short">
+						<divclass="item-short">
 								<span class="artist-name">
 								<?php echo ++$item_count.".";?>
 									<a href="../<?php echo $video->getArtistUrl()."/".$video->getSongUrl(); ?>"> 
@@ -84,7 +84,7 @@
 				<?php 
 					$newVList->next();
 					}
-				}else {	?> <p style='color:red;'>ERROR! Empty var \$newVList at print.php::printArtistSCT()  </p><? }
+				}else {	?> <p style='color:red;'>ERROR! Empty var \$newVList at print.php::printArtistSCT()</p><? }
 				break;
 			}//case 2
 			
@@ -101,15 +101,15 @@
 						$translate_lang = $lang->getLanguageById($translate->getLanguageId());
 						$song_lang = $lang->getLanguageById($translate->getSongLanguageId());
 					?>
-						<div  class="item-short">
+						<divclass="item-short">
 								<span class="artist-name">
 								<?php echo ++$item_count;?>
 									<a href="../<?php echo $translate->getArtistUrl()."/".$translate->getSongUrl(); ?>"> 
 										<?php echo $translate->getArtistName().' - '.$translate->getSongName();?>
 									</a>
-									<img class="artist-flag" src="../img/flags/<?php echo $song_lang->getUrl(); ?>.png"  alt="<?php echo $song_lang->getName(); ?>"/>
+									<img class="artist-flag" src="../img/flags/<?php echo $song_lang->getUrl(); ?>.png"alt="<?php echo $song_lang->getName(); ?>"/>
 					&#x21d2;
-							<img class="artist-flag" src="../img/flags/<?php echo $translate_lang->getUrl(); ?>.png"  alt="<?php echo $translate_lang->getName(); ?>"/>
+							<img class="artist-flag" src="../img/flags/<?php echo $translate_lang->getUrl(); ?>.png"alt="<?php echo $translate_lang->getName(); ?>"/>
 							
 							 </span>
 						</div>
@@ -117,7 +117,7 @@
 				<?php 
 					$newTList->next();
 					}
-				}else {	?> <p style='color:red;'>ERROR! Empty var \$newTList at print.php::printArtistSCT()  </p><? }
+				}else {	?> <p style='color:red;'>ERROR! Empty var \$newTList at print.php::printArtistSCT()</p><? }
 				break;
 			}//case 3
 			
@@ -128,7 +128,7 @@
 		
 		
 		
-		<!--  PAGE END-->
+		<!--PAGE END-->
 		</div><!--/span-->
 		<?php 
 		
@@ -148,11 +148,11 @@
 		{
 			while($song = $newSList->current()){ 
 			?>
-				<div  class="item">
+				<divclass="item">
 					<div class="photo-small">
 						<img src="../img/photo/small/<?php echo $song->isArtistPhoto()?$song->getArtistId():0; ?>.jpg" alt="artist" />
 					</div>
-					<div  class="text-middle">
+					<divclass="text-middle">
 						<span class="artist-name">
 							<a href="../<?php echo $song->getArtistUrl()."/".$song->getUrl(); ?>"> 
 								<?php echo $song->getArtistName().' - '.$song->getName();?>
@@ -179,11 +179,11 @@
 		}else
 		{
 			?>
-				<p style='color:red;'>ERROR! Empty var \$newSList at print.php::printNewSongPage()  </p>
+				<p style='color:red;'>ERROR! Empty var \$newSList at print.php::printNewSongPage()</p>
 			<?
 		}
 		?>
-		<!--  PAGE END-->
+		<!--PAGE END-->
 		</div><!--/span-->
 		<?php 
 	};
@@ -231,12 +231,12 @@
 		}else
 		{
 			?>
-				<p style='color:red;'>ERROR! Empty var \$newSList at print.php::printNewSongPage()  </p>
+				<p style='color:red;'>ERROR! Empty var \$newSList at print.php::printNewSongPage()</p>
 			<?
 		}
 		?>
 			</div>
-		<!--  PAGE END-->
+		<!--PAGE END-->
 		</div><!--/span-->
 		<?php 
 	};
@@ -254,18 +254,18 @@
 		{
 			while($translate = $newTList->current()){ 
 			?>
-				<div  class="item">
+				<divclass="item">
 					<div class="photo-small">
 						<img src="../img/photo/small/<?php echo $translate->isArtistPhoto()?$translate->getArtistId():0; ?>.jpg" alt="artist" />
 					</div>
-					<div  class="text-middle">
+					<divclass="text-middle">
 						<span class="artist-name">
 							<a href="../<?php echo $translate->getArtistUrl()."/".$translate->getSongUrl(); ?>"> 
 								<?php echo $translate->getArtistName().' - '.$translate->getSongName();?>
 							</a>
-							<img class="artist-flag" src="../img/flags/<?php echo $translate->getSongLanguageUrl(); ?>.png"  alt="<?php echo $translate->getSongLanguageName(); ?>"/>
+							<img class="artist-flag" src="../img/flags/<?php echo $translate->getSongLanguageUrl(); ?>.png"alt="<?php echo $translate->getSongLanguageName(); ?>"/>
 					&#x21d2;
-							<img class="artist-flag" src="../img/flags/<?php echo $translate->getLanguageUrl(); ?>.png"  alt="<?php echo $translate->getLanguageName(); ?>"/>
+							<img class="artist-flag" src="../img/flags/<?php echo $translate->getLanguageUrl(); ?>.png"alt="<?php echo $translate->getLanguageName(); ?>"/>
 							
 					 </span>
 					</div>
@@ -277,11 +277,11 @@
 		}else
 		{
 			?>
-				<p style='color:red;'>ERROR! Empty var \$newTList at print.php::printNewTranslatePage()  </p>
+				<p style='color:red;'>ERROR! Empty var \$newTList at print.php::printNewTranslatePage()</p>
 			<?
 		}
 		?>
-		<!--  PAGE END-->
+		<!--PAGE END-->
 		</div><!--/span-->
 		<?php 
 	};
@@ -300,16 +300,16 @@
 			//$newAList->rewind();
 			while($artist = $newAList->current()){ 
 			?>
-				<div  class="item">
+				<divclass="item">
 					<div class="photo-small">
 						<img src="../img/photo/small/<?php echo $artist->isPhoto()?$artist->getId():0;?>.jpg" alt="artist" />
 					</div>
-					<div  class="text-middle">
+					<divclass="text-middle">
 						<span class="artist-name">
 							<a href="../<?php echo $artist->getUrl(); ?>"> 
 								<?php echo $artist->getName();?>
 							</a>
-							<img class="artist-flag" src="../img/flags/<?php echo $artist->getCountryUrl(); ?>.png"  alt="<?php echo $artist->getCountryName(); ?>"/>
+							<img class="artist-flag" src="../img/flags/<?php echo $artist->getCountryUrl(); ?>.png"alt="<?php echo $artist->getCountryName(); ?>"/>
 							
 					 </span>
 					</div>
@@ -321,11 +321,11 @@
 		}else
 		{
 			?>
-				<p style='color:red;'>ERROR! Empty var \$newTList at print.php::printNewArtistPage()  </p>
+				<p style='color:red;'>ERROR! Empty var \$newTList at print.php::printNewArtistPage()</p>
 			<?
 		}
 		?>
-		<!--  PAGE END-->
+		<!--PAGE END-->
 		</div><!--/span-->
 		<?php 
 	};
@@ -341,16 +341,16 @@
 			//$newAList->rewind();
 			while($artist = $newAList->current()){ 
 			?>
-				<div  class="item">
+				<divclass="item">
 					<div class="photo-small">
 						<img src="../img/photo/small/<?php echo $artist->isPhoto()?$artist->getId():0;?>.jpg" alt="artist" />
 					</div>
-					<div  class="text-middle">
+					<divclass="text-middle">
 						<span class="artist-name">
 							<a href="../<?php echo $artist->getUrl(); ?>"> 
 								<?php echo $artist->getName();?>
 							</a>
-							<img class="artist-flag" src="../img/flags/<?php echo $artist->getCountryUrl(); ?>.png"  alt="<?php echo $artist->getCountryName(); ?>"/>
+							<img class="artist-flag" src="../img/flags/<?php echo $artist->getCountryUrl(); ?>.png"alt="<?php echo $artist->getCountryName(); ?>"/>
 							
 					 </span>
 					</div>
@@ -362,11 +362,11 @@
 		}else
 		{
 			?>
-				<p style='color:red;'>ERROR! Empty var \$newTList at print.php::printNewArtistPage()  </p>
+				<p style='color:red;'>ERROR! Empty var \$newTList at print.php::printNewArtistPage()</p>
 			<?
 		}
 		?>
-		<!--  PAGE END-->
+		<!--PAGE END-->
 		</div><!--/span-->
 		<?php 
 	};
@@ -406,7 +406,7 @@
 									<?php 
 										$list = $song->getTranslateList();
 										while($translate = $list->current()){
-											?><img class="artist-flag" src="../img/flags/<?php echo $translate->getLanguageUrl(); ?>.png"  alt="<?php echo $translate->getLanguageName(); ?>"/>
+											?><img class="artist-flag" src="../img/flags/<?php echo $translate->getLanguageUrl(); ?>.png"alt="<?php echo $translate->getLanguageName(); ?>"/>
 											<?php 
 											$list->next();
 										}
@@ -473,9 +473,7 @@
 						<div class="song-info"> 
 							<?php echo $song->getInfo(); ?>
 						</div>
-						<div class="song-text"> 
-							<?php echo $song->getLyrics(); ?>
-						</div>
+						<div class="song-text"><?php echo $song->getLyrics(); ?></div>
 					</div>
 				</div>
 				<!--Перевод Песни-->
