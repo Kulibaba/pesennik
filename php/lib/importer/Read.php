@@ -50,7 +50,7 @@ class Read{
 		$result = mysql_query($query,oldDB::getInstance());
 		while($row = mysql_fetch_array ($result)){
 		
-		if (preg_match_all('/\\(.([^()]*)\\)/', $row["name"], $matches))
+		if (preg_match_all('/\\(([^()]*)\\)/', $row["name"], $matches))
 			$row["info"] = $matches[1][0];
 		
 		$row["name"] = toNiceName($row["name"]);

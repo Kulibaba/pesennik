@@ -88,8 +88,7 @@ function toUpperCase($string){
 	return $string;
 }
 function deleteSpaces($string){
-	$string = str_replace("/( \t)+/", " ", $string);
-	return $string;
+	return ltrim($string);
 }
 function replaceApostrophes($string){ 
 	$string = str_replace("'", "’", $string);
@@ -103,7 +102,6 @@ function toNiceLyrics($string){
 	$string = deleteSpaces($string);
 	$string = replaceApostrophes($string);
 	$string  = str_replace("<br>", "\n", $string);
-
 	return $string;
 }
 function toNiceName($string){
@@ -167,10 +165,10 @@ function toNiceUrl($string){
 */
 	$string = toCleanString($string);
 	$string = urlencode($string);
-	$string = str_replace("%27", "", $string);
 	$string = str_replace("%28", "(", $string);
 	$string = str_replace("%29", ")", $string);
-	$string = str_replace("%2C", ",", $string);
+	$string = str_replace("%E2%80%99", "%27", $string);
+	$string = str_replace("%2C", "", $string);
 	$string = str_replace("+", "_", $string);
 	$string = str_replace("/_+/", "_", $string);
 	return $string;
