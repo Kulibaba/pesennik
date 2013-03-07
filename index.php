@@ -6,7 +6,6 @@ $PAGE_CLIP = 2;
 $PAGE_TRANS = 3;
 require 'php/print.php';
 require 'php/OldVersionSupport.php';
-require_once 'php/templateBegin.php';
 
 /*	BEGIN Setting "new style" URL from "old style"	*/
 /*$newStyleUrl = OldVersionSupport($param[0]);
@@ -106,5 +105,5 @@ switch($param[0]){
 		break;
 	}
 }
-require_once 'php/templateEnd.php';
+require_once 'php/printEnd.php';
 ?>
