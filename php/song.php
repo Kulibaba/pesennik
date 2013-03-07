@@ -47,6 +47,7 @@ class Song {
 		$this->flags = $row["flags"];
 		$this->artistName = $row["artistName"];
 		$this->artistId = $row["artistId"];
+		$this->artistPhoto = $row["artistPhoto"];
 		$this->artistUrl = $row["artistUrl"];
 		$this->languageUrl = $row["languageUrl"];
 		$this->languageName = $row["languageName"];

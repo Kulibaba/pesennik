@@ -64,6 +64,7 @@ class SongList{
 		$query = "
 			SELECT
 				artist.name AS artistName,
+				artist.photo AS artistPhoto,
 				artist.url AS artistUrl,
 				artist.id AS artistId,
 				song.id,

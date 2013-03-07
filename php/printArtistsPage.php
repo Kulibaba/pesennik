@@ -24,7 +24,7 @@ function printNewArtistPage($no,$begin){
 			?>
 				<div class="item">
 					<div class="photo-small">
-						<img src="../img/photo/small/<?php echo $artist->isPhoto()?$artist->getId():0;?>.jpg" alt="artist" />
+						<img src="../img/photo/small/<?php echo $artist->isPhoto()?$artist->getId():0;?>.jpg" alt="<?php echo $artist->getName(); ?>" />
 					</div>
 					<div class="text-middle">
 						<span class="artist-name">
@@ -71,7 +71,7 @@ function printCharArtistPage($no, $char){
 			?>
 				<div class="item">
 					<div class="photo-small">
-						<img src="../img/photo/small/<?php echo $artist->isPhoto()?$artist->getId():0;?>.jpg" alt="artist" />
+						<img src="../img/photo/small/<?php echo $artist->isPhoto()?$artist->getId():0; ?>.jpg" alt="<?php echo $artist->getName(); ?>" />
 					</div>
 					<div class="text-middle">
 						<span class="artist-name">
