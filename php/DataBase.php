@@ -5,7 +5,8 @@ class DB{
 	private function getDB(){		
 		$hostname = "localhost"; 
 		$username = "root";	
-		$passwd = "";		
+		$passwd = "root";	  
+		
 		$dbname = "pesennik_psn";
 		
 		$curr_result; // current result from DataBase functions
