@@ -19,11 +19,11 @@
 		{
 			while($song = $newSList->current()){ 
 			?>
-				<divclass="item">
+				<div class="item">
 					<div class="photo-small">
 						<img src="../img/photo/small/<?php echo $song->isArtistPhoto()?$song->getArtistId():0; ?>.jpg" alt="artist" />
 					</div>
-					<divclass="text-middle">
+					<div class="text-middle">
 						<span class="artist-name">
 							<a href="../<?php echo $song->getArtistUrl()."/".$song->getUrl(); ?>"> 
 								<?php echo $song->getArtistName().' - '.$song->getName();?>

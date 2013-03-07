@@ -22,17 +22,16 @@ function printNewArtistPage($no,$begin){
 			//$newAList->rewind();
 			while($artist = $newAList->current()){ 
 			?>
-				<divclass="item">
+				<div class="item">
 					<div class="photo-small">
 						<img src="../img/photo/small/<?php echo $artist->isPhoto()?$artist->getId():0;?>.jpg" alt="artist" />
 					</div>
-					<divclass="text-middle">
+					<div class="text-middle">
 						<span class="artist-name">
 							<a href="../<?php echo $artist->getUrl(); ?>"> 
 								<?php echo $artist->getName();?>
 							</a>
-							<img class="artist-flag" src="../img/flags/<?php echo $artist->getCountryUrl(); ?>.png"alt="<?php echo $artist->getCountryName(); ?>"/>
-							
+							<img class="artist-flag" src="../img/flags/<?php echo $artist->getCountryUrl(); ?>.png"alt="<?php echo $artist->getCountryName(); ?>"/>	
 					 </span>
 					</div>
 				</div>
@@ -70,11 +69,11 @@ function printCharArtistPage($no, $char){
 			//$newAList->rewind();
 			while($artist = $newAList->current()){ 
 			?>
-				<divclass="item">
+				<div class="item">
 					<div class="photo-small">
 						<img src="../img/photo/small/<?php echo $artist->isPhoto()?$artist->getId():0;?>.jpg" alt="artist" />
 					</div>
-					<divclass="text-middle">
+					<div class="text-middle">
 						<span class="artist-name">
 							<a href="../<?php echo $artist->getUrl(); ?>"> 
 								<?php echo $artist->getName();?>

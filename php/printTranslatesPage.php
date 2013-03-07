@@ -19,14 +19,14 @@ function printNewTranslatePage($no,$begin){
 		{
 			while($translate = $newTList->current()){ 
 			?>
-				<divclass="item">
+				<div class="item">
 					<div class="photo-small">
 						<img src="../img/photo/small/<?php echo $translate->isArtistPhoto()?$translate->getArtistId():0; ?>.jpg" alt="artist" />
 					</div>
-					<divclass="text-middle">
+					<div class="text-middle">
 						<span class="artist-name">
 							<a href="../<?php echo $translate->getArtistUrl()."/".$translate->getSongUrl(); ?>"> 
-								<?php echo $translate->getArtistName().' - '.$translate->getSongName();?>
+								<?php echo $translate->getArtistName().' - '.$translate->getSongName()." (".$translate->getName().")";?>
 							</a>
 							<img class="artist-flag" src="../img/flags/<?php echo $translate->getSongLanguageUrl(); ?>.png"alt="<?php echo $translate->getSongLanguageName(); ?>"/>
 					&#x21d2;

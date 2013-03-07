@@ -116,7 +116,7 @@ function printArtistSCT($artistUrl,$sct){
 								<span class="artist-name">
 								<?php echo ++$item_count;?>)
 									<a href="../<?php echo $translate->getArtistUrl()."/".$translate->getSongUrl(); ?>"> 
-										<?php echo $translate->getSongName();?>
+										<?php echo $translate->getSongName()." (".$translate->getName().")";?>
 									<img class="artist-flag" src="../img/flags/<?php echo $translate->getSongLanguageUrl(); ?>.png"alt="<?php echo $translate->getSongLanguageName(); ?>"/>
 								&#x21d2;
 									<img class="artist-flag" src="../img/flags/<?php echo $translate->getLanguageUrl(); ?>.png"alt="<?php echo $translate->getLanguageName(); ?>"/>
