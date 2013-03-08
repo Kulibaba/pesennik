@@ -1,7 +1,6 @@
 <?php
 	require_once 'Song.php';
-?>
-<?php
+
 function printSongPage($artistUrl, $songUrl){
 		$song = new Song();
 		$song->initAll($artistUrl, $songUrl );
@@ -54,11 +53,7 @@ function printSongPage($artistUrl, $songUrl){
 						<img src="" width="22" height="16" alt="yandex" />
 					</span>
 				</div>
-				
-			</div>
-			
-					
-		
+			</div>		
 		<div class="section">		
 			<?php	// show all videos
 				$list = $song->getVideoList();
@@ -141,4 +136,4 @@ function printSongPage($artistUrl, $songUrl){
 		</script>
 	<?php
 	};
-	?>
+?>

@@ -5,7 +5,7 @@ $PAGE_SONG = 1;
 $PAGE_CLIP = 2;
 $PAGE_TRANS = 3;
 require 'php/print.php';
-require 'php/OldVersionSupport.php';
+//require 'php/OldVersionSupport.php';
 
 /*	BEGIN Setting "new style" URL from "old style"	*/
 /*$newStyleUrl = OldVersionSupport($param[0]);

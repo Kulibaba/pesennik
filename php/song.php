@@ -234,7 +234,6 @@ class Song {
 			if ($DEBUG_MODE){	echo "<span style='color:red;'>ERROR! Empty var \$result in song.php at line 138 </span><br/>";}
 			error_log("EMPTY $result  song.php at line 138");
 		}
-		
 	}
 
 	function isLyrics() {

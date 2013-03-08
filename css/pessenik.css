@@ -1,10 +1,6 @@
 /*
 	Kulibaba  BEGIN___________________________________________
 */
-body {
-    /*padding-top: 60px;
-    padding-bottom: 30px;*/
-}
 
 a {
     color: #222;
@@ -48,6 +44,28 @@ a {
         margin: 0;
     }
 
+	
+	
+	.topMailRu{
+		height:1px;
+		width:1px;
+		border:0px;
+	}
+	#liveinternet-counter{
+		border:0px;
+		width:88px;
+		height:31px;
+	}		
+	
+	#mailru-counter{
+		border:0px;
+		height:40px;
+		width:88px;
+	}
+	html{
+		top:0;
+		left:0;
+	}
 /*	Kulibaba  END _____________________________________________
 */
 
@@ -302,7 +320,20 @@ a {
 .bio-table {
     font-family: Helvetica, Arial; /* "Segoe UI", Segoe, */
     font-size: 18px;
+	cursor:pointer;
+	
+	
 }
+
+.bio-table {
+   border:3px;
+   padding:5px;
+   border-collapse:collapse;
+}
+.bio-table tbody tr td {
+   padding:5px;
+}
+
 
 .bio-content {
     margin-left: 40px;

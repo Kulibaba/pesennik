@@ -1,8 +1,6 @@
 <?php
 	require_once 'VideoList.php';
-?>
 
-<?php
 function printNewVideoPage($no, $begin){
 	/*
 		@begin - var for pagination. Song number form wich start showing page
@@ -58,8 +56,6 @@ function printNewVideoPage($no, $begin){
 		</div><!--/span-->
 <?php 
 	};
-?>
-	
-<?php
+?><?php
 	function printTopVideoPage($no,$begin){};
 ?>

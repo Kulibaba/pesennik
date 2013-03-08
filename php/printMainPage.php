@@ -10,21 +10,6 @@
 	$TITLE = "Новые песни 2013. Все тексты песенен, клипы, переводы.";
 	
 	require_once 'php/printBegin.php';
-	
-	if ($song != NULL){
-		// DEBUG BEGIN
-		if ($DEBUG_MODE != NULL){
-			echo $song->getArtistName()." - ".$song->getName();
-		}
-		// DEBUG END
-	}else{
-		if ($DEBUG_MODE != NULL) {
-			?>
-				<p style='color:red;'>ERROR! Empty var \$song print.php at line 36 </p>
-			<?
-		}
-		error_log("EMPTY \$song print.php at line 36");
-	}
 
 	?>
 		<div class="hero-unit">
@@ -64,7 +49,7 @@
 					<div class="new-heading-detailed texts" id="measure_block">
 						<div class="span2" style="text-align:center;">
 						<div style="overflow:hidden;"> <!--height:30px;-->
-							<div id="new-heading-menu">
+							<div class="new-heading-menu">
 								<p class="heading">Тексты</p>
 							</div>
 						</div>
@@ -101,7 +86,7 @@
 					<div class="new-heading-detailed clips">
 						<div class="span2" style="text-align:center;">
 						<div style="overflow:hidden;"> 
-							<div id="new-heading-menu">
+							<div class="new-heading-menu">
 								<p class="heading">Клипы</p>
 							</div>
 						</div>
@@ -133,7 +118,7 @@
 					<div class="new-heading-detailed translations" >
 						<div class="span2" style="text-align:center;">
 							<div style="overflow:hidden;">
-								<div id="new-heading-menu">
+								<div class="new-heading-menu">
 									<p class="heading">Переводы</p>
 								</div>
 							</div>
@@ -169,9 +154,8 @@
 						</div>
 					</div>	
 				</div>
-			</div>
 		</div><!-- /detailed headings -->
 	</div><!--/span-->
-<?php	};
-	
+<?php
+	};	
 ?>

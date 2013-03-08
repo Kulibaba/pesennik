@@ -1,8 +1,5 @@
 <?php
 	require_once 'ArtistList.php';
-?>
-
-<?php
 function printNewArtistPage($no,$begin){
 	/*
 		@begin - var for pagination. Song number form wich start showing page
@@ -31,7 +28,7 @@ function printNewArtistPage($no,$begin){
 							<a href="../<?php echo $artist->getUrl(); ?>"> 
 								<?php echo $artist->getName();?>
 							</a>
-							<img class="artist-flag" src="../img/flags/<?php echo $artist->getCountryUrl(); ?>.png"alt="<?php echo $artist->getCountryName(); ?>"/>	
+							<img class="artist-flag" src="../img/flags/<?php echo $artist->getCountryUrl(); ?>.png" alt="<?php echo $artist->getCountryName(); ?>"/>	
 					 </span>
 					</div>
 				</div>
@@ -50,8 +47,7 @@ function printNewArtistPage($no,$begin){
 		</div><!--/span-->
 <?php 
 	};
-?>
-<?php
+?><?php
 function printCharArtistPage($no, $char){
  
 	$aList = new ArtistList();
@@ -78,7 +74,7 @@ function printCharArtistPage($no, $char){
 							<a href="../<?php echo $artist->getUrl(); ?>"> 
 								<?php echo $artist->getName();?>
 							</a>
-							<img class="artist-flag" src="../img/flags/<?php echo $artist->getCountryUrl(); ?>.png"alt="<?php echo $artist->getCountryName(); ?>"/>
+							<img class="artist-flag" src="../img/flags/<?php echo $artist->getCountryUrl(); ?>.png" alt="<?php echo $artist->getCountryName(); ?>"/>
 							
 					 </span>
 					</div>
@@ -98,10 +94,6 @@ function printCharArtistPage($no, $char){
 		</div><!--/span-->
 <?php 
 };
-?>
-
-
-
-<?php
+?><?php
 	function printTopArtistPage($no,$begin){};
 ?>

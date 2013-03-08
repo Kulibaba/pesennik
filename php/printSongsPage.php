@@ -1,9 +1,7 @@
 <?php
 	require_once 'SongList.php';
-?>
 
-<?php	
-	function printNewSongPage($no,$begin){
+function printNewSongPage($no,$begin){
 	/*
 		@begin - var for pagination. Song number form wich start showing page
 	*/
@@ -58,13 +56,8 @@
 		</div><!--/span-->
 		<?php 
 	};
-	?>
-	
-<?php
+	?><?php
 	function printTopSongPage($no,$begin){};
-?>
-	
-<?php
 	function printSongList($no){
 		printNewSongPage($no,0);
 	};

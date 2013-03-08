@@ -1,7 +1,6 @@
 <?php
 	require_once 'TranslateList.php';
-?>
-<?php 
+
 function printNewTranslatePage($no,$begin){
 	/*
 		@begin - var for pagination. Song number form wich start showing page
@@ -28,9 +27,9 @@ function printNewTranslatePage($no,$begin){
 							<a href="../<?php echo $translate->getArtistUrl()."/".$translate->getSongUrl(); ?>"> 
 								<?php echo $translate->getArtistName().' - '.$translate->getSongName()." (".$translate->getName().")";?>
 							</a>
-							<img class="artist-flag" src="../img/flags/<?php echo $translate->getSongLanguageUrl(); ?>.png"alt="<?php echo $translate->getSongLanguageName(); ?>"/>
+							<img class="artist-flag" src="../img/flags/<?php echo $translate->getSongLanguageUrl(); ?>.png" alt="<?php echo $translate->getSongLanguageName(); ?>"/>
 					&#x21d2;
-							<img class="artist-flag" src="../img/flags/<?php echo $translate->getLanguageUrl(); ?>.png"alt="<?php echo $translate->getLanguageName(); ?>"/>
+							<img class="artist-flag" src="../img/flags/<?php echo $translate->getLanguageUrl(); ?>.png" alt="<?php echo $translate->getLanguageName(); ?>"/>
 							
 					 </span>
 					</div>
@@ -50,8 +49,6 @@ function printNewTranslatePage($no,$begin){
 		</div><!--/span-->
 		<?php 
 	};
-	?>
-	
-<?php
+	?><?php
 	function printTopTranslatePage($no,$begin){};
 ?>

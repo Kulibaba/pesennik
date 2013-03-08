@@ -1,7 +1,6 @@
 <?php
 	require_once 'Artist.php';
-?>
-<?php
+
 function printArtistPage($artistUrl){
 	$artist = new Artist();
 	$artist->initAll($artistUrl);
@@ -18,16 +17,16 @@ function printArtistPage($artistUrl){
 				</span>
 				<span>
 					<!-- margin for element 2px , w:22 h:16-->
-					<img src="" width="22" height="16" alt="google" />
-					<img src="" width="22" height="16" alt="vk" />
-					<img src="" width="22" height="16" alt="face" />
-					<img src="" width="22" height="16" alt="mail.ru" />
-					<img src="" width="22" height="16" alt="tweeter" />
-					<img src="" width="22" height="16" alt="livejournal" />
-					<img src="" width="22" height="16" alt="yandex" />
+					<img src="#" width="22" height="16" alt="google" />
+					<img src="#" width="22" height="16" alt="vk" />
+					<img src="#" width="22" height="16" alt="face" />
+					<img src="#" width="22" height="16" alt="mail.ru" />
+					<img src="#" width="22" height="16" alt="tweeter" />
+					<img src="#" width="22" height="16" alt="livejournal" />
+					<img src="#" width="22" height="16" alt="yandex" />
 				</span>
 					
-				<table class="bio-table table-bordered table-hover" style="cursor:pointer;" cellpadding="5" cellspacing="3">
+				<table class="bio-table table-bordered table-hover">
 					<tbody class="table-striped ">
 						<tr><td>Полное имя:</td><td><?php echo $artist->getName(); ?></td></tr>
 						<tr><td>Даты:</td><td><?php echo $artist->getBirthDate().' - '.$artist->getDeathDate(); ?></td></tr>
@@ -102,16 +101,16 @@ function printArtistPage($artistUrl){
 					</div-->
 					<div style="margin-top:30px;">
 						<ul class="bxslider">
-						 <li><img src="img/photo/largest/1.jpg" title="Ani Lorak 1" /></li>
-						 <li><img src="img/photo/largest/2.jpg" title="Ani Lorak 2" /></li>
-						 <li><img src="img/photo/largest/3.jpg" title="Ani Lorak 3" /></li>
-						 <li><img src="img/photo/largest/4.jpg" title="Ani Lorak 4" /></li>
-						 <li><img src="img/photo/largest/5.jpg" title="Ani Lorak 5" /></li>
-						 <li><img src="img/photo/largest/6.jpg" title="Ani Lorak 6" /></li>
-						 <li><img src="img/photo/largest/7.jpg" title="Ani Lorak 7" /></li>
-						 <li><img src="img/photo/largest/8.jpg" title="Ani Lorak 8" /></li>
-						 <li><img src="img/photo/largest/9.jpg" title="Ani Lorak 9" /></li>
-						 <li><img src="img/photo/largest/10.jpg" title="Ani Lorak 10" /></li>
+						 <li><img alt="photo" src="img/photo/largest/1.jpg" title="Ani Lorak 1" /></li>
+						 <li><img alt="photo" src="img/photo/largest/2.jpg" title="Ani Lorak 2" /></li>
+						 <li><img alt="photo" src="img/photo/largest/3.jpg" title="Ani Lorak 3" /></li>
+						 <li><img alt="photo" src="img/photo/largest/4.jpg" title="Ani Lorak 4" /></li>
+						 <li><img alt="photo" src="img/photo/largest/5.jpg" title="Ani Lorak 5" /></li>
+						 <li><img alt="photo" src="img/photo/largest/6.jpg" title="Ani Lorak 6" /></li>
+						 <li><img alt="photo" src="img/photo/largest/7.jpg" title="Ani Lorak 7" /></li>
+						 <li><img alt="photo" src="img/photo/largest/8.jpg" title="Ani Lorak 8" /></li>
+						 <li><img alt="photo" src="img/photo/largest/9.jpg" title="Ani Lorak 9" /></li>
+						 <li><img alt="photo" src="img/photo/largest/10.jpg" title="Ani Lorak 10" /></li>
 						</ul>		
 					</div>
 				</div>
@@ -122,7 +121,7 @@ function printArtistPage($artistUrl){
 			<!--DEBUG FOR jQuery-->
 			<!--script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script-->
 			<!--DEBUG FOR jQuery-->
-			<script language="javascript" type="text/javascript">
+			<script>
 				//jQuery.noConflict();	
 				$(document).ready(function(){
 					$(".bxslider").bxSlider( {
@@ -143,7 +142,5 @@ function printArtistPage($artistUrl){
 					 
 				});
 				</script>
-				<?php
-	};	
-?>
-	
+<?php
+	};?>

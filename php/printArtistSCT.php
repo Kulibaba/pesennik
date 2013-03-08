@@ -10,10 +10,7 @@ function printArtistHeader($artist, $contentName, $count){
 	</div>
 <?php
 }
-?>
-
-
-<?php
+?><?php
 function printArtistSCT($artistUrl,$sct){
 	/* Func generates page depending on var $sct ( song/clip/translate ) for specific artist in $artistUrl
 			$sct = 1 -song's; 2 -clip's; 3 -translates page
@@ -117,9 +114,9 @@ function printArtistSCT($artistUrl,$sct){
 								<?php echo ++$item_count;?>)
 									<a href="../<?php echo $translate->getArtistUrl()."/".$translate->getSongUrl(); ?>"> 
 										<?php echo $translate->getSongName()." (".$translate->getName().")";?>
-									<img class="artist-flag" src="../img/flags/<?php echo $translate->getSongLanguageUrl(); ?>.png"alt="<?php echo $translate->getSongLanguageName(); ?>"/>
+									<img class="artist-flag" src="../img/flags/<?php echo $translate->getSongLanguageUrl(); ?>.png" alt="<?php echo $translate->getSongLanguageName(); ?>"/>
 								&#x21d2;
-									<img class="artist-flag" src="../img/flags/<?php echo $translate->getLanguageUrl(); ?>.png"alt="<?php echo $translate->getLanguageName(); ?>"/>
+									<img class="artist-flag" src="../img/flags/<?php echo $translate->getLanguageUrl(); ?>.png" alt="<?php echo $translate->getLanguageName(); ?>"/>
 							
 									</a>
 									
@@ -136,13 +133,8 @@ function printArtistSCT($artistUrl,$sct){
 		
 		}//switch
 		?>
-		
-		
-		
-		
 		<!--PAGE END-->
 		</div><!--/span-->
-		<?php 
-		
+		<?php 	
 	}
 	?>
