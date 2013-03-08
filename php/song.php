@@ -67,9 +67,9 @@ class Song {
 				user.name AS userName,
 				user.url AS userUrl
 			FROM video
-			INNER JOIN videosite ON video.videoSiteId = videoSite.id
+			INNER JOIN videosite ON video.videoSiteId = videosite.id
 			LEFT JOIN song ON 		video.songId = song.id	
-			LEFT JOIN videoType ON 	video.videoTypeId = videoType.id 
+			LEFT JOIN videotype ON 	video.videoTypeId = videotype.id 
 			LEFT JOIN user ON 		video.userId = user.id 
 			WHERE song.id ='$songId'
 		";

@@ -27,8 +27,8 @@ class VideoList{
 			INNER JOIN song ON 			video.songId = song.id	
 			INNER JOIN artistsong ON	song.id = artistsong.songId
 			LEFT JOIN artist ON			artistsong.artistId = artist.id
-			LEFT JOIN videosite ON		video.videoSiteId = videoSite.id
-			LEFT JOIN videoType ON 		video.videoTypeId = videoType.id 
+			LEFT JOIN videosite ON		video.videoSiteId = videosite.id
+			LEFT JOIN videotype ON 		video.videoTypeId = videotype.id 
 			LEFT JOIN user ON 			video.userId = user.id 
 			$condition
 			ORDER BY $pattern $sorting

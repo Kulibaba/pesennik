@@ -44,13 +44,13 @@ function printSongPage($artistUrl, $songUrl){
 					
 					<span style="border:1px solid #541;width:182; height: 18px; float:right;">
 						<!-- margin for element 2px , w:22 h:16-->
-						<img src="" width="22" height="16" alt="google" />
-						<img src="" width="22" height="16" alt="vk" />
-						<img src="" width="22" height="16" alt="face" />
-						<img src="" width="22" height="16" alt="mail.ru" />
-						<img src="" width="22" height="16" alt="tweeter" />
-						<img src="" width="22" height="16" alt="livejournal" />
-						<img src="" width="22" height="16" alt="yandex" />
+						<img src="#" alt="google" />
+						<img src="#" alt="vk" />
+						<img src="#" alt="face" />
+						<img src="#" alt="mail.ru" />
+						<img src="#" alt="tweeter" />
+						<img src="#" alt="livejournal" />
+						<img src="#" alt="yandex" />
 					</span>
 				</div>
 			</div>		
@@ -128,7 +128,7 @@ function printSongPage($artistUrl, $songUrl){
 			</div>
 		</div>
 		<p class="separator"></p>
-		<script language="javascript" type="text/javascript">
+		<script>
 			//jQuery.noConflict();	
 			$(function() {
 				$( "#tabs" ).tabs();

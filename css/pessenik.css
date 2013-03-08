@@ -2,6 +2,11 @@
 	Kulibaba  BEGIN___________________________________________
 */
 
+.youtube-video{
+	border:0px;
+	width:560px;
+	height:315px;
+}
 a {
     color: #222;
 }

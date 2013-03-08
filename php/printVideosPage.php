@@ -18,9 +18,8 @@ function printNewVideoPage($no, $begin){
 		<?php
 		//print_r($newVList);
 		if ($newVList != NULL)
-		{
+		{	
 			while($video = $newVList->current()){ 
-			//echo $video;
 			?>
 				<div class="video">
 					<span> 
