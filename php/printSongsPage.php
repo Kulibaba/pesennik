@@ -6,9 +6,11 @@ function printNewSongPage($delta, $page, $searchTag){
 		@page - var for pagination. Song number form wich start showing page
 	*/
 	
-	$all_list = $sList->getNewSongs(0,0);
+	
 	$itemsQuantity = $all_list->count();
 	$sList = new SongList();
+	$all_list = $sList->getNewSongs(0,0);
+	
 	if ($itemsQuantity>$delta){
 		$newSList = $sList->getNewSongs($delta,$page-$delta);
 	}else{
