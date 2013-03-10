@@ -124,7 +124,7 @@ switch($param[0]){
 require_once 'php/printEnd.php';
 
 function getDelta(){
-	$ret = 10;
+	$ret = 2;
 	return $ret;
 }
 ?>

@@ -60,7 +60,7 @@
 								// $new_songs = GET TEXT LINKs LIST HERE
 								
 								$songList = new SongList();
-								$new_songs = $songList->getNewSongs( $SONGS_QUANTITY );
+								$new_songs = $songList->getNewSongs( $SONGS_QUANTITY, 0);
 								if ($new_songs != null){
 									while($song = $new_songs->current())
 									{
