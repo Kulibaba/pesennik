@@ -1,7 +1,9 @@
 
-		<!-- END PAGE-->
-		</div><!--/row-->
- 
+			<!-- END PAGE-->
+			</div>
+			</div><!--/row-->
+		</div> <!--row-fluid-->
+	</div><!--container-fluid-->
 		<!-- _________________BEGIN FOOTER_____________________ -->
  <hr>
 		<div class="container-fluid">

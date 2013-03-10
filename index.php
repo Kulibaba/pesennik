@@ -15,14 +15,32 @@ if ($param[1]=="")
 */
 /*	END Setting "new style" URL from "old style" */ 
 
+// PAGINATION
+$delta = getDelta();
+if ($param[2]!=""){
+	$page = $param[2];
+}
+else{
+	$page = 1;
+}
+$searchTag = "";
+//print_r($param);
+
 switch($param[0]){
 	case "новые":{
 		switch($param[1]){
+			case "песни":{
+				printNewSongPage($delta,0);
+				break;
+			}
 			case "тексты":{
-				printNewSongPage(20,0);
+				$searchTag ="Новые тексты исполнителей";
+				printNewSongPage($delta, $page, $searchTag);
+				
 				break;
 			}
 			case "клипы":{
+				$searchTag ="Новые клипы исполнителей";
 				printNewVideoPage(20,0);
 				break;
 			}
@@ -74,9 +92,7 @@ switch($param[0]){
 		$param[0] = urlencode($param[0]);
 		$param[1] = urlencode($param[1]);
 		if ($param[1] != ""){
-			//song's page
-			//echo "in!";
-			//echo urldecode($param[1]);
+			
 			switch(urldecode($param[1]))
 			{
 				case "песни":{
@@ -106,4 +122,9 @@ switch($param[0]){
 	}
 }
 require_once 'php/printEnd.php';
+
+function getDelta(){
+	$ret = 10;
+	return $ret;
+}
 ?>

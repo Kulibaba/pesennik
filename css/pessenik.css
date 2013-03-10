@@ -637,6 +637,40 @@ a {
     padding: 1em 1.4em;
     display: block;
 }
+
+/* PAGINATOR */
+.ui-paginator{display:inline;}
+.pag-header{display:inline;}
+.pag-header-menu{
+	padding: 15px 15px 0px 15px;
+	margin-bottom: 10px;
+}
+.pag-header-menu,.search-tag{
+	background-color:#f5f5f5;
+	border: 1px solid #e3e3e3;
+  -moz-border-radius: 4px 0px;
+  -webkit-border-radius: 4px 0px;
+  border-radius: 4px 4px 0px 0px;
+	
+}
+.search-tag{
+	margin-left: 75px;
+	display: inline;
+	padding: 2px 10px 3px 10px;
+	border-bottom-width: 0px;
+	
+}
+.pag-form ,.pag-numbers{
+	display:inline;
+	
+}
+.pag-numbers{
+	float:right;
+	font-weight:bolder;
+}
+.pag-delta{
+	width:70px;
+}
 /*
 	Kotov  END _____________________________________________
 */

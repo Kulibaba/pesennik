@@ -55,7 +55,7 @@ class SongList{
 		return $resultList;
 	}
 	
-	private function getSongList($no, $sorting){
+	private function getSongList($no, $sorting, $begin){
 	/*
 		Used for show song list;
 		@no - int, number of items in list; 
@@ -76,9 +76,11 @@ class SongList{
 			INNER JOIN artistsong ON artistsong.artistId = artist.id
 			INNER JOIN song ON artistsong.songId = song.id
 			ORDER BY song.id $sorting
-			LIMIT 0, $no
 		";
-
+		if ($no != $ALL_SONGS) { 
+			$query.="LIMIT $begin, $no"; 
+		}
+		
 		$resultList = new SplDoublyLinkedList();
 		$result = mysql_query($query,DB::getInstance());
 		if ($result != NULL){
@@ -94,11 +96,11 @@ class SongList{
 		}
 		return $resultList;
 	}
-	function getNewSongs($no){
-		return $this->getSongList($no, "DESC");
+	function getNewSongs($no,$page){
+		return $this->getSongList($no, "DESC", $page + $no);
 	}
-	function getOldSongs($no){
-		return $this->getSongList($no, "ASC");
+	function getOldSongs($no,$page){
+		return $this->getSongList($no, "ASC", $page + $no);
 	}
 	function getNewArtistSongs($no, $artistId){
 		return $this->getArtistSongList($no, $artistId, "song.id", "DESC");
