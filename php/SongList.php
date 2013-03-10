@@ -97,10 +97,10 @@ class SongList{
 		return $resultList;
 	}
 	function getNewSongs($no,$page){
-		return $this->getSongList($no, "DESC", $page + $no);
+		return $this->getSongList($no, "DESC", $page * $no);
 	}
 	function getOldSongs($no,$page){
-		return $this->getSongList($no, "ASC", $page + $no);
+		return $this->getSongList($no, "ASC", $page * $no);
 	}
 	function getNewArtistSongs($no, $artistId){
 		return $this->getArtistSongList($no, $artistId, "song.id", "DESC");

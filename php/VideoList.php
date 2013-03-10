@@ -5,7 +5,7 @@ require_once 'conf.php';
 class VideoList{
 	public $ALL_VIDEOS = 0;
 	
-	private function getVideoList($no, $pattern, $sorting, $artistId, $condition){
+	private function getVideoList($no, $begin, $pattern, $sorting, $artistId, $condition){
 	/*
 		used for show video list
 		@no - int, number of items in list
@@ -34,7 +34,7 @@ class VideoList{
 			ORDER BY $pattern $sorting
 		";
 		if ($no != $ALL_VIDEOS) { 
-			$query.="LIMIT 0, $no"; 
+			$query.="LIMIT $begin, $no"; 
 		}
 		$resultList = new SplDoublyLinkedList();
 		$result = mysql_query($query,DB::getInstance());
@@ -53,14 +53,14 @@ class VideoList{
 		
 	}
 	
-	function getNewVideos($no){
-		return $this->getVideoList($no, "video.id", "ASC", 0, "");
+	function getNewVideos($no, $page){
+		return $this->getVideoList($no, $page*$no, "video.id", "ASC", 0, "");
 	}
-	function getOldVideos($no){
-		return $this->getVideoList($no, "video.id", "DESC", 0, "");
+	function getOldVideos($no, $page){
+		return $this->getVideoList($no, $page*$no, "video.id", "DESC", 0, "");
 	}
-	function getArtistVideos($no,$artistId){
-		return $this->getVideoList($no, "video.id", "ASC", $artistId, "WHERE artistsong.artistId = $artistId");
+	function getArtistVideos($no, $artistId, $page){
+		return $this->getVideoList($no, $page*$no, "video.id", "ASC", $artistId, "WHERE artistsong.artistId = $artistId");
 	}
 	
 }

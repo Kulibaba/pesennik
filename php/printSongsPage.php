@@ -9,14 +9,12 @@ function printNewSongPage($delta, $page, $searchTag){
 	$sList = new SongList();
 	$all_list = $sList->getNewSongs(0,0);
 	$itemsQuantity = $all_list->count();
-	$itemsQuantity = $all_list->count();
-	$all_list = $sList->getNewSongs(0,0);
-	
-	if ($itemsQuantity>$delta){
-		$newSList = $sList->getNewSongs($delta,$page-$delta);
+	$newSList = $sList->getNewSongs($delta, $page - 1);		
+	/*if ($itemsQuantity > $delta){
+		$newSList = $sList->getNewSongs($delta, $page - $delta);
 	}else{
-		$newSList = $sList->getNewSongs($delta,0);
-	}
+		$newSList = $sList->getNewSongs($delta, 0);
+	}*/
 	
 	$TITLE = "Список всех новых песен 2013";
 	require_once 'php/printBegin.php';

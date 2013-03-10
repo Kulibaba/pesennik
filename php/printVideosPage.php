@@ -1,17 +1,26 @@
 <?php
 	require_once 'VideoList.php';
-
-function printNewVideoPage($no, $begin){
+	require_once 'paginator\template.php';
+function printNewVideoPage($delta, $page, $searchTag){
 	/*
-		@begin - var for pagination. Song number form wich start showing page
+		@page - var for pagination. Song number form wich start showing page
 	*/
 	$vList = new VideoList();
 	$count = 1;
 		
-	$newVList = $vList->getNewVideos($no);
-		
+	$newVList = $vList->getNewVideos($delta,$page-1);
+	$all_list = $vList->getNewVideos(0,0);	
+	$itemsQuantity = $all_list->count();
+				
+	//if ($itemsQuantity > $delta){
+	//	$newVList = $vList->getNewVideos($delta, $page-$delta);
+	//}else{
+	//	$newVList = $vList->getNewVideos($delta, 0);
+	//}
+	
 	$TITLE = "Список всех новых клипов 2013";
 	require_once 'php/printBegin.php';
+	
 ?>
 	<div class="main-container" style="margin:20px;">
 		<div class="section">
@@ -19,7 +28,10 @@ function printNewVideoPage($no, $begin){
 		//print_r($newVList);
 		if ($newVList != NULL)
 		{	
+			$count_items = 0; // for correct working with paginator
+			Paginate($delta, $page, $itemsQuantity, $searchTag);
 			while($video = $newVList->current()){ 
+			$count_items++;
 			?>
 				<div class="video">
 					<span> 
@@ -41,7 +53,16 @@ function printNewVideoPage($no, $begin){
 				<p class="separator"></p>
 		<?php }
 			$count++;
-			$newVList->next();
+			if ($count_items <$delta){
+					$newVList->next();
+				}else{
+					/* Break the while cycle, 
+						 because only $delta number 
+						 of items should be on page
+					*/
+					break; 
+				}
+			
 			}
 		}else
 		{
@@ -56,5 +77,5 @@ function printNewVideoPage($no, $begin){
 <?php 
 	};
 ?><?php
-	function printTopVideoPage($no,$begin){};
+	function printTopVideoPage($delta,$page){};
 ?>

@@ -11,7 +11,7 @@ $pageIterator = new Paginator($delta,$page,$size,$searchTag);
 $cur_page = $pageIterator->getCurrentPageNumber();
 $itemsQuantity = $pageIterator->getItemsQuantity();
 $delta = $pageIterator->getDelta();
-$total_pages = $itemsQuantity/$delta;
+$total_pages = $itemsQuantity/$delta+1;
 
 $beg_itemNumber = ($cur_page-1)  * $delta + 1;
 	if ($beg_itemNumber + $delta > $itemsQuantity){
@@ -52,12 +52,19 @@ $beg_itemNumber = ($cur_page-1)  * $delta + 1;
 							<a href="<?php echo "/".($beginPageNumber-1); ?>"> < Prev </a>
 							<?php
 						}*/
+						$count_params = explode('/',$_GET["param"]);
 						
 						$params = urldecode($_SERVER['REQUEST_URI']);//$_GET["param"];
-						$temp_slash_pos = strrpos($params, '/', -1);
-						$cur_page =  substr($params, 0, $temp_slash_pos);
+						if (count($count_params) > 2){
+							$temp_slash_pos = strrpos($params, '/', -1);
+							$cur_page =  substr($params, 0, $temp_slash_pos);
+						}else{
+							$temp_slash_pos = count($params);
+							$cur_page =$params;
+						}
 						
-						for ($i =max(1, $beginPageNumber - 2) ; $i <= min($beginPageNumber + 5, $total_pages ); $i++)
+						
+						for ($i = max(1, $beginPageNumber - 2) ; $i <= min($beginPageNumber + 5, $total_pages ); $i++)
 						{
 							$next_page = $cur_page."/".$i;
 							?>

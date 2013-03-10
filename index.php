@@ -41,14 +41,16 @@ switch($param[0]){
 			}
 			case "клипы":{
 				$searchTag ="Новые клипы исполнителей";
-				printNewVideoPage(20,0);
+				printNewVideoPage($delta, $page, $searchTag);
 				break;
 			}
 			case "переводы":{
+				$searchTag ="Новые переводы исполнителей";
 				printNewTranslatePage(20,0);
 				break;
 			}
 			case "исполнители":{
+				$searchTag ="Новые исполнителей";
 				printNewArtistPage(20,0);
 				break;
 			}
@@ -124,7 +126,7 @@ switch($param[0]){
 require_once 'php/printEnd.php';
 
 function getDelta(){
-	$ret = 2;
+	$ret = 10;
 	return $ret;
 }
 ?>
