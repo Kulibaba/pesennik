@@ -9,7 +9,7 @@
 
 	$TITLE = "Новые песни 2013. Все тексты песенен, клипы, переводы.";
 	
-	require_once 'php/printBegin.php';
+	require_once 'php/web/printBegin.php';
 
 	?>
 		<div class="hero-unit">

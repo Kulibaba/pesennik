@@ -1,6 +1,6 @@
 <?
 require_once 'Song.php';
-require_once 'conf.php';
+require_once 'php/conf.php';
 
 class SongList{
 

@@ -1,6 +1,6 @@
 <?
 require_once 'Translate.php';
-require_once 'conf.php';
+require_once 'php/conf.php';
 
 class TranslateList{
 	public $ALL_TRANSLATES = 0;

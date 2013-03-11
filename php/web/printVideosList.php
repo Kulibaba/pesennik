@@ -1,6 +1,6 @@
 <?php
-	require_once 'VideoList.php';
-	require_once 'paginator\template.php';
+	require_once 'php/classes/VideoList.php';
+	require_once 'php/paginator/template.php';
 	$ALL = 0;
 function printNewVideoPage($delta, $page, $searchTag){
 	/*
@@ -20,7 +20,7 @@ function printNewVideoPage($delta, $page, $searchTag){
 	//}
 	
 	$TITLE = "Список всех новых клипов 2013";
-	require_once 'php/printBegin.php';
+	require_once 'php/web/printBegin.php';
 	
 ?>
 	<div class="main-container">

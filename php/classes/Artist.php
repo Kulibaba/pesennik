@@ -1,7 +1,7 @@
 <?
 require_once 'DataBase.php';
-require_once 'Utils.php';
-require_once 'conf.php';
+require_once 'php/Utils.php';
+require_once 'php/conf.php';
 
 class Artist {
 

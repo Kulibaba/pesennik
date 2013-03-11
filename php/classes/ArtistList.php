@@ -1,6 +1,6 @@
 <?
 require_once 'Artist.php';
-require_once 'conf.php';
+require_once 'php/conf.php';
 
 class ArtistList{
 	public $ALL_ARTISTS  = 0;

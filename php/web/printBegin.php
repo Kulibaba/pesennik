@@ -1,4 +1,4 @@
-<?php require 'conf.php' ?>
+<?php require 'php/conf.php' ?>
 <!DOCTYPE html>
 <html>
 <head>

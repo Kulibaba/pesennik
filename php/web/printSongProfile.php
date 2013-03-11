@@ -1,12 +1,12 @@
 <?php
-	require_once 'Song.php';
+	require_once 'php/classes/Song.php';
 
 function printSongPage($artistUrl, $songUrl){
 		$song = new Song();
 		$song->initAll($artistUrl, $songUrl );
 		
 		$TITLE = $song->getArtistName()." — ".$song->getName()." (текст песни, перевод, клип)";
-		require_once 'php/printBegin.php';
+		require_once 'php/web/printBegin.php';
 ?>
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
 	<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>

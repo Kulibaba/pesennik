@@ -4,7 +4,7 @@ $param = explode('/',$_GET["param"]);
 $PAGE_SONG = 1;
 $PAGE_CLIP = 2;
 $PAGE_TRANS = 3;
-require 'php/print.php';
+require 'php/web/print.php';
 //require 'php/OldVersionSupport.php';
 
 /*	BEGIN Setting "new style" URL from "old style"	*/
@@ -124,7 +124,7 @@ switch($param[0]){
 		break;
 	}
 }
-require_once 'php/printEnd.php';
+require_once 'php/web/printEnd.php';
 
 function getDelta(){
 	$ret = 10;

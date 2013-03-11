@@ -1,5 +1,5 @@
 <?php
-	require_once 'TranslateList.php';
+	require_once 'php/classes/TranslateList.php';
 	$ALL = 0;
 function printNewTranslatePage($delta, $page, $searchTag){
 	/*
@@ -14,7 +14,7 @@ function printNewTranslatePage($delta, $page, $searchTag){
 	$newTList = $tList->getNewTranslates($delta, $page - 1);		
 	
 	$TITLE = "Список всех новых переводов песен 2013";
-	require_once 'php/printBegin.php';
+	require_once 'php/web/printBegin.php';
 	?>
 		<div class="main-container" style="margin:20px;">
 	<?php 

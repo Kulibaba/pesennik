@@ -1,6 +1,6 @@
 <?
 require_once 'Video.php';
-require_once 'conf.php';
+require_once 'php/conf.php';
 
 class VideoList{
 	public $ALL_VIDEOS = 0;

@@ -1,5 +1,5 @@
 <?php
-	require_once 'Artist.php';
+	require_once 'php/classes/Artist.php';
 
 function printArtistPage($artistUrl){
 	$artist = new Artist();

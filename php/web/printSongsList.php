@@ -1,6 +1,6 @@
 <?php
-	require_once 'SongList.php';
-	require_once 'paginator\template.php';
+	require_once 'php/classes/SongList.php';
+	require_once 'php/paginator/template.php';
 	$ALL = 0;
 function printNewSongPage($delta, $page, $searchTag){
 	/*
@@ -18,7 +18,7 @@ function printNewSongPage($delta, $page, $searchTag){
 	}*/
 	
 	$TITLE = "Список всех новых песен 2013";
-	require_once 'php/printBegin.php';
+	require_once 'php/web/printBegin.php';
 ?>
 
 	<div class="main-container" >
