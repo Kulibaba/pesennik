@@ -1,5 +1,5 @@
 <?php
-	require_once 'php/classes/ArtistList.php';
+	require 'php/classes/ArtistList.php';
 	$ALL = 0;
 function printNewArtistPage($delta, $page, $searchTag){
 	/*
@@ -11,7 +11,7 @@ function printNewArtistPage($delta, $page, $searchTag){
 	$itemsQuantity = $all_list->count();
 	
 	$TITLE = "Новые исполнители 2013";
-	require_once 'php/web/printBegin.php';
+	require_once 'printBegin.php';
 ?>
 	<div class="main-container" >
 <?php 	
@@ -68,7 +68,7 @@ function printCharArtistPage($delta,$page, $char,$searchTag){
 	$itemsQuantity = $all_list->count();
 	
 	$TITLE = "Список исполнителей на букву ".$char;
-	require_once 'php/printBegin.php';
+	require_once 'printBegin.php';
 		
 ?>
 	<div class="main-container" >

@@ -1,7 +1,6 @@
-	
 <?
-require 'php/conf.php';
-require 'php/paginator/paginator.php';
+
+require_once 'Paginator.php';
 function Paginate($delta,$page,$size,$searchTag){
 /*
 	Function paginates input List of obhect stored in $inList
@@ -89,13 +88,6 @@ $total_pages = $itemsQuantity/$delta+1;
 				</div>
 			</div>
 	</div>
-	
-	<!--div class="pag-body"> 
-	
-	</div>
-	
-	<!--div class="pag-footer"> 
-	</div-->
 </div>
 <?php
 }

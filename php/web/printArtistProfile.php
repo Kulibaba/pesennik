@@ -6,7 +6,7 @@ function printArtistPage($artistUrl){
 	$artist->initAll($artistUrl);
 	
 	$TITLE = $artist->getName()." (".$artist->getCountryName()."). Все песни, клипы, биография";
-	require_once 'php/printBegin.php';
+	require_once 'printBegin.php';
 ?>		
 		<div class="main-container" >
 		 <div id="short_bio">
@@ -48,28 +48,13 @@ function printArtistPage($artistUrl){
 			
 				<div class="bio-section">	 
 					<span class="bio-section-title">Биография</span>
-					<div class="bio-section-text">
-						<?php echo $artist->getBio(); ?>
-					</div>
+					<div class="bio-section-text"><?php echo $artist->getBio(); ?></div>
 				</div>
 				
 				<p class="separator"></p>
 				<div class="bio-section">	 
 					<span class="bio-section-title">Награды</span>
 					<div class="bio-rewards" style="display:none;">
-						<ul>
-							<li>2010
-								<ul>
-								<li>[Событие,Место] - [Название]</li>
-								<li>Первая гланда России, Берибово - Золотая связка из горла Баскова.</li>
-								<li>Пухлое горло стар-пома, Нижний Тагил - Лучший едок сырых яиц.</li>
-								</ul>
-							</li>
-							<li>2011</li>
-							<li>2012</li>
-							<li>2013</li>
-							
-						</ul>
 					</div>
 				</div>
 				

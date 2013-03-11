@@ -1,6 +1,4 @@
 <?
-require_once 'php/Utils.php';
-require_once 'php/conf.php';
 
 class Paginator {
 	private $searchTag="";

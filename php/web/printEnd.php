@@ -39,7 +39,7 @@
 					<img src="http://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"/>
 				</a>
 		</div>
-		</div>
+	
 			<hr>
  <footer>
  
@@ -60,6 +60,6 @@
  <!-- Placed at the end of the document so the pages load faster -->
 	<script src="js/jquery-timer.js"></script>
 	<script src="js/pesennik.js"></script>
-	</div>
+
  </body>
 </html>

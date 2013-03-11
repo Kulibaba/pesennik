@@ -34,7 +34,7 @@ function printArtistSCT($artistUrl,$sct){
 		}
 	}
 	$TITLE = $artist->getName()." (".$artist->getCountryName()."). Список всех ".$contentName;
-	require_once 'php/printBegin.php';
+	require_once 'printBegin.php';
 ?>
 	<div class="main-container" style="margin:20px;">
 	
