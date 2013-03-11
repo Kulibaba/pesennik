@@ -14,7 +14,6 @@ class ArtistList{
 			SELECT
 				artist.id,
 				artist.name,
-				artist.searchName,
 				artist.url,
 				artist.photo,
 				country.name AS countryName,
@@ -49,10 +48,10 @@ class ArtistList{
 	*/	
 		$query = "
 			SELECT
+				artist.id,
 				artist.name,
-				artist.searchName,
+				artist.photo,		
 				artist.url,
-				artist.photo,
 				country.name AS countryName,
 				country.url AS countryUrl
 			FROM artist
@@ -65,12 +64,12 @@ class ArtistList{
 		$resultList = new SplDoublyLinkedList();
 		$result = mysql_query($query,DB::getInstance());
 		if ($result!= NULL){
-		while($row = mysql_fetch_array ($result)){
-			$artist = new Artist();
-			$artist->initListItem($row);
-			$resultList->push($artist);
-		}
-		$resultList->rewind();
+			while($row = mysql_fetch_array ($result)){
+				$artist = new Artist();
+				$artist->initListItem($row);
+				$resultList->push($artist);
+			}
+			$resultList->rewind();
 		}else{
 			if ($DEBUG_MODE){echo "<span style='color:red;'>ERROR! Empty var \$result in artistList.php at line 65 </span><br/>";}
 			error_log("EMPTY \$result artistList.php at line 65");

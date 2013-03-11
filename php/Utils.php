@@ -88,8 +88,7 @@ function toUpperCase($string){
 	return $string;
 }
 function deleteSpaces($string){
-	$string = str_replace("/( \t)+/", " ", $string);
-	return $string;
+	return ltrim($string);
 }
 function replaceApostrophes($string){ 
 	$string = str_replace("'", "’", $string);
@@ -103,7 +102,6 @@ function toNiceLyrics($string){
 	$string = deleteSpaces($string);
 	$string = replaceApostrophes($string);
 	$string  = str_replace("<br>", "\n", $string);
-
 	return $string;
 }
 function toNiceName($string){
@@ -167,10 +165,10 @@ function toNiceUrl($string){
 */
 	$string = toCleanString($string);
 	$string = urlencode($string);
-	$string = str_replace("%27", "", $string);
 	$string = str_replace("%28", "(", $string);
 	$string = str_replace("%29", ")", $string);
-	$string = str_replace("%2C", ",", $string);
+	$string = str_replace("%E2%80%99", "%27", $string);
+	$string = str_replace("%2C", "", $string);
 	$string = str_replace("+", "_", $string);
 	$string = str_replace("/_+/", "_", $string);
 	return $string;
@@ -196,5 +194,19 @@ function getFullDate($date) {
 	$rus_date = str_replace("November", "февраля", $rus_date);
 	$rus_date = str_replace("December", "декабря", $rus_date);
 	return  $rus_date;
+}
+
+function currentPageURL() {
+	$pageURL = 'http';
+	if ($_SERVER["HTTPS"] == "on"){
+		$pageURL .= "s";
+	}
+	$pageURL .= "://";
+	if ($_SERVER["SERVER_PORT"] != "80"){
+		$pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
+	}else{
+		$pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+	}
+	return $pageURL;
 }
 ?>

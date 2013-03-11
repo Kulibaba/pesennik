@@ -47,6 +47,7 @@ class Song {
 		$this->flags = $row["flags"];
 		$this->artistName = $row["artistName"];
 		$this->artistId = $row["artistId"];
+		$this->artistPhoto = $row["artistPhoto"];
 		$this->artistUrl = $row["artistUrl"];
 		$this->languageUrl = $row["languageUrl"];
 		$this->languageName = $row["languageName"];
@@ -66,9 +67,9 @@ class Song {
 				user.name AS userName,
 				user.url AS userUrl
 			FROM video
-			INNER JOIN videosite ON video.videoSiteId = videoSite.id
+			INNER JOIN videosite ON video.videoSiteId = videosite.id
 			LEFT JOIN song ON 		video.songId = song.id	
-			LEFT JOIN videoType ON 	video.videoTypeId = videoType.id 
+			LEFT JOIN videotype ON 	video.videoTypeId = videotype.id 
 			LEFT JOIN user ON 		video.userId = user.id 
 			WHERE song.id ='$songId'
 		";
@@ -233,7 +234,6 @@ class Song {
 			if ($DEBUG_MODE){	echo "<span style='color:red;'>ERROR! Empty var \$result in song.php at line 138 </span><br/>";}
 			error_log("EMPTY $result  song.php at line 138");
 		}
-		
 	}
 
 	function isLyrics() {

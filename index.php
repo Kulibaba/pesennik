@@ -5,8 +5,7 @@ $PAGE_SONG = 1;
 $PAGE_CLIP = 2;
 $PAGE_TRANS = 3;
 require 'php/print.php';
-require 'php/OldVersionSupport.php';
-require_once 'php/templateBegin.php';
+//require 'php/OldVersionSupport.php';
 
 /*	BEGIN Setting "new style" URL from "old style"	*/
 /*$newStyleUrl = OldVersionSupport($param[0]);
@@ -16,22 +15,42 @@ if ($param[1]=="")
 */
 /*	END Setting "new style" URL from "old style" */ 
 
+// PAGINATION
+$delta = getDelta();
+if ($param[2]!=""){
+	$page = $param[2];
+}
+else{
+	$page = 1;
+}
+$searchTag = "";
+//print_r($param);
+
 switch($param[0]){
 	case "новые":{
 		switch($param[1]){
+			case "песни":{
+				printNewSongPage($delta,0);
+				break;
+			}
 			case "тексты":{
-				printNewSongPage(20,0);
+				$searchTag ="Новые тексты исполнителей";
+				printNewSongPage($delta, $page, $searchTag);
+				
 				break;
 			}
 			case "клипы":{
-				printNewVideoPage(20,0);
+				$searchTag ="Новые клипы исполнителей";
+				printNewVideoPage($delta, $page, $searchTag);
 				break;
 			}
 			case "переводы":{
+				$searchTag ="Новые переводы исполнителей";
 				printNewTranslatePage(20,0);
 				break;
 			}
 			case "исполнители":{
+				$searchTag ="Новые исполнителей";
 				printNewArtistPage(20,0);
 				break;
 			}
@@ -67,14 +86,15 @@ switch($param[0]){
 		}
 		break;
 	}
-	
+	case "исполнители":{
+		printCharArtistPage(20, $param[1]);
+		break;
+	}
 	default:{
 		$param[0] = urlencode($param[0]);
 		$param[1] = urlencode($param[1]);
 		if ($param[1] != ""){
-			//song's page
-			//echo "in!";
-			//echo urldecode($param[1]);
+			
 			switch(urldecode($param[1]))
 			{
 				case "песни":{
@@ -103,5 +123,10 @@ switch($param[0]){
 		break;
 	}
 }
-require_once 'php/templateEnd.php';
+require_once 'php/printEnd.php';
+
+function getDelta(){
+	$ret = 10;
+	return $ret;
+}
 ?>
