@@ -1,10 +1,10 @@
 <?php
-	require_once 'printArtistPage.php';
-	require_once 'printArtistsPage.php';
-	require_once 'printArtistSCT.php';
+	require_once 'printArtistProfile.php';
+	require_once 'printArtistsList.php';
+	require_once 'printArtistSCTList.php';
 	require_once 'printMainPage.php';
-	require_once 'printSongPage.php';
-	require_once 'printSongsPage.php';
-	require_once 'printTranslatesPage.php';
-	require_once 'printVideosPage.php';
+	require_once 'printSongProfile.php';
+	require_once 'printSongsList.php';
+	require_once 'printTranslatesList.php';
+	require_once 'printVideosList.php';
 ?>

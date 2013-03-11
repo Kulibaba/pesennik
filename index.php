@@ -46,12 +46,12 @@ switch($param[0]){
 			}
 			case "переводы":{
 				$searchTag ="Новые переводы исполнителей";
-				printNewTranslatePage(20,0);
+				printNewTranslatePage($delta, $page, $searchTag);
 				break;
 			}
 			case "исполнители":{
-				$searchTag ="Новые исполнителей";
-				printNewArtistPage(20,0);
+				$searchTag ="Новые исполнители";
+				printNewArtistPage($delta, $page, $searchTag);
 				break;
 			}
 			default:{
@@ -87,7 +87,8 @@ switch($param[0]){
 		break;
 	}
 	case "исполнители":{
-		printCharArtistPage(20, $param[1]);
+		$searchTag ="Исполнители на букву [".$param[1]."]";
+		printCharArtistPage( $delta, $page, $param[1], $searchTag );
 		break;
 	}
 	default:{

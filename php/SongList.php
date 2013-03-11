@@ -96,24 +96,31 @@ class SongList{
 		}
 		return $resultList;
 	}
+	
 	function getNewSongs($no,$page){
 		return $this->getSongList($no, "DESC", $page * $no);
 	}
+	
 	function getOldSongs($no,$page){
 		return $this->getSongList($no, "ASC", $page * $no);
 	}
+	
 	function getNewArtistSongs($no, $artistId){
 		return $this->getArtistSongList($no, $artistId, "song.id", "DESC");
 	}
+	
 	function getOldArtistSongs($no, $artistId){
 		return $this->getArtistSongList($no, $artistId, "song.id", "ASC");
 	}
+	
 	function getFirstArtistSongs($no, $artistId){
 		return $this->getArtistSongList($no, $artistId, "song.name", "DESC");
 	}
+	
 	function getLastArtistSongs($no, $artistId){
 		return $this->getArtistSongList($no, $artistId, "song.name", "ASC");
 	}
+	
 	function getArtistSongs($no,$artistId){
 		return $this->getArtistSongList($no, $artistId, "song.name", "DESC");
 	}

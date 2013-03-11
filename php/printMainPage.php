@@ -3,7 +3,7 @@
 	// Get random top-indexed artist
 	$SONGS_QUANTITY_HERO = 10;
 	$SONGS_QUANTITY = 4;
-	
+	$TOPNEW_ITEMS = 0;
 	$song = new Song();
 	$song->initNewAll();
 
@@ -60,7 +60,7 @@
 								// $new_songs = GET TEXT LINKs LIST HERE
 								
 								$songList = new SongList();
-								$new_songs = $songList->getNewSongs( $SONGS_QUANTITY, 0);
+								$new_songs = $songList->getNewSongs( $SONGS_QUANTITY, $TOPNEW_ITEMS);
 								if ($new_songs != null){
 									while($song = $new_songs->current())
 									{
@@ -95,7 +95,7 @@
 							<div class="row-fluid">
 							<?php
 								$videoList = new VideoList();
-								$new_videos = $videoList->getNewVideos( $SONGS_QUANTITY );
+								$new_videos = $videoList->getNewVideos( $SONGS_QUANTITY, $TOPNEW_ITEMS );
 								if ($videoList != null){
 									while($video = $new_videos->current())
 									{
@@ -126,7 +126,7 @@
 						<div class="span10">
 						<?php
 							$translateList = new TranslateList();
-							$new_translates = $translateList->getNewTranslates( $SONGS_QUANTITY );
+							$new_translates = $translateList->getNewTranslates( $SONGS_QUANTITY, $TOPNEW_ITEMS );
 							if ($translateList != null){
 								while($translate = $new_translates->current())
 								{

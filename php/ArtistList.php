@@ -3,7 +3,9 @@ require_once 'Artist.php';
 require_once 'conf.php';
 
 class ArtistList{
-	private function getArtistList($no, $pattern, $sorting){
+	public $ALL_ARTISTS  = 0;
+	
+	private function getArtistList($no, $begin, $pattern, $sorting){
 	/*
 		used for show artist list
 		@no - int, number of items in list
@@ -21,8 +23,12 @@ class ArtistList{
 			FROM artist
 			LEFT JOIN country ON artist.countryId = country.id
 			ORDER BY $pattern $sorting
-			LIMIT 0, $no
 		";
+		
+		if ($no != $ALL_ARTISTS) { 
+			$query.="LIMIT $begin, $no"; 
+		}
+		
 		$resultList = new SplDoublyLinkedList();
 		$result = mysql_query($query,DB::getInstance());
 		if ($result!= NULL){
@@ -39,7 +45,7 @@ class ArtistList{
 		return $resultList;
 	}
 	
-	private function getArtistCharacterList($no, $character, $sorting){
+	private function getArtistCharacterList($no, $begin, $character, $sorting){
 	/*
 		used for show artist list by first letter
 		@no - int, number of items in list
@@ -58,8 +64,11 @@ class ArtistList{
 			LEFT JOIN country ON artist.countryId = country.id
 			WHERE artist.searchName LIKE '$character%'
 			ORDER BY artist.name $sorting
-			LIMIT 0, $no
 		";
+		
+		if ($no != $ALL_ARTISTS) { 
+			$query.="LIMIT $begin, $no"; 
+		}
 
 		$resultList = new SplDoublyLinkedList();
 		$result = mysql_query($query,DB::getInstance());
@@ -76,17 +85,21 @@ class ArtistList{
 		}
 		return $resultList;
 	}
-	function getNewArtists($no){
-		return $this->getArtistList($no, "artist.id", "DESC");
+	
+	function getNewArtists($no,$page){
+		return $this->getArtistList($no, $page * $no, "artist.id", "DESC");
 	}
+	
 	function getOldArtists($no){
-		return $this->getArtistList($no, "artist.id", "ASC");
+		return $this->getArtistList($no, $page * $no, "artist.id", "ASC");
 	}
-	function getFirstArtistCharacterList($no, $character){
-		return $this->getArtistCharacterList($no, $character, "DESC");
+	
+	function getFirstArtistCharacterList($no, $page, $character){
+		return $this->getArtistCharacterList($no, $page * $no, $character, "DESC");
 	}
-	function getLastArtistCharacterList($no, $character){
-		return $this->getArtistCharacterList($no, $character, "ASC");
+	
+	function getLastArtistCharacterList($no, $page, $character){
+		return $this->getArtistCharacterList($no, $page * $no, $character, "ASC");
 	}
 }
 ?>

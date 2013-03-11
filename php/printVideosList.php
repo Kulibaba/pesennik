@@ -1,6 +1,7 @@
 <?php
 	require_once 'VideoList.php';
 	require_once 'paginator\template.php';
+	$ALL = 0;
 function printNewVideoPage($delta, $page, $searchTag){
 	/*
 		@page - var for pagination. Song number form wich start showing page
@@ -8,8 +9,8 @@ function printNewVideoPage($delta, $page, $searchTag){
 	$vList = new VideoList();
 	$count = 1;
 		
-	$newVList = $vList->getNewVideos($delta,$page-1);
-	$all_list = $vList->getNewVideos(0,0);	
+	$newVList = $vList->getNewVideos( $delta, $page-1 );
+	$all_list = $vList->getNewVideos( $ALL, $ALL );	
 	$itemsQuantity = $all_list->count();
 				
 	//if ($itemsQuantity > $delta){
@@ -22,7 +23,7 @@ function printNewVideoPage($delta, $page, $searchTag){
 	require_once 'php/printBegin.php';
 	
 ?>
-	<div class="main-container" style="margin:20px;">
+	<div class="main-container">
 		<div class="section">
 		<?php
 		//print_r($newVList);

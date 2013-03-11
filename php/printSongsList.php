@@ -1,13 +1,14 @@
 <?php
 	require_once 'SongList.php';
 	require_once 'paginator\template.php';
+	$ALL = 0;
 function printNewSongPage($delta, $page, $searchTag){
 	/*
 		@page - var for pagination. Song number form wich start showing page
 	*/
 	
 	$sList = new SongList();
-	$all_list = $sList->getNewSongs(0,0);
+	$all_list = $sList->getNewSongs( $ALL,$ALL );
 	$itemsQuantity = $all_list->count();
 	$newSList = $sList->getNewSongs($delta, $page - 1);		
 	/*if ($itemsQuantity > $delta){
@@ -54,7 +55,7 @@ function printNewSongPage($delta, $page, $searchTag){
 					</div>
 				</div>
 				<p class="separator"></p>
-		<?php 
+			<?php 
 
 				if ($count_items <$delta){
 					$newSList->next();

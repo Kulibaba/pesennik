@@ -1,21 +1,19 @@
-/*
-	Kulibaba  BEGIN___________________________________________
-*/
-
+/*	Kulibaba  BEGIN___________________________________________ */
 .youtube-video{
 	border:0px;
 	width:560px;
 	height:315px;
 }
-a {
+
+a{
     color: #222;
 }
 
-.sidebar-nav {
+.sidebar-nav{
     padding: 9px 0;
 }
 
-#global-nav {
+#global-nav{
     margin-left: 0px;
     float: left;
     margin-top: 2px;

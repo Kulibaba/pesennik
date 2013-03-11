@@ -43,7 +43,7 @@ error_reporting(E_ALL);
 // Database configuration
 
 $db_server   = 'localhost';
-$db_name     = 'old_psn';
+$db_name     = 'pesennik_psn';
 $db_username = 'root';
 $db_password = ''; 
 
@@ -55,7 +55,7 @@ $db_connection_charset = 'utf8';
 
 // OPTIONAL SETTINGS 
 
-$filename           = 'old_psn.sql';     // Specify the dump filename to suppress the file selection dialog
+$filename           = 'pesennikDB.sql';     // Specify the dump filename to suppress the file selection dialog
 $ajax               = true;   // AJAX mode: import will be done without refreshing the website
 $linespersession    = 30000000;   // Lines to be executed per one import session
 $delaypersession    = 0;      // You can specify a sleep time in milliseconds after each session

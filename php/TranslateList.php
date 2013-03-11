@@ -5,10 +5,11 @@ require_once 'conf.php';
 class TranslateList{
 	public $ALL_TRANSLATES = 0;
 
-	private function getTranslateList($no, $pattern, $sorting, $artistId, $condition){
+	private function getTranslateList($no, $begin, $pattern, $sorting, $artistId, $condition){
 	/*
 		used for show video list
 		@no - int, number of items in list
+		@begin - first item to start
 		@pattern - string, order's field name
 		@sorting - string, way of sorting
 		@condition - string, condition of select
@@ -27,7 +28,7 @@ class TranslateList{
 		";
 		
 		if ($no != $ALL_TRANSLATES) { 
-			$query.="LIMIT 0, $no"; 
+			$query.="LIMIT $begin, $no"; 
 		}
 		
 		$result = mysql_query($query,DB::getInstance());
@@ -85,14 +86,14 @@ class TranslateList{
 	}
 	
 	
-	function getNewTranslates($no){
-		return $this->getTranslateList($no, "translate.id", "DESC", 0, "");
+	function getNewTranslates($no,$page){
+		return $this->getTranslateList($no, $page * $no, "translate.id", "DESC", 0, "");
 	}
-	function getOldTranslates($no){
-		return $this->getTranslateList($no, "translate.id", "ASC", 0, "");
+	function getOldTranslates($no, $page){
+		return $this->getTranslateList($no, $page * $no, "translate.id", "ASC", 0, "");
 	}
-	function getArtistTranslates($no,$artistId){
-		return $this->getTranslateList($no, "translate.id", "DESC",  $artistId, "WHERE artistsong.artistId = $artistId");
+	function getArtistTranslates($no,$artistId, $page){
+		return $this->getTranslateList($no, $page * $no, "translate.id", "DESC",  $artistId, "WHERE artistsong.artistId = $artistId");
 	}
 }
 ?>
