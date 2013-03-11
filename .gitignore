@@ -1,9 +1,15 @@
 
 /temp/*.*
+
 /temp
+
 /.git-pass
+
 /.git-pass/*.*
+
 .settings
+
 .project
+
 .buildpath
 /php/DataBase.php
