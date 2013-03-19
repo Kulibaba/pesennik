@@ -157,7 +157,7 @@ pageTracker._trackPageview();
 						<li class="nav-header <?php if ($activeMenuItem==0) echo "active";?>"><a href="<?php echo $ROOT; ?>">Главная</a></li>	
 						<li class="nav-header" id="header1">Новинки
 							<ul class="nav nav-list">
-								<li class="nav-header2 <?php if ($activeMenuItem==1) echo "active";?>"> <a  href="<?php echo $ROOT; ?>/%D0%BD%D0%BE%D0%B2%D1%8B%D0%B5/%D1%82%D0%B5%D0%BA%D1%81%D1%82%D1%8B" >тексты</a></li>
+								<li class="nav-header2 <?php if ($activeMenuItem==1) echo "active";?>"> <a href="<?php echo $ROOT; ?>/%D0%BD%D0%BE%D0%B2%D1%8B%D0%B5/%D1%82%D0%B5%D0%BA%D1%81%D1%82%D1%8B" >тексты</a></li>
 								<li class="nav-header2 <?php if ($activeMenuItem==2) echo "active";?>"> <a href="<?php echo $ROOT; ?>/%D0%BD%D0%BE%D0%B2%D1%8B%D0%B5/%D0%BA%D0%BB%D0%B8%D0%BF%D1%8B" >клипы</a></li>
 								<li class="nav-header2 <?php if ($activeMenuItem==3) echo "active";?>"> <a href="<?php echo $ROOT; ?>/%D0%BD%D0%BE%D0%B2%D1%8B%D0%B5/%D0%BF%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%B4%D1%8B">переводы</a></li>
 								<li class="nav-header2 <?php if ($activeMenuItem==4) echo "active";?>"> <a href="<?php echo $ROOT; ?>/%D0%BD%D0%BE%D0%B2%D1%8B%D0%B5/%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D0%BD%D0%B8%D1%82%D0%B5%D0%BB%D0%B8">исполнители</a></li>
