@@ -2,7 +2,7 @@
 	require_once 'php/classes/SongList.php';
 	require_once 'php/paginator/template.php';
 	$ALL = 0;
-function printNewSongPage($delta, $page, $searchTag){
+function printNewSongPage($delta, $page, $searchTag, $activeMenuItem){
 	/*
 		@page - var for pagination. Song number form wich start showing page
 	*/

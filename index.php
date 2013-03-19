@@ -25,7 +25,7 @@ else{
 }
 $searchTag = "";
 //print_r($param);
-
+//$activeMenuItem = 0;
 switch($param[0]){
 	case "новые":{
 		switch($param[1]){
@@ -34,24 +34,28 @@ switch($param[0]){
 				break;
 			}
 			case "тексты":{
+				$activeMenuItem=1;
 				$searchTag ="Новые тексты исполнителей";
-				printNewSongPage($delta, $page, $searchTag);
+				printNewSongPage($delta, $page, $searchTag,$activeMenuItem);
 				
 				break;
 			}
 			case "клипы":{
+				$activeMenuItem=2;
 				$searchTag ="Новые клипы исполнителей";
-				printNewVideoPage($delta, $page, $searchTag);
+				printNewVideoPage($delta, $page, $searchTag,$activeMenuItem);
 				break;
 			}
 			case "переводы":{
+				$activeMenuItem=3;
 				$searchTag ="Новые переводы исполнителей";
-				printNewTranslatePage($delta, $page, $searchTag);
+				printNewTranslatePage($delta, $page, $searchTag,$activeMenuItem);
 				break;
 			}
 			case "исполнители":{
+				$activeMenuItem=4;
 				$searchTag ="Новые исполнители";
-				printNewArtistPage($delta, $page, $searchTag);
+				printNewArtistPage($delta, $page, $searchTag,$activeMenuItem);
 				break;
 			}
 			default:{
@@ -119,6 +123,7 @@ switch($param[0]){
 			//artist's page
 			printArtistPage($param[0]);
 		}else{
+			$activeMenuItem = 0;
 			printMainPage();
 		}
 		break;

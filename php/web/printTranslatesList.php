@@ -1,7 +1,7 @@
 <?php
 	require_once 'php/classes/TranslateList.php';
 	$ALL = 0;
-function printNewTranslatePage($delta, $page, $searchTag){
+function printNewTranslatePage($delta, $page, $searchTag, $activeMenuItem){
 	/*
 		@begin - var for pagination. Song number form wich start showing page
 	*/

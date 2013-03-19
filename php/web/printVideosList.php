@@ -2,7 +2,7 @@
 	require_once 'php/classes/VideoList.php';
 	require_once 'php/paginator/template.php';
 	$ALL = 0;
-function printNewVideoPage($delta, $page, $searchTag){
+function printNewVideoPage($delta, $page, $searchTag, $activeMenuItem){
 	/*
 		@page - var for pagination. Song number form wich start showing page
 	*/

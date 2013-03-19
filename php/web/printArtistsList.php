@@ -1,7 +1,7 @@
 <?php
 	require 'php/classes/ArtistList.php';
 	$ALL = 0;
-function printNewArtistPage($delta, $page, $searchTag){
+function printNewArtistPage($delta, $page, $searchTag,$activeMenuItem){
 	/*
 		@begin - var for pagination. Song number form wich start showing page
 	*/
