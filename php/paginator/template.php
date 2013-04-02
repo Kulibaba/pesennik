@@ -1,7 +1,7 @@
 <?
 
 require_once 'Paginator.php';
-function Paginate($delta,$page,$size,$searchTag){
+function Paginate($delta,$page,$size,$searchTag,$bottomPart){
 /*
 	Function paginates input List of obhect stored in $inList
 */
@@ -22,11 +22,14 @@ $total_pages = $itemsQuantity/$delta+1;
 
 <div class="ui-paginator">
 	<div class="pag-header"> <!--navbar-fixed-top-->
+	<?php if (!$bottomPart) 
+	{ ?>
 			<div class="search-tag">
 				<span>
 					<?php echo $pageIterator->getSearchTag()." (".$itemsQuantity.")";?>					
 				</span>
-			</div>
+			</div><?php
+	} ?>
 			<div class="pag-header-menu">
 			<form class="pag-form">
 				<select size="1" name="delta" class="pag-delta" style="visibility:hidden;">
@@ -63,9 +66,15 @@ $total_pages = $itemsQuantity/$delta+1;
 						
 						for ($i = max(1, $beginPageNumber - 2) ; $i <= min($beginPageNumber + 5, $total_pages ); $i++)
 						{
-							/*if ( $cur_page_number == $i ){
+							if ( $cur_page_number == $i ){
+							
+							?>	
+								<span>
+								<?php echo $i;?>
+								</span>
+							<?php
 								continue;
-							}*/
+							}
 							
 							$next_page = $cur_page."/".$i;
 							

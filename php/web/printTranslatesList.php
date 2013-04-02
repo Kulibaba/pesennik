@@ -62,6 +62,9 @@ function printNewTranslatePage($delta, $page, $searchTag, $activeMenuItem){
 		?>
 		<!--PAGE END-->
 		</div><!--/span-->
+		<div style="clear:both;">
+		<?php Paginate($delta, $page, $itemsQuantity, $searchTag,true);?>
+		</div>
 		<?php 
 	};
 	?><?php

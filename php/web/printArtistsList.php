@@ -19,7 +19,7 @@ function printNewArtistPage($delta, $page, $searchTag,$activeMenuItem){
 		if ($newAList != NULL)
 		{
 			$count_items = 0; // for correct working with paginator
-			Paginate($delta, $page, $itemsQuantity, $searchTag);
+			Paginate($delta, $page, $itemsQuantity, $searchTag,false);
 			while($artist = $newAList->current()){ 
 				$count_items++;
 				?>
@@ -48,6 +48,7 @@ function printNewArtistPage($delta, $page, $searchTag,$activeMenuItem){
 					break; 
 				}
 			}
+			
 		}else
 		{
 			?>
@@ -57,6 +58,9 @@ function printNewArtistPage($delta, $page, $searchTag,$activeMenuItem){
 		?>
 		<!--PAGE END-->
 		</div><!--/span-->
+		<div style="clear:both;">
+		<?php Paginate($delta, $page, $itemsQuantity, $searchTag,true);?>
+		</div>
 <?php 
 	};
 ?><?php
@@ -77,7 +81,7 @@ function printCharArtistPage($delta,$page, $char,$searchTag){
 		if ($newAList != NULL)
 		{
 			$count_items = 0; // for correct working with paginator
-			Paginate($delta, $page, $itemsQuantity, $searchTag);
+			Paginate($delta, $page, $itemsQuantity, $searchTag,false);
 			while($artist = $newAList->current()){ 
 				$count_items++;
 				?>
@@ -117,6 +121,9 @@ function printCharArtistPage($delta,$page, $char,$searchTag){
 		?>
 		<!--PAGE END-->
 		</div><!--/span-->
+		<div style="clear:both;">
+		<?php Paginate($delta, $page, $itemsQuantity, $searchTag,true);?>
+		</div>
 <?php 
 };
 ?><?php

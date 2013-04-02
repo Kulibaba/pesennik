@@ -30,7 +30,7 @@ function printNewVideoPage($delta, $page, $searchTag, $activeMenuItem){
 		if ($newVList != NULL)
 		{	
 			$count_items = 0; // for correct working with paginator
-			Paginate($delta, $page, $itemsQuantity, $searchTag);
+			Paginate($delta, $page, $itemsQuantity, $searchTag,false);
 			while($video = $newVList->current()){ 
 			$count_items++;
 			?>
@@ -65,6 +65,7 @@ function printNewVideoPage($delta, $page, $searchTag, $activeMenuItem){
 				}
 			
 			}
+			
 		}else
 		{
 			?>
@@ -73,8 +74,12 @@ function printNewVideoPage($delta, $page, $searchTag, $activeMenuItem){
 		}
 		?>
 			</div>
+			
 		<!--PAGE END-->
 		</div><!--/span-->
+		<div style="clear:both;">
+		<?php Paginate($delta, $page, $itemsQuantity, $searchTag,true);?>
+		</div>
 <?php 
 	};
 ?><?php
