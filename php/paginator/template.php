@@ -63,9 +63,9 @@ $total_pages = $itemsQuantity/$delta+1;
 						
 						for ($i = max(1, $beginPageNumber - 2) ; $i <= min($beginPageNumber + 5, $total_pages ); $i++)
 						{
-							if ( $cur_page_number == $i ){
+							/*if ( $cur_page_number == $i ){
 								continue;
-							}
+							}*/
 							
 							$next_page = $cur_page."/".$i;
 							
