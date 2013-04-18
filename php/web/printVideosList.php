@@ -50,7 +50,7 @@ function printNewVideoPage($delta, $page, $searchTag, $activeMenuItem){
 					<?php }?>
 					</div>
 				</div>
-				<?php if ($count%3==0){?>
+				<?php if ($count%4==0){?>
 				<p class="separator"></p>
 		<?php }
 			$count++;
